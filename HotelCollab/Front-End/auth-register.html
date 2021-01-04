@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up - Voler Admin Dashboard</title>
+    <title>Регистрация</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
@@ -21,39 +21,21 @@
                 <div class="card-body">
                     <div class="text-center mb-5">
                         <img src="assets/images/favicon.svg" height="48" class='mb-4'>
-                        <h3>Sign Up</h3>
-                        <p>Please fill the form to register.</p>
+                        <h3>Регистрация</h3>
+                        <p>Моля попълнете тази форма, за да се регистрирате.</p>
                     </div>
                     <form action="index.html">
                         <div class="row">
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
-                                    <label for="first-name-column">First Name</label>
+                                    <label for="first-name-column">Първо име</label>
                                     <input type="text" id="first-name-column" class="form-control"  name="fname-column">
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
-                                    <label for="last-name-column">Last Name</label>
+                                    <label for="last-name-column">Фамилно име</label>
                                     <input type="text" id="last-name-column" class="form-control"  name="lname-column">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="username-column">Username</label>
-                                    <input type="text" id="username-column" class="form-control" name="username-column">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="country-floating">Country</label>
-                                    <input type="text" id="country-floating" class="form-control" name="country-floating">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="company-column">Company</label>
-                                    <input type="text" id="company-column" class="form-control" name="company-column">
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
@@ -62,24 +44,37 @@
                                     <input type="email" id="email-id-column" class="form-control" name="email-id-column">
                                 </div>
                             </div>
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="pass-column">Парола</label>
+                                    <input type="password" id="pass-column" class="form-control" name="pass-column">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="confirm-pass-column">Повтори парола</label>
+                                    <input type="password" id="confirm-pass-column" class="form-control" name="confirm-pass-column">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="moderation-role">Роля</label>
+                                    <select name="moderation-role" id="moderation-role" class="form-control">
+                                        <option value="" selected disabled hidden>-- Избери роля --</option>
+                                        <option value="form-role-manger">Управител</option>
+                                        <option value="form-role-receptionist">Рецепционист</option>
+                                        <option value="form-role-cleaner">Камериер</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
                         </diV>
 
-                                <a href="auth-login.html">Have an account? Login</a>
+                                <a href="auth-login.html">Имате акаунт? Влезте.</a>
                         <div class="clearfix">
-                            <button class="btn btn-primary float-right">Submit</button>
+                            <button class="btn btn-primary float-right">Регистрирай</button>
                         </div>
                     </form>
-                    <div class="divider">
-                        <div class="divider-text">OR</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <button class="btn btn-block mb-2 btn-primary"><i data-feather="facebook"></i> Facebook</button>
-                        </div>
-                        <div class="col-sm-6">
-                            <button class="btn btn-block mb-2 btn-secondary"><i data-feather="github"></i> Github</button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
