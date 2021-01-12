@@ -35,6 +35,7 @@
  * 4. Pages
  * 	  4.1 Auth
  * 	  4.2 Error
+ *    4.3 Hotel-registration
  * 5. Utilities
  */
 /** 1. Variables  **/
@@ -1501,3 +1502,32 @@ footer {
 .bg-gray-700 {
   background-color: #4a5568 !important;
 }
+
+/** Hotel Registration **/
+.starrating > input {display: none;}
+
+.starrating > label:before { 
+  content: "\f005";
+  margin: 2px;
+  font-size: 4em;
+  font-family: FontAwesome;
+  display: inline-block; 
+}
+
+.starrating > label
+{
+  color: #A3AFBD;;
+}
+
+.starrating > input:checked ~ label
+{ color:   #06b2fc }
+
+.starrating > input:hover ~ label
+{ color:   #06b2fc  }
+
+#hotel-registration-image
+{
+  text-transform: none;
+}
+
+
