@@ -33,5 +33,7 @@ namespace HotelCollab.Data.Models
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        public virtual ICollection<Request> Requests { get; set; }
     }
 }
