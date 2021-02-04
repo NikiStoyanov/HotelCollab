@@ -79,6 +79,41 @@
                 .HasOne(r => r.User)
                 .WithMany(u => u.Requests)
                 .HasForeignKey(r => r.UserId);
+
+            builder.Entity<Hotel>()
+                .HasOne(h => h.Town)
+                .WithMany(t => t.Hotels)
+                .HasForeignKey(h => h.TownId);
+
+            builder.Entity<Room>()
+                .HasOne(r => r.Hotel)
+                .WithMany(h => h.Rooms)
+                .HasForeignKey(r => r.HotelId);
+
+            builder.Entity<Reservation>()
+                .HasOne(r => r.Hotel)
+                .WithMany(h => h.Reservations)
+                .HasForeignKey(r => r.HotelId);
+
+            builder.Entity<Reservation>()
+                .HasOne(res => res.Room)
+                .WithMany(rm => rm.Reservations)
+                .HasForeignKey(res => res.RoomId);
+
+            builder.Entity<Event>()
+                .HasOne(e => e.Hotel)
+                .WithMany(h => h.Events)
+                .HasForeignKey(e => e.HotelId);
+
+            builder.Entity<Feedback>()
+                .HasOne(f => f.User)
+                .WithMany(u => u.Feedbacks)
+                .HasForeignKey(f => f.UserId);
+
+            builder.Entity<Feedback>()
+                .HasOne(f => f.Reservation)
+                .WithMany(r => r.Feedbacks)
+                .HasForeignKey(f => f.ReservationId);
         }
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)

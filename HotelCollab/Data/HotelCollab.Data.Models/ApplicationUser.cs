@@ -16,7 +16,16 @@ namespace HotelCollab.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
+            this.Requests = new HashSet<Request>();
+            this.Feedbacks = new HashSet<Feedback>();
+            this.Cleanings = new HashSet<Cleaning>();
         }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string ImageUrl { get; set; }
 
         // Audit info
         public DateTime CreatedOn { get; set; }
@@ -35,5 +44,9 @@ namespace HotelCollab.Data.Models
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
 
         public virtual ICollection<Request> Requests { get; set; }
+
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
+
+        public virtual ICollection<Cleaning> Cleanings { get; set; }
     }
 }
