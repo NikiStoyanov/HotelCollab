@@ -8,9 +8,9 @@ namespace HotelCollab.Data.Models
 
     using Microsoft.AspNetCore.Identity;
 
-    public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
+    public class User : IdentityUser, IAuditInfo, IDeletableEntity
     {
-        public ApplicationUser()
+        public User()
         {
             this.Id = Guid.NewGuid().ToString();
             this.Roles = new HashSet<IdentityUserRole<string>>();
