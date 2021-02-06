@@ -10,6 +10,7 @@
         public Town()
         {
             this.TownId = Guid.NewGuid().ToString();
+
             this.Hotels = new HashSet<Hotel>();
         }
 

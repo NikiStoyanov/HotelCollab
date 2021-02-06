@@ -13,8 +13,6 @@
         {
             this.RoomId = Guid.NewGuid().ToString();
             this.Reservations = new HashSet<Reservation>();
-
-            // isBusy and isCleaned
         }
 
         public string RoomId { get; private set; }

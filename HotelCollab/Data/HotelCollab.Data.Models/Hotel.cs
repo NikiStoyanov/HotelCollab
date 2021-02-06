@@ -12,6 +12,7 @@
         public Hotel()
         {
             this.HotelId = Guid.NewGuid().ToString();
+
             this.Rooms = new HashSet<Room>();
             this.Reservations = new HashSet<Reservation>();
             this.Events = new HashSet<Event>();
@@ -54,5 +55,7 @@
         public virtual ICollection<Reservation> Reservations { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
+
+        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }

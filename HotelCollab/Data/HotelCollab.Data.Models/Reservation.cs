@@ -10,6 +10,7 @@
         public Reservation()
         {
             this.ReservationId = Guid.NewGuid().ToString();
+
             this.Feedbacks = new HashSet<Feedback>();
         }
 
@@ -32,9 +33,9 @@
         public Hotel Hotel { get; set; }
 
         [Required]
-        public string UserId { get; set; }
+        public string ReceptionistId { get; set; }
 
-        public User User { get; set; }
+        public ApplicationUser Receptionist { get; set; }
 
         public virtual ICollection<Feedback> Feedbacks { get; set; }
     }

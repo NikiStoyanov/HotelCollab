@@ -2,6 +2,7 @@
 namespace HotelCollab.Data.Models
 {
     using System;
+    using System.Collections.Generic;
 
     using HotelCollab.Data.Common.Models;
 
@@ -18,6 +19,8 @@ namespace HotelCollab.Data.Models
             : base(name)
         {
             this.Id = Guid.NewGuid().ToString();
+
+            this.UserRoles = new HashSet<UserRole>();
         }
 
         public DateTime CreatedOn { get; set; }
@@ -27,5 +30,7 @@ namespace HotelCollab.Data.Models
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }

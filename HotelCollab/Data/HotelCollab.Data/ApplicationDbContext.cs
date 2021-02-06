@@ -12,7 +12,7 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
-    public class ApplicationDbContext : IdentityDbContext<User, ApplicationRole, string>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         private static readonly MethodInfo SetIsDeletedQueryFilterMethod =
             typeof(ApplicationDbContext).GetMethod(
@@ -24,9 +24,25 @@
         {
         }
 
-        public DbSet<Setting> Settings { get; set; }
-
         public DbSet<Request> Requests { get; set; }
+
+        public DbSet<Damage> Damages { get; set; }
+
+        public DbSet<Cleaning> Cleanings { get; set; }
+
+        public DbSet<Hotel> Hotels { get; set; }
+
+        public DbSet<Room> Rooms { get; set; }
+
+        public DbSet<Reservation> Reservations { get; set; }
+
+        public DbSet<Town> Towns { get; set; }
+
+        public DbSet<Feedback> Feedbacks { get; set; }
+
+        public DbSet<Event> Events { get; set; }
+
+        public DbSet<Setting> Settings { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -100,6 +116,11 @@
                 .WithMany(rm => rm.Reservations)
                 .HasForeignKey(res => res.RoomId);
 
+            builder.Entity<Reservation>()
+                .HasOne(r => r.Receptionist)
+                .WithMany(r => r.Reservations)
+                .HasForeignKey(r => r.ReceptionistId);
+
             builder.Entity<Event>()
                 .HasOne(e => e.Hotel)
                 .WithMany(h => h.Events)
@@ -114,6 +135,40 @@
                 .HasOne(f => f.Reservation)
                 .WithMany(r => r.Feedbacks)
                 .HasForeignKey(f => f.ReservationId);
+
+            builder.Entity<Cleaning>()
+                .HasOne(c => c.Cleaner)
+                .WithMany(c => c.Cleanings)
+                .HasForeignKey(c => c.CleanerId);
+
+            builder.Entity<Cleaning>()
+                .HasOne(c => c.Room)
+                .WithMany(r => r.Cleanings)
+                .HasForeignKey(c => c.RoomId);
+
+            builder.Entity<Damage>()
+                .HasOne(d => d.Cleaning)
+                .WithMany(c => c.Damages)
+                .HasForeignKey(d => d.CleaningId);
+
+            builder.Entity<UserRole>()
+                .HasKey(ur => new { ur.UserId, ur.RoleId });
+
+            builder.Entity<UserRole>()
+                .HasOne(ur => ur.User)
+                .WithMany(u => u.UserRoles)
+                .HasForeignKey(ur => ur.UserId);
+
+            builder.Entity<UserRole>()
+                .HasOne(ur => ur.Role)
+                .WithMany(r => r.UserRoles)
+                .HasForeignKey(ur => ur.RoleId);
+
+            builder.Entity<UserRole>()
+                .HasOne(ur => ur.Hotel)
+                .WithMany(h => h.UserRoles)
+                .HasForeignKey(ur => ur.HotelId);
+
         }
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)

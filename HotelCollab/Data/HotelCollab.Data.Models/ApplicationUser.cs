@@ -8,17 +8,21 @@ namespace HotelCollab.Data.Models
 
     using Microsoft.AspNetCore.Identity;
 
-    public class User : IdentityUser, IAuditInfo, IDeletableEntity
+    public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
-        public User()
+        public ApplicationUser()
         {
             this.Id = Guid.NewGuid().ToString();
+
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
+
             this.Requests = new HashSet<Request>();
             this.Feedbacks = new HashSet<Feedback>();
             this.Cleanings = new HashSet<Cleaning>();
+            this.Reservations = new HashSet<Reservation>();
+            this.UserRoles = new HashSet<UserRole>();
         }
 
         public string FirstName { get; set; }
@@ -48,5 +52,9 @@ namespace HotelCollab.Data.Models
         public virtual ICollection<Feedback> Feedbacks { get; set; }
 
         public virtual ICollection<Cleaning> Cleanings { get; set; }
+
+        public virtual ICollection<Reservation> Reservations { get; set; }
+
+        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }
