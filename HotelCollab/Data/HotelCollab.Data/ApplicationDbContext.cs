@@ -168,7 +168,6 @@
                 .HasOne(ur => ur.Hotel)
                 .WithMany(h => h.UserRoles)
                 .HasForeignKey(ur => ur.HotelId);
-
         }
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)

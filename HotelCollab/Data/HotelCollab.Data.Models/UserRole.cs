@@ -8,13 +8,9 @@
 
     using Microsoft.AspNetCore.Identity;
 
-    public class UserRole
+    public class UserRole : IdentityUserRole<string>
     {
-        public string UserId { get; set; }
-
         public ApplicationUser User { get; set; }
-
-        public string RoleId { get; set; }
 
         public ApplicationRole Role { get; set; }
 
