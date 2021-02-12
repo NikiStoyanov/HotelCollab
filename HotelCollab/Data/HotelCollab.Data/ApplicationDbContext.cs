@@ -8,7 +8,7 @@
 
     using HotelCollab.Data.Common.Models;
     using HotelCollab.Data.Models;
-
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
@@ -150,6 +150,9 @@
                 .HasOne(d => d.Cleaning)
                 .WithMany(c => c.Damages)
                 .HasForeignKey(d => d.CleaningId);
+
+            builder.Entity<ApplicationUserRole>()
+                .ToTable("AspNetUserRoles");
         }
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)

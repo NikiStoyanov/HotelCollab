@@ -4,14 +4,16 @@ using HotelCollab.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HotelCollab.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210209135151_IdentityUserRoleTable")]
+    partial class IdentityUserRoleTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -490,17 +492,11 @@ namespace HotelCollab.Data.Migrations
                     b.Property<string>("RoleId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUserRole<string>");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -520,20 +516,6 @@ namespace HotelCollab.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("HotelCollab.Data.Models.ApplicationUserRole", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUserRole<string>");
-
-                    b.Property<string>("HotelId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasIndex("HotelId");
-
-                    b.ToTable("AspNetUserRoles");
-
-                    b.HasDiscriminator().HasValue("ApplicationUserRole");
                 });
 
             modelBuilder.Entity("HotelCollab.Data.Models.Cleaning", b =>
@@ -701,15 +683,6 @@ namespace HotelCollab.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("HotelCollab.Data.Models.ApplicationUserRole", b =>
-                {
-                    b.HasOne("HotelCollab.Data.Models.Hotel", "Hotel")
-                        .WithMany()
-                        .HasForeignKey("HotelId");
-
-                    b.Navigation("Hotel");
                 });
 
             modelBuilder.Entity("HotelCollab.Data.Models.ApplicationUser", b =>
