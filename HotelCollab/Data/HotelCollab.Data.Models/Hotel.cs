@@ -55,7 +55,5 @@
         public virtual ICollection<Reservation> Reservations { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
-
-        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }
