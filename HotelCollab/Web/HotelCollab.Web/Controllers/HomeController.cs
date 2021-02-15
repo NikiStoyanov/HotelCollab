@@ -3,14 +3,21 @@
     using System.Diagnostics;
 
     using HotelCollab.Web.ViewModels;
-
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
         public IActionResult Index()
         {
-            return this.View();
+            if (this.User.Identity.IsAuthenticated)
+            {
+                return this.View("GuestIndex");
+            }
+            else
+            {
+                return this.View();
+            }
         }
 
         public IActionResult Privacy()
