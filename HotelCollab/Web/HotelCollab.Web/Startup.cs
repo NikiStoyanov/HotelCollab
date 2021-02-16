@@ -1,7 +1,7 @@
 ﻿namespace HotelCollab.Web
 {
     using System.Reflection;
-
+    using System.Threading.Tasks;
     using HotelCollab.Data;
     using HotelCollab.Data.Common;
     using HotelCollab.Data.Common.Repositories;

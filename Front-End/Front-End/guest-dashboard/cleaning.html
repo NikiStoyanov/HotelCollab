@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Събития</title>
+    <title>Почиствания</title>
     
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
     
@@ -17,7 +17,7 @@
 <body>
     <div id="app">
         <div id="sidebar" class='active'>
-            <div class="sidebar-wrapper">
+            <div class="sidebar-wrapper active">
     <div class="sidebar-header">
         <img src="../assets/images/logo.svg" alt="" srcset="">
     </div>
@@ -30,6 +30,12 @@
                 </a>    
             </li>
 
+            <li class="sidebar-item  active ">
+                <a href="cleaning.html" class='sidebar-link'>
+                    <i class="fas fa-broom" width="20"></i>
+                    <span>Почиствания</span>
+                </a>    
+            </li>
 
             <li class="sidebar-item">
                 <a href="signal.html" class='sidebar-link'>
@@ -38,7 +44,7 @@
                 </a>    
             </li>
 
-            <li class="sidebar-item  active">
+            <li class="sidebar-item">
                 <a href="events.html" class='sidebar-link'>
                     <i class="far fa-calendar-alt" width="20"></i>
                     <span>Събития</span>
@@ -117,67 +123,68 @@
             
 <div class="main-content container-fluid">
     <div class="page-title">
-        <h3>Събития</h3>
-        <p class="text-subtitle text-muted">Тук може да получите пълна информация за предстоящи събития.</p>
+        <h3>Почиствания</h3>
+        <p class="text-subtitle text-muted">Тук може да следите и контролирате минали и предстоящи почиствания.</p>
     </div>
     <section class="section">
-        <div class="row">
-            <div class="col-md-6 col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Кино вечер</h4>
-                    </div>
-                    <div class="card-body">
-                        <p>
-                        Toggle a modal via JavaScript by clicking the button above.
-                        You can use modal to add dialogs to your site for lightboxes, user
-                        notifications, or completely custom content.
-                        </p>
-                        <!-- Button trigger for basic modal -->
-                        <button type="button" class="btn btn-outline-primary block" data-toggle="modal" data-target="#default">
-                        Launch Modal
-                        </button>
-
-                        <!--Basic Modal -->
-                        <div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
-                        aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="myModalLabel1">Basic Modal</h5>
-                                        <button type="button" class="close rounded-pill" data-dismiss="modal" aria-label="Close">
-                                            <i data-feather="x"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>
-                                        Bonbon caramels muffin. Chocolate bar oat cake cookie pastry dragée pastry. Carrot cake
-                                        chocolate tootsie roll chocolate bar candy canes biscuit.
-
-                                        Gummies bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll. Toffee sugar
-                                        plum sugar plum jelly-o jujubes bonbon dessert carrot cake. Cookie dessert tart muffin topping
-                                        donut icing fruitcake. Sweet roll cotton candy dragée danish Candy canes chocolate bar cookie.
-                                        Gingerbread apple pie oat cake. Carrot cake fruitcake bear claw. Pastry gummi bears
-                                        marshmallow jelly-o.
-                                        </p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn" data-dismiss="modal">
-                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Close</span>
-                                        </button>
-                                        <button type="button" class="btn btn-primary ml-1" data-dismiss="modal">
-                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Accept</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="">
+            <a href="#" class="btn btn-primary">Прескочи почиствнето за деня</a>
         </div>
+        <br/>
+        <div class="row" id="table-hover-row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Минали почиствания</h4>
+                </div>
+                <div class="card-content">
+                  <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                      <thead>
+                        <tr>
+                          <th>Номер</th>
+                          <th>Дата</th>
+                          <th>Начало</th>
+                          <th>Край</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="text-bold-500">1</td>
+                          <td>23/04/2020</td>
+                          <td class="text-bold-500">12:58</td>
+                          <td>13:34</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500">1</td>
+                            <td>23/04/2020</td>
+                            <td class="text-bold-500">12:58</td>
+                            <td>13:34</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500">1</td>
+                            <td>23/04/2020</td>
+                            <td class="text-bold-500">12:58</td>
+                            <td>13:34</td>
+                        </tr>
+                        <tr>
+                            <td class="text-bold-500">1</td>
+                            <td>23/04/2020</td>
+                            <td class="text-bold-500">12:58</td>
+                            <td>13:34</td>
+                        </tr>
+                        <tr>
+                          <td class="text-bold-500">1</td>
+                          <td>23/04/2020</td>
+                          <td class="text-bold-500">12:58</td>
+                          <td>13:34</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+              </div>
+            </div>
+          </div>
     </section>
 </div>
 

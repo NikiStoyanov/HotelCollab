@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Табло</title>
 
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
 
-    <link rel="stylesheet" href="assets/vendors/chartjs/Chart.min.css">
+    <link rel="stylesheet" href="../assets/vendors/chartjs/Chart.min.css">
 
-    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/x-icon">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
@@ -21,7 +21,11 @@
         <div id="sidebar" class='active'>
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header">
+<<<<<<< HEAD
                     <img src="assets/images/3_5svg.svg" alt="" srcset="">
+=======
+                    <img src="../assets/images/3_5svg.svg" alt="" srcset="">
+>>>>>>> d9e6b3c8ee4263c2dc6a454dce5b2948e8678c96
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
@@ -105,7 +109,7 @@
                             <a href="#" data-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="avatar mr-1">
-                                    <img src="assets/images/avatar/avatar-s-1.png" alt="" srcset="">
+                                    <img src="../assets/images/avatar/avatar-s-1.png" alt="" srcset="">
                                 </div>
                                 <div class="d-none d-md-block d-lg-inline-block">Здравей, Иван</div>
                             </a>
@@ -166,10 +170,20 @@
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h4 class="card-title">Почистени стаи</h4>
+                                            <h4>Месечен отчет</h4>
                                         </div>
                                         <div class="card-body">
-                                            <canvas id="bar"></canvas>
+                                            <div id="bar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">Седмичен отчет</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="radialGradient"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -179,15 +193,17 @@
                 </section>
             </div>
 
-            <script src="assets/js/feather-icons/feather.min.js"></script>
-            <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-            <script src="assets/js/app.js"></script>
+            <script src="../assets/js/feather-icons/feather.min.js"></script>
+            <script src="../assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+            <script src="../assets/js/app.js"></script>
 
-            <script src="assets/vendors/chartjs/Chart.min.js"></script>
-            <script src="assets/vendors/apexcharts/apexcharts.min.js"></script>
-            <script src="assets/js/pages/dashboard.js"></script>
+            <script src="../assets/vendors/chartjs/Chart.min.js"></script>
+            <script src="../assets/vendors/apexcharts/apexcharts.min.js"></script>
+            <script src="../assets/js/pages/dashboard.js"></script>
+            <script src="../assets/vendors/dayjs/dayjs.min.js"></script>
+            <script src="../assets/js/pages/ui-apexchart.js"></script>
 
-            <script src="assets/js/main.js"></script>
+            <script src="../assets/js/main.js"></script>
 </body>
 
 </html>
