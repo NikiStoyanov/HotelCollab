@@ -42,4 +42,17 @@
     <ProjectReference Include="..\HotelCollab.Web.Infrastructure\HotelCollab.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\HotelCollab.Web.ViewModels\HotelCollab.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Guest\Controllers\" />
+    <Folder Include="Areas\Guest\Data\" />
+    <Folder Include="Areas\Guest\Models\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\js\" />
+    <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
+  </ItemGroup>
 </Project>

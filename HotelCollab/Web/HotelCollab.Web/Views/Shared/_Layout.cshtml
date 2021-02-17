@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>HotelCollab</title>
+    <title>Хотел Мениджър</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -26,15 +26,13 @@
     <link href="~/vendors/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="~/vendors/aos/aos.css" rel="stylesheet">
 
-    <link href="~/css/bootstrap.css" rel="stylesheet">
-    <link href="~/css/app.css" rel="stylesheet">
     <link href="~/css/style.css" rel="stylesheet">
 </head>
 <body>
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center">
 
-            <h1 class="logo mr-auto"><a href="index.html">HotelCollab</a></h1>
+            <h1 class="logo mr-auto"><a href="index.html">Хотел Мениджър</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo mr-auto"><img src="assets/images/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -52,18 +50,22 @@
                 </ul>
             </nav><!-- .nav-menu -->
 
-            <a asp-area="Identity" asp-controller="Account" asp-action="Register" class="get-started-btn scrollto">Започни сега</a>
+            <a asp-area="Identity" asp-controller="Account" asp-action="Login" class="get-started-btn scrollto">Започни сега</a>
         </div>
     </header><!-- End Header -->
-    
+
     @this.RenderBody()
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer id="footer">
+        <div class="container footer-bottom clearfix">
+            <div class="copyright">
+                Проект №147 - <strong><span>Хотел Мениджър</span></strong>
+            </div>
+            <div class="credits">
+                НОИТ 2020/2021
+            </div>
         </div>
-    </footer>
-
+    </footer><!-- End Footer -->
     <!-- Vendor JS Files -->
     <script src="~/vendors/jquery/jquery.min.js"></script>
     <script src="~/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -78,9 +80,6 @@
     <!-- Template Main JS File -->
     <script src="~/js/index.js"></script>
 
-    <script src="~/js/feather-icons/feather.min.js"></script>
-    <script src="~/js/app.js"></script>
-    <script src="~/js/main.js"></script>
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

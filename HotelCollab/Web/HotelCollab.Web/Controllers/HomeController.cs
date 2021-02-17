@@ -8,16 +8,10 @@
 
     public class HomeController : BaseController
     {
+        [AllowAnonymous]
         public IActionResult Index()
         {
-            if (this.User.Identity.IsAuthenticated)
-            {
-                return this.View("GuestIndex");
-            }
-            else
-            {
-                return this.View();
-            }
+            return this.View();
         }
 
         public IActionResult Privacy()
