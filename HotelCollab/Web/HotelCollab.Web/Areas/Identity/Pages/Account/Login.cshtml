@@ -30,7 +30,7 @@
                             <div class="form-group position-relative has-icon-left">
                                 <div class="clearfix">
                                     <label asp-for="Input.Password" for="password">Парола</label>
-                                    <a href="auth-forgot-password.html" class='float-right'>
+                                    <a asp-controller="Account" asp-action="ForgotPassword" class='float-right'>
                                         <small>Забравена парола?</small>
                                     </a>
                                 </div>
