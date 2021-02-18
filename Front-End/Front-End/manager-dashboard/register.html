@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Табло</title>
+    <title>Регистрирай гост </title>
 
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
 
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
-        
+
 </head>
 
 <body>
@@ -148,79 +148,74 @@
 
             <div class="main-content container-fluid">
                 <div class="page-title">
-                    <h3>Хотел "Плаза" Бургас</h3>
-                    <p class="text-subtitle text-muted">Тук може да видите пълна статистика за хотела.</p>
+                    <h3>Регистрирай гост </h3>
+                    <p class="text-subtitle text-muted">Тук можете да регистрирате гост в хотела.</p>
                 </div>
-                <section class="section">
-                    <div class="row mb-2">
-                        <div class="col-12 col-md-4">
-                            <a href="dashboard.html">
-                                <div class="card card-statistic">
-                                    <div class="card-body p-0">
-                                        <div class="d-flex flex-column">
-                                            <div class='px-3 py-3 d-flex justify-content-between'>
-                                                <h3 class='card-title'>Заети стаи</h3>
-                                                <div class="card-right d-flex align-items-center">
-                                                    <p>2 </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                <section id="multiple-column-form">
+                    <div class="row match-height">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Регистрирай</h4>
                                 </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <a href="cleaning.html">
-                                <div class="card card-statistic">
-                                    <div class="card-body p-0">
-                                        <div class="d-flex flex-column">
-                                            <div class='px-3 py-3 d-flex justify-content-between'>
-                                                <h3 class='card-title'>Рецепционисти</h3>
-                                                <div class="card-right d-flex align-items-center">
-                                                    <p>6 </p>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form class="form">
+                                            <div class="row">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="input">Име</label>
+                                                        <input type="text" class="form-control" id="input" placeholder="Иван Петров">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <a href="cleaning.html">
-                                <div class="card card-statistic">
-                                    <div class="card-body p-0">
-                                        <div class="d-flex flex-column">
-                                            <div class='px-3 py-3 d-flex justify-content-between'>
-                                                <h3 class='card-title'>Почистващ персонал</h3>
-                                                <div class="card-right d-flex align-items-center">
-                                                    <p>7 </p>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="input">Имейл</label>
+                                                        <input type="email" class="form-control" id="input" placeholder="ivan-pt@gmail.com">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="input">Период</label>
+                                                        <input type="text" class="form-control" id="input" placeholder="24.01 - 25.01.2021 г.">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="input">Възрастни</label>
+                                                        <input type="text" class="form-control" id="input" placeholder="2">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="input">Деца</label>
+                                                        <input type="text" class="form-control" id="input" placeholder="1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <fieldset class="form-group">
+                                                        <label for="input">Тип стая</label>
+                                                        <select class="form-select" id="select">
+                                                            <option>Двойна</option>
+                                                            <option>Тройна</option>
+                                                            <option>Апартамент</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
 
-                        <section class="section">
-                            <div class="row">
-
-                                <div class="col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>Line Chart</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <div id="line"></div>
-                                        </div>
+                                                <div class="col-12 d-flex justify-content-end">
+                                                    <button type="submit"
+                                                        class="btn btn-primary mr-1 mb-1">Регистрирай</button>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                            
                             </div>
-                        </section>
+                        </div>
                     </div>
                 </section>
+
             </div>
 
             <script src="../assets/js/feather-icons/feather.min.js"></script>
