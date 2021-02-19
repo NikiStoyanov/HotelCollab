@@ -86,7 +86,7 @@ namespace HotelCollab.Web.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    return this.Redirect("/Home/Dashboard");
                 }
                 if (result.RequiresTwoFactor)
                 {
