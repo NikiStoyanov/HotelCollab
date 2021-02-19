@@ -15,12 +15,17 @@
         public string EventId { get; private set; }
 
         [Required]
-        [Range(20, 50)]
+        [MinLength(20)]
+        [MaxLength(50)]
         public string Title { get; set; }
 
         [Required]
-        [Range(100, 300)]
+        [MinLength(100)]
+        [MaxLength(300)]
         public string Description { get; set; }
+
+        [Required]
+        public DateTime Date { get; set; }
 
         [Required]
         public string HotelId { get; set; }

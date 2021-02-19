@@ -8,16 +8,16 @@
 
     public class HomeController : BaseController
     {
-        [AllowAnonymous]
         public IActionResult Index()
         {
-            return this.View();
-        }
-
-        [Authorize]
-        public IActionResult Dashboard()
-        {
-            return this.View();
+            if (this.User.Identity.IsAuthenticated)
+            {
+                return this.View("Dashboard");
+            }
+            else
+            {
+                return this.View();
+            }
         }
 
         public IActionResult Privacy()

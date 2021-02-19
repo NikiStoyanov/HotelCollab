@@ -1516,7 +1516,7 @@ footer {
 
 .starrating > label
 {
-  color: #A3AFBD;;
+  color: #A3AFBD;
 }
 
 .starrating > input:checked ~ label
@@ -1529,5 +1529,3 @@ footer {
 {
   text-transform: none;
 }
-
-

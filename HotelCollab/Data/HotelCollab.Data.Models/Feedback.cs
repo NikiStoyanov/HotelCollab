@@ -15,20 +15,26 @@
         public string FeedbackId { get; private set; }
 
         [Required]
-        public string UserId { get; set; }
+        public string GuestId { get; set; }
 
-        public ApplicationUser User { get; set; }
+        public ApplicationUser Guest { get; set; }
 
         [Required]
-        [Range(20, 50)]
+        [MinLength(20)]
+        [MaxLength(50)]
         public string Title { get; set; }
 
-        [Range(20, 250)]
+        [MinLength(20)]
+        [MaxLength(250)]
         public string Content { get; set; }
 
         [Required]
         public string ReservationId { get; set; }
 
         public Reservation Reservation { get; set; }
+
+        public string ProcessedByEmployeeId { get; set; }
+
+        public ApplicationUser ProcessedByEmployee { get; set; }
     }
 }

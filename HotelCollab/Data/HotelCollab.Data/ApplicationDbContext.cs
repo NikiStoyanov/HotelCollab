@@ -127,9 +127,14 @@
                 .HasForeignKey(e => e.HotelId);
 
             builder.Entity<Feedback>()
-                .HasOne(f => f.User)
+                .HasOne(f => f.Guest)
                 .WithMany(u => u.Feedbacks)
-                .HasForeignKey(f => f.UserId);
+                .HasForeignKey(f => f.GuestId);
+
+            builder.Entity<Feedback>()
+                .HasOne(f => f.ProcessedByEmployee)
+                .WithMany(u => u.ProcessedFeedbacks)
+                .HasForeignKey(f => f.ProcessedByEmployeeId);
 
             builder.Entity<Feedback>()
                 .HasOne(f => f.Reservation)

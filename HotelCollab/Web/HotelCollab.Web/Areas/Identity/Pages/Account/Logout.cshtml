@@ -18,17 +18,19 @@
                         </div>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <form method="post" asp-area="" asp-controller="Home" asp-action="Dashboard">
-                                <div class="clearfix">
-                                    <button type="submit" class="btn btn-outline-primary float-right">Не</button>
-                                </div>
-                            </form>
+                            <div class="col-sm-12 d-flex justify-content-end">
+                                <form class="form-class" method="post" asp-area="" asp-controller="Home" asp-action="Index">
+                                    <div class="clearfix">
+                                        <button type="submit" class="btn btn-outline-primary float-right mr-1 mb-1">Не</button>
+                                    </div>
+                                </form>
 
-                            <form method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })">
-                                <div class="clearfix">
-                                    <button type="submit" class="btn btn-primary float-right">Да</button>
-                                </div>
-                            </form>
+                                <form method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })">
+                                    <div class="clearfix">
+                                        <button type="submit" class="btn btn-primary float-right mr-1 mb-1">Да</button>
+                                    </div>
+                                </form>
+                            </div>
                         }
                         else
                         {

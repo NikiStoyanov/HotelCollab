@@ -73,6 +73,8 @@
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            public bool IsManager { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -87,8 +89,21 @@
             this.ExternalLogins = (await this.signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (this.ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = this.Input.Email, Email = this.Input.Email };
+                var user = new ApplicationUser
+                {
+                    FirstName = this.Input.FirstName,
+                    LastName = this.Input.LastName,
+                    UserName = this.Input.Email,
+                    Email = this.Input.Email,
+                };
+
                 var result = await this.userManager.CreateAsync(user, this.Input.Password);
+
+                if (this.Input.IsManager)
+                {
+                    await this.userManager.AddToRoleAsync(user, "Manager");
+                }
+
                 if (result.Succeeded)
                 {
                     this.logger.LogInformation("User created a new account with password.");
