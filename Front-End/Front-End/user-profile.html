@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моят профил</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/chartjs/Chart.min.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class='active'>
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <img src="assets/images/logo.svg" alt="" srcset="">
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+
+                        <li class='sidebar-title'>Табло</li>
+
+                        <li class="sidebar-item">
+                            <a href="hotel-dashboard.html" class='sidebar-link'>
+                                <i class="fas fa-table"></i>
+                                <span>Табло</span>
+                            </a>
+
+                        </li>
+
+                        <li class='sidebar-title'>Хотели</li>
+
+                        <li class="sidebar-item">
+                            <a href="index.html" class='sidebar-link'>
+                                <i data-feather="home" width="20"></i>
+                                <span>Плаза, Бургас</span>
+                            </a>
+
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="index.html" class='sidebar-link'>
+                                <i data-feather="home" width="20"></i>
+                                <span>Плаза, Бургас</span>
+                            </a>
+
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="index.html" class='sidebar-link'>
+                                <i data-feather="home" width="20"></i>
+                                <span>Плаза, Бургас</span>
+                            </a>
+
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="index.html" class='sidebar-link'>
+                                <i data-feather="home" width="20"></i>
+                                <span>Плаза, Бургас</span>
+                            </a>
+
+                        </li>
+
+
+                        <li class='sidebar-title'>Моят профил</li>
+
+                        <li class="sidebar-item">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="settings" width="20"></i>
+                                <span>Настройки</span>
+                            </a>
+                        </li>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <nav class="navbar navbar-header navbar-expand navbar-light">
+                <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
+                <button class="btn navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex align-items-center navbar-light ml-auto">
+                        <li class="dropdown nav-icon mr-3">
+                            <a href="#" data-toggle="modal" data-target="#border-less">
+                                <div class="d-lg-inline-block">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </div>
+                            </a>
+                            <div class="modal fade text-left modal-borderless" id="border-less" tabindex="-1"
+                                role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Присъедини се към хотел</h5>
+                                            <button type="button" class="close rounded-pill" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <i data-feather="x"></i>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="col-md-12 mb-6">
+                                                <h6>Изберете хотел</h6>
+                                                <div class="form-group">
+                                                    <select class="choices form-select">
+                                                        <option value="plaza">Хотел Плаза Бургас</option>
+                                                        <option value="plaza">Хотел Плаза Бургас</option>
+                                                        <option value="plaza">Хотел Плаза Бургас</option>
+                                                        <option value="plaza">Хотел Плаза Бургас</option>
+                                                        <option value="plaza">Хотел Плаза Бургас</option>
+                                                        <option value="plaza">Хотел Плаза Бургас</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mb-6">
+                                                <h6>Изберете роля</h6>
+                                                <div class="form-group">
+                                                    <select class="choices form-select">
+                                                        <option value="receptionist">Рецепционист</option>
+                                                        <option value="cleaner">Камериер</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light-primary" data-dismiss="modal">
+                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Затвори</span>
+                                            </button>
+                                            <button type="button" class="btn btn-primary ml-1" data-dismiss="modal">
+                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Подтвърди</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown nav-icon mr-3">
+
+                            <a href="hotel-registration.html">
+                                <div class="d-lg-inline-block">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </a>
+
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="avatar mr-1">
+                                    <img src="assets/images/avatar/avatar-s-1.png" alt="" srcset="">
+                                </div>
+                                <div class="d-none d-md-block d-lg-inline-block">Здравей, Иван!</div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Профил</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Изход</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="main-content container-fluid">
+                <div class="page-title">
+                    <h3>Моят профил</h3>
+                    <p class="text-subtitle text-muted">Тук може да управлявате информацията към ваашия профил.</p>
+                </div>
+                <section id="multiple-column-form">
+                    <div class="row match-height">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Иван Петров</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form class="form">
+                                            <div class="row">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="disabledInput">Име</label>
+                                                        <input type="text" class="form-control" id="disabledInput"
+                                                            placeholder="Иван" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="disabledInput">Фамилия</label>
+                                                        <input type="text" class="form-control" id="disabledInput"
+                                                            placeholder="Петров" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="disabledInput">Имейл</label>
+                                                        <input type="email" class="form-control" id="disabledInput"
+                                                            placeholder="ivanpetr@hotelcollab.com" disabled>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 d-flex">
+                                                    <button type="submit"
+                                                        class="btn btn-primary mr-1 mb-1">Редактирай</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </section>
+
+                <div class="col-md-12 col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Промяна на парола</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <p>
+                                    Тук можете да промените паролата си.
+                                </p>
+
+                                <button type="button" class="btn btn-outline-primary block" data-toggle="modal"
+                                    data-target="#change-pass">
+                                    Промяна
+                                </button>
+
+
+                                <div class="modal fade text-left modal-borderless" id="change-pass" tabindex="-1"
+                                    role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Промяна на парола</h5>
+                                                <button type="button" class="close rounded-pill" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <i data-feather="x"></i>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                
+                                                <div class="col-md-4">
+                                                    <label>Стара парола</label>
+                                                </div>
+                                                <div class="col-md-12 form-group">
+                                                    <input type="password" id="old-password" class="form-control" name="oldpass">
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label>Нова парола</label>
+                                                </div>
+                                                <div class="col-md-12 form-group">
+                                                    <input type="password" id="new-password" class="form-control" name="newpass">
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label>Повтори паролата</label>
+                                                </div>
+                                                <div class="col-md-12 form-group">
+                                                    <input type="password" id="confirm-password" class="form-control" name="confirm-pass">
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light-primary"
+                                                    data-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Затвори</span>
+                                                </button>
+                                                <button type="button" class="btn btn-primary ml-1" data-dismiss="modal">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Промени</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Изтриване на профил</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <p>
+                                    От тук може да изтриете вашия профил в приложението.
+                                </p>
+
+                                <button type="button" class="btn btn-outline-primary block" data-toggle="modal"
+                                    data-target="#delete-account">
+                                    Изтрий
+                                </button>
+
+
+                                <div class="modal fade text-left modal-borderless" id="delete-account" tabindex="-1"
+                                    role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Изтриване на профил</h5>
+                                                <button type="button" class="close rounded-pill" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <i data-feather="x"></i>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                
+                                                <p>
+                                                    Сигурни ли сте, че искате да изтриете профила си? Това е необратим процес.
+                                                </p>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light-primary"
+                                                    data-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Затвори</span>
+                                                </button>
+                                                <button type="button" class="btn btn-primary ml-1" data-dismiss="modal">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Изтрий</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/feather-icons/feather.min.js"></script>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script src="assets/vendors/chartjs/Chart.min.js"></script>
+    <script src="assets/vendors/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/js/pages/dashboard.js"></script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
