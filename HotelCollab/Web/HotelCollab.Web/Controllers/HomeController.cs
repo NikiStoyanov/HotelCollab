@@ -14,6 +14,12 @@
             return this.View();
         }
 
+        [Authorize]
+        public IActionResult Dashboard()
+        {
+            return this.View();
+        }
+
         public IActionResult Privacy()
         {
             return this.View();
