@@ -6,85 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
-    
+
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/app.css">
 </head>
 
 <body>
     <div id="auth">
-        
-<div class="container">
-    <div class="row">
-        <div class="col-md-7 col-sm-12 mx-auto">
-            <div class="card pt-4">
-                <div class="card-body">
-                    <div class="text-center mb-5">
-                        <img src="assets/images/favicon.svg" height="48" class='mb-4'>
-                        <h3>Регистрация</h3>
-                        <p>Моля попълнете тази форма, за да се регистрирате.</p>
-                    </div>
-                    <form action="index.html">
-                        <div class="row">
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="first-name-column">Първо име</label>
-                                    <input type="text" id="first-name-column" class="form-control"  name="fname-column">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="last-name-column">Фамилно име</label>
-                                    <input type="text" id="last-name-column" class="form-control"  name="lname-column">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="email-id-column">Email</label>
-                                    <input type="email" id="email-id-column" class="form-control" name="email-id-column">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="pass-column">Парола</label>
-                                    <input type="password" id="pass-column" class="form-control" name="pass-column">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="confirm-pass-column">Повтори парола</label>
-                                    <input type="password" id="confirm-pass-column" class="form-control" name="confirm-pass-column">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="moderation-role">Роля</label>
-                                    <select name="moderation-role" id="moderation-role" class="form-control">
-                                        <option value="" selected disabled hidden>-- Избери роля --</option>
-                                        <option value="form-role-manger">Управител</option>
-                                        <option value="form-role-receptionist">Рецепционист</option>
-                                        <option value="form-role-cleaner">Камериер</option>
-                                    </select>
-                                    
-                                </div>
-                            </div>
-                        </diV>
 
-                        <a href="auth-login.html">Имате акаунт? Влезте.</a>
-                        <div class="clearfix">
-                            <button class="btn btn-primary float-right">Регистрирай</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-sm-12 mx-auto">
+                    <div class="card pt-4">
+                        <div class="card-body">
+                            <div class="text-center mb-5">
+                                <img src="assets/images/favicon.svg" height="48" class='mb-4'>
+                                <h3>Регистрация</h3>
+                                <p>Моля попълнете тази форма, за да се регистрирате.</p>
+                            </div>
+                            <form action="index.html">
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="first-name-column">Първо име</label>
+                                            <input type="text" id="first-name-column" class="form-control"
+                                                name="fname-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="last-name-column">Фамилно име</label>
+                                            <input type="text" id="last-name-column" class="form-control"
+                                                name="lname-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column">Email</label>
+                                            <input type="email" id="email-id-column" class="form-control"
+                                                name="email-id-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="pass-column">Парола</label>
+                                            <input type="password" id="pass-column" class="form-control"
+                                                name="pass-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="confirm-pass-column">Повтори парола</label>
+                                            <input type="password" id="confirm-pass-column" class="form-control"
+                                                name="confirm-pass-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="checkbox1" class='form-check-input'>
+                                            <label for="checkbox1">Аз съм мениджър.</label>
+                                        </div>
+                                    </div>
+                                </diV>
+
+                                <a href="auth-login.html">Имате акаунт? Влезте.</a>
+                                <div class="clearfix">
+                                    <button class="btn btn-primary float-right">Регистрирай</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
     </div>
     <script src="assets/js/feather-icons/feather.min.js"></script>
     <script src="assets/js/app.js"></script>
-    
+
     <script src="assets/js/main.js"></script>
 </body>
 

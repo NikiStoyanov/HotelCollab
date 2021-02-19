@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Табло</title>
+    <title>Резервация - стая 201 </title>
 
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
 
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
-        
+
 </head>
 
 <body>
@@ -148,79 +148,138 @@
 
             <div class="main-content container-fluid">
                 <div class="page-title">
-                    <h3>Хотел "Плаза" Бургас</h3>
-                    <p class="text-subtitle text-muted">Тук може да видите пълна статистика за хотела.</p>
+                    <h3>Резервация - стая 201 </h3>
+                    <p class="text-subtitle text-muted">Тук можете да редактирате или изтриете резервация.</p>
                 </div>
-                <section class="section">
-                    <div class="row mb-2">
-                        <div class="col-12 col-md-4">
-                            <a href="dashboard.html">
-                                <div class="card card-statistic">
-                                    <div class="card-body p-0">
-                                        <div class="d-flex flex-column">
-                                            <div class='px-3 py-3 d-flex justify-content-between'>
-                                                <h3 class='card-title'>Заети стаи</h3>
-                                                <div class="card-right d-flex align-items-center">
-                                                    <p>2 </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                <section id="multiple-column-form">
+                    <div class="row match-height">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Стая 201</h4>
                                 </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <a href="cleaning.html">
-                                <div class="card card-statistic">
-                                    <div class="card-body p-0">
-                                        <div class="d-flex flex-column">
-                                            <div class='px-3 py-3 d-flex justify-content-between'>
-                                                <h3 class='card-title'>Рецепционисти</h3>
-                                                <div class="card-right d-flex align-items-center">
-                                                    <p>6 </p>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form class="form">
+                                            <div class="row">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="disabledInput">Име</label>
+                                                        <input type="text" class="form-control" id="disabledInput" placeholder="Иван Петров"
+                                                            disabled>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <a href="cleaning.html">
-                                <div class="card card-statistic">
-                                    <div class="card-body p-0">
-                                        <div class="d-flex flex-column">
-                                            <div class='px-3 py-3 d-flex justify-content-between'>
-                                                <h3 class='card-title'>Почистващ персонал</h3>
-                                                <div class="card-right d-flex align-items-center">
-                                                    <p>7 </p>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="disabledInput">Период</label>
+                                                        <input type="text" class="form-control" id="disabledInput" placeholder="12.01 - 14.01.2021"
+                                                            disabled>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="disabledInput">Възрастни</label>
+                                                        <input type="text" class="form-control" id="disabledInput" placeholder="2"
+                                                            disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="disabledInput">Деца</label>
+                                                        <input type="text" class="form-control" id="disabledInput" placeholder="1"
+                                                            disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <fieldset class="form-group">
+                                                        <label for="disabledInput">Тип стая</label>
+                                                        <select class="form-select" disabled="disabled" id="disabledSelect">
+                                                            <option>Двойна</option>
+                                                            <option>Тройна</option>
+                                                            <option>Апартамент</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
 
-                        <section class="section">
-                            <div class="row">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="disabledInput">Почиствания</label>
+                                                        <input type="text" class="form-control" id="disabledInput" placeholder="6"
+                                                            disabled>
+                                                    </div>
+                                                </div>
 
-                                <div class="col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>Line Chart</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <div id="line"></div>
-                                        </div>
+                                                <div class="col-12 d-flex justify-content-end">
+                                                    <button type="submit"
+                                                        class="btn btn-primary mr-1 mb-1">Редактирай</button>
+                                                    <button type="reset"
+                                                        class="btn btn-light-secondary mr-1 mb-1">Изтрий</button>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                            
                             </div>
-                        </section>
+                        </div>
                     </div>
                 </section>
+
+                <div class="row" id="table-hover-row">
+                    <div class="col-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <h4 class="card-title">Почиствания</h4>
+                        </div>
+                        <div class="card-content">
+                          <div class="card-body">
+                            <p>
+                                Минали почиствания за съответната резервация.
+                            </p>
+                          </div>
+                          <!-- table hover -->
+                          <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                              <thead>
+                                <tr>
+                                  <th>ДАТА</th>
+                                  <th>ПОЧИСТИЛ</th>
+                                  <th>ЩЕТИ</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>23.02.2021 г.</td>
+                                  <td>Иван Петров</td>
+                                  <td>Да</td>
+                                </tr>
+                                <tr>
+                                    <td>23.02.2021 г.</td>
+                                    <td>Иван Петров</td>
+                                    <td>Да</td>
+                                </tr>
+                                <tr>
+                                    <td>23.02.2021 г.</td>
+                                    <td>Иван Петров</td>
+                                    <td>Да</td>
+                                </tr>
+                                <tr>
+                                    <td>23.02.2021 г.</td>
+                                    <td>Иван Петров</td>
+                                    <td>Да</td>
+                                </tr>
+                                <tr>
+                                    <td>23.02.2021 г.</td>
+                                    <td>Иван Петров</td>
+                                    <td>Да</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
             </div>
 
             <script src="../assets/js/feather-icons/feather.min.js"></script>
