@@ -4,7 +4,7 @@
     using CloudinaryDotNet.Actions;
     using HotelCollab.Data;
     using HotelCollab.Data.Models;
-    using HotelCollab.Web.ViewModels.Hotels;
+    using HotelCollab.Presentation;
     using Microsoft.AspNetCore.Mvc;
     using System.Linq;
     using System.Threading.Tasks;

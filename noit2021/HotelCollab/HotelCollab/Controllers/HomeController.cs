@@ -2,7 +2,6 @@
 {
     using System.Diagnostics;
     using HotelCollab.Models;
-    using HotelCollab.Web.ViewModels;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 

@@ -1,4 +1,4 @@
-﻿namespace HotelCollab.Web.ViewModels.Hotels
+﻿namespace HotelCollab.Presentation
 {
     using System;
     using System.Collections.Generic;
