@@ -19,7 +19,9 @@
 
         public Cleaning Cleaning { get; set; }
 
-        [Range(20, 250)]
+        [Required]
+        [MinLength(20)]
+        [MaxLength(250)]
         public string Content { get; set; }
     }
 }

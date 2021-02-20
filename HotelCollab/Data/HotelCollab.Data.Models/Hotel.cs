@@ -27,7 +27,8 @@
         public string HotelId { get; private set; }
 
         [Required]
-        [Range(10, 100)]
+        [MinLength(10)]
+        [MaxLength(100)]
         public string Name { get; set; }
 
         public string ImageUrl { get; private set; }
@@ -43,9 +44,6 @@
         [Required]
         [MaxLength(100)]
         public string Address { get; set; }
-
-        [Required]
-        public HotelStars HotelStars { get; set; }
 
         [Required]
         public int CleaningPeriod { get; set; }

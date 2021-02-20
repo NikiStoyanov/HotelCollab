@@ -2,7 +2,7 @@
 @model RegisterModel
 
 @{
-    this.Layout = "_LoggedLayout";
+    this.Layout = "_LogOutLayout";
 }
 
 <div id="auth">
@@ -16,53 +16,48 @@
                             <h3>Регистрация</h3>
                             <p>Моля попълнете тази форма, за да се регистрирате.</p>
                         </div>
-                        <form action="index.html">
+                        <form method="post">
                             <div class="row">
+                                <div asp-validation-summary="All" class="text-danger"></div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label asp-for="Input.FirstName">Първо име</label>
-                                        <input type="text" asp-for="Input.FirstName" class="form-control" name="fname-column">
+                                        <input asp-for="Input.FirstName" class="form-control" />
                                         <span asp-validation-for="Input.FirstName" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label asp-for="Input.LastName">Фамилно име</label>
-                                        <input type="text" asp-for="Input.LastName" class="form-control" name="lname-column">
+                                        <input asp-for="Input.LastName" class="form-control" />
                                         <span asp-validation-for="Input.LastName" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label asp-for="Input.Email">Email</label>
-                                        <input type="email" asp-for="Input.Email" class="form-control" name="email-id-column">
+                                        <input asp-for="Input.Email" class="form-control" />
                                         <span asp-validation-for="Input.Email" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label asp-for="Input.Password">Парола</label>
-                                        <input type="password" asp-for="Input.Password" class="form-control" name="pass-column">
+                                        <input asp-for="Input.Password" class="form-control" />
                                         <span asp-validation-for="Input.Password" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label asp-for="Input.ConfirmPassword">Повтори парола</label>
-                                        <input type="password" asp-for="Input.ConfirmPassword" class="form-control" name="confirm-pass-column">
+                                        <input asp-for="Input.ConfirmPassword" class="form-control" />
                                         <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="moderation-role">Роля</label>
-                                        <select name="moderation-role" id="moderation-role" class="form-control">
-                                            <option value="" selected disabled hidden>-- Избери роля --</option>
-                                            <option value="form-role-manger">Управител</option>
-                                            <option value="form-role-receptionist">Рецепционист</option>
-                                            <option value="form-role-cleaner">Камериер</option>
-                                            <option value="form-role-guest">Гост</option>
-                                        </select>
+                                        <input type="checkbox" asp-for="Input.IsManager" class="form-check-input" />
+                                        <label asp-for="Input.IsManager">Аз съм управител.</label>
                                     </div>
                                 </div>
                             </div>

@@ -24,7 +24,5 @@
         public bool IsDamaged { get; set; }
 
         public virtual ICollection<Damage> Damages { get; set; }
-
-        // finish cleaning and damages in OnModelCreating and finish the DbSets
     }
 }

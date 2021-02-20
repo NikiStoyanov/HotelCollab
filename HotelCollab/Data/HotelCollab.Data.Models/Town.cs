@@ -17,7 +17,8 @@
         public string TownId { get; private set; }
 
         [Required]
-        [Range(5, 50)]
+        [MinLength(2)]
+        [MaxLength(50)]
         public string Name { get; set; }
 
         public virtual ICollection<Hotel> Hotels { get; set; }

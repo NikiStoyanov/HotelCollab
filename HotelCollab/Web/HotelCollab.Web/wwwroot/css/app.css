@@ -810,12 +810,14 @@ footer {
   transition: left 0.6s ease-out;
 }
 .sidebar-wrapper .sidebar-header {
-  padding: 2rem 2rem 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0rem;
   font-size: 2rem;
   font-weight: bold;
 }
 .sidebar-wrapper .sidebar-header img {
-  height: 2.5rem;
+  height: 12.5rem;
 }
 .sidebar-wrapper .sidebar-toggler.x {
   position: absolute;
@@ -1516,7 +1518,7 @@ footer {
 
 .starrating > label
 {
-  color: #A3AFBD;;
+  color: #A3AFBD;
 }
 
 .starrating > input:checked ~ label
@@ -1529,5 +1531,3 @@ footer {
 {
   text-transform: none;
 }
-
-

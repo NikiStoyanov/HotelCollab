@@ -2,7 +2,7 @@
 @model LoginModel
 
 @{
-    this.Layout = "_LoggedLayout";
+    this.Layout = "_LogOutLayout";
 }
 
 <div id="auth">
@@ -17,6 +17,7 @@
                             <p>Моля попълнете тази форма, за да влезете.</p>
                         </div>
                         <form method="post">
+                            <div asp-validation-summary="All" class="text-danger"></div>
                             <div class="form-group position-relative has-icon-left">
                                 <label asp-for="Input.Email" for="email">Email</label>
                                 <div class="position-relative">
