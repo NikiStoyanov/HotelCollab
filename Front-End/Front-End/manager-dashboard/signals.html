@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сигнали</title>
+
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../assets/vendors/chartjs/Chart.min.css">
+
+    <link rel="stylesheet" href="../assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class='active'>
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <img src="../assets/images/" alt="" srcset="">
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-item">
+                            <a href="dashboard.html" class='sidebar-link'>
+                                <i class="fas fa-chart-line" width="20"></i>
+                                <span>Табло</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="cleaning.html" class='sidebar-link'>
+                                <i class="far fa-calendar-plus" width="20"></i>
+                                <span>Почиствания</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="reservation.html" class='sidebar-link'>
+                                <i class="far fa-address-book" width="20"></i>
+                                <span>Резервации</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item active">
+                            <a href="signals.html" class='sidebar-link'>
+                                <i class="far fa-comment-alt" width="20"></i>
+                                <span>Сигнали</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="register.html" class='sidebar-link'>
+                                <i class="fas fa-user-plus" width="20"></i>
+                                <span>Регистрирай гост</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="events.html" class='sidebar-link'>
+                                <i class="far fa-calendar" width="20"></i>
+                                <span>Добави събитие</span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <nav class="navbar navbar-header navbar-expand navbar-light">
+                <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
+                <button class="btn navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex align-items-center navbar-light ml-auto">
+                        <li class="dropdown nav-icon">
+                            <a href="#" data-toggle="dropdown"
+                                class="nav-link  dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="d-lg-inline-block">
+                                    <i data-feather="bell"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-large">
+                                <h6 class='py-2 px-4'>Notifications</h6>
+                                <ul class="list-group rounded-none">
+                                    <li class="list-group-item border-0 align-items-start">
+                                        <div class="avatar bg-success mr-3">
+                                            <span class="avatar-content"><i data-feather="shopping-cart"></i></span>
+                                        </div>
+                                        <div>
+                                            <h6 class='text-bold'>New Order</h6>
+                                            <p class='text-xs'>
+                                                An order made by Ahmad Saugi for product Samsung Galaxy S69
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dropdown nav-icon mr-2">
+                            <a href="#" data-toggle="dropdown"
+                                class="nav-link  dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="d-lg-inline-block">
+                                    <i data-feather="mail"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                                <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a>
+                                <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Logout</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="avatar mr-1">
+                                    <img src="../assets/images/avatar/avatar-s-1.png" alt="" srcset="">
+                                </div>
+                                <div class="d-none d-md-block d-lg-inline-block">Hi, Saugi</div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                                <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a>
+                                <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="main-content container-fluid">
+                <div class="page-title">
+                    <h3>Сигнали</h3>
+                    <p class="text-subtitle text-muted">Тук може следите и отбелязвате сигналите като обработени.</p>
+                </div>
+                <div class="card widget-todo">
+                    <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+                        <h4 class="card-title d-flex">
+                            <i class='bx bx-check font-medium-5 pl-25 pr-75'></i>Необработени сигнали
+                        </h4>
+
+                    </div>
+                    <div class="card-body px-0 py-1">
+                        <ul class="widget-todo-list-wrapper" id="widget-todo-list">
+                            <li class="widget-todo-item">
+                                <div
+                                    class="widget-todo-title-wrapper d-flex justify-content-between align-items-center mb-50">
+                                    <div class="widget-todo-title-area d-flex align-items-center">
+                                        <div class="checkbox checkbox-shadow">
+                                            <input type="checkbox" class="form-check-input" id="checkbox1"
+                                                data-toggle="modal" data-target="#default">
+                                            <label for="checkbox1"></label>
+                                        </div>
+                                        <span class="widget-todo-title ml-50">Стая 203 - Неработещ телевизор
+                                            (24.02.2021)</span>
+                                        <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
+                                            aria-labelledby="myModalLabel1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="myModalLabel1">Стая 203 - Неработещ
+                                                            телевизор (24.02.2021)</h5>
+                                                        <button type="button" class="close rounded-pill"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Hic, a? Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                            elit. Unde, commodi.
+                                                        </p>
+                                                        <div class="checkbox checkbox-shadow">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="checkbox1">
+                                                            <label for="checkbox1">Отбележи като обработено</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn" data-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Затвори</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Отбележи</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="widget-todo-item">
+                                <div
+                                    class="widget-todo-title-wrapper d-flex justify-content-between align-items-center mb-50">
+                                    <div class="widget-todo-title-area d-flex align-items-center">
+                                        <div class="checkbox checkbox-shadow">
+                                            <input type="checkbox" class="form-check-input" id="checkbox1"
+                                                data-toggle="modal" data-target="#default">
+                                            <label for="checkbox1"></label>
+                                        </div>
+                                        <span class="widget-todo-title ml-50">Стая 203 - Неработещ телевизор
+                                            (24.02.2021)</span>
+                                        <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
+                                            aria-labelledby="myModalLabel1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="myModalLabel1">Стая 203 - Неработещ
+                                                            телевизор (24.02.2021)</h5>
+                                                        <button type="button" class="close rounded-pill"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Hic, a? Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                            elit. Unde, commodi.
+                                                        </p>
+                                                        <div class="checkbox checkbox-shadow">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="checkbox1">
+                                                            <label for="checkbox1">Отбележи като обработено</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn" data-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Затвори</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Отбележи</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="widget-todo-item">
+                                <div
+                                    class="widget-todo-title-wrapper d-flex justify-content-between align-items-center mb-50">
+                                    <div class="widget-todo-title-area d-flex align-items-center">
+                                        <div class="checkbox checkbox-shadow">
+                                            <input type="checkbox" class="form-check-input" id="checkbox1"
+                                                data-toggle="modal" data-target="#default">
+                                            <label for="checkbox1"></label>
+                                        </div>
+                                        <span class="widget-todo-title ml-50">Стая 203 - Неработещ телевизор
+                                            (24.02.2021)</span>
+                                        <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
+                                            aria-labelledby="myModalLabel1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="myModalLabel1">Стая 203 - Неработещ
+                                                            телевизор (24.02.2021)</h5>
+                                                        <button type="button" class="close rounded-pill"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Hic, a? Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                            elit. Unde, commodi.
+                                                        </p>
+                                                        <div class="checkbox checkbox-shadow">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="checkbox1">
+                                                            <label for="checkbox1">Отбележи като обработено</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn" data-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Затвори</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Отбележи</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+
+                            <li class="widget-todo-item">
+                                <div
+                                    class="widget-todo-title-wrapper d-flex justify-content-between align-items-center mb-50">
+                                    <div class="widget-todo-title-area d-flex align-items-center">
+                                        <div class="checkbox checkbox-shadow">
+                                            <input type="checkbox" class="form-check-input" id="checkbox1"
+                                                data-toggle="modal" data-target="#default">
+                                            <label for="checkbox1"></label>
+                                        </div>
+                                        <span class="widget-todo-title ml-50">Стая 203 - Неработещ телевизор
+                                            (24.02.2021)</span>
+                                        <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
+                                            aria-labelledby="myModalLabel1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="myModalLabel1">Стая 203 - Неработещ
+                                                            телевизор (24.02.2021)</h5>
+                                                        <button type="button" class="close rounded-pill"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Hic, a? Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                            elit. Unde, commodi.
+                                                        </p>
+                                                        <div class="checkbox checkbox-shadow">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="checkbox1">
+                                                            <label for="checkbox1">Отбележи като обработено</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn" data-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Затвори</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Отбележи</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+
+                            <li class="widget-todo-item">
+                                <div
+                                    class="widget-todo-title-wrapper d-flex justify-content-between align-items-center mb-50">
+                                    <div class="widget-todo-title-area d-flex align-items-center">
+                                        <div class="checkbox checkbox-shadow">
+                                            <input type="checkbox" class="form-check-input" id="checkbox1"
+                                                data-toggle="modal" data-target="#default">
+                                            <label for="checkbox1"></label>
+                                        </div>
+                                        <span class="widget-todo-title ml-50">Стая 203 - Неработещ телевизор
+                                            (24.02.2021)</span>
+                                        <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
+                                            aria-labelledby="myModalLabel1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="myModalLabel1">Стая 203 - Неработещ
+                                                            телевизор (24.02.2021)</h5>
+                                                        <button type="button" class="close rounded-pill"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Hic, a? Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                            elit. Unde, commodi.
+                                                        </p>
+                                                        <div class="checkbox checkbox-shadow">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="checkbox1">
+                                                            <label for="checkbox1">Отбележи като обработено</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn" data-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Затвори</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Отбележи</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+
+                            <li class="widget-todo-item">
+                                <div
+                                    class="widget-todo-title-wrapper d-flex justify-content-between align-items-center mb-50">
+                                    <div class="widget-todo-title-area d-flex align-items-center">
+                                        <div class="checkbox checkbox-shadow">
+                                            <input type="checkbox" class="form-check-input" id="checkbox1"
+                                                data-toggle="modal" data-target="#default">
+                                            <label for="checkbox1"></label>
+                                        </div>
+                                        <span class="widget-todo-title ml-50">Стая 203 - Неработещ телевизор
+                                            (24.02.2021)</span>
+                                        <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
+                                            aria-labelledby="myModalLabel1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="myModalLabel1">Стая 203 - Неработещ
+                                                            телевизор (24.02.2021)</h5>
+                                                        <button type="button" class="close rounded-pill"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Hic, a? Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                            elit. Unde, commodi.
+                                                        </p>
+                                                        <div class="checkbox checkbox-shadow">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="checkbox1">
+                                                            <label for="checkbox1">Отбележи като обработено</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn" data-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Затвори</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Отбележи</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row" id="table-hover-row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Обработени сигнали</h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Заглавие</th>
+                                                    <th>Стая</th>
+                                                    <th>Дата</th>
+                                                    <th>Обработил</th>
+                                                    <th>Детайли</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Неработещ телевизор</td>
+                                                    <th>202</th>
+                                                    <td>23.01.2021 г.</td>
+                                                    <td>Иван Петров</td>
+                                                    <td data-toggle="modal" data-target="#border-less"><a
+                                                            href="#">Отвори</a></td>
+
+                                                    <div class="modal fade text-left modal-borderless" id="border-less"
+                                                        tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-scrollable"
+                                                            role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title">Стая 203 - Неработещ
+                                                                        телевизор (24.02.2021)</h5>
+                                                                    <button type="button" class="close rounded-pill"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>
+                                                                        Bonbon caramels muffin. Chocolate bar oat cake
+                                                                        cookie pastry dragée pastry. Carrot cake
+                                                                        chocolate tootsie roll chocolate bar candy canes
+                                                                        biscuit.
+                                                                        Gummies bonbon apple pie fruitcake icing biscuit
+                                                                        apple pie jelly-o sweet roll. Toffee sugar
+                                                                        plum sugar plum jelly-o jujubes bonbon dessert
+                                                                        carrot cake. Cookie dessert tart muffin topping
+                                                                        donut icing fruitcake. Sweet roll cotton candy
+                                                                        dragée danish Candy canes chocolate bar cookie.
+                                                                        Gingerbread apple pie oat cake. Carrot cake
+                                                                        fruitcake bear claw. Pastry gummi bears
+                                                                        marshmallow jelly-o.
+                                                                    </p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-primary"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Затвори</span>
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-primary ml-1"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Изтрий</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                    </div>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Неработещ телевизор</td>
+                                        <th>202</th>
+                                        <td>23.01.2021 г.</td>
+                                        <td>Иван Петров</td>
+                                        <td data-toggle="modal" data-target="#border-less"><a href="#">Отвори</a></td>
+
+                                        <div class="modal fade text-left modal-borderless" id="border-less"
+                                            tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Стая 203 - Неработещ
+                                                            телевизор (24.02.2021)</h5>
+                                                        <button type="button" class="close rounded-pill"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Bonbon caramels muffin. Chocolate bar oat cake
+                                                            cookie pastry dragée pastry. Carrot cake
+                                                            chocolate tootsie roll chocolate bar candy canes
+                                                            biscuit.
+                                                            Gummies bonbon apple pie fruitcake icing biscuit
+                                                            apple pie jelly-o sweet roll. Toffee sugar
+                                                            plum sugar plum jelly-o jujubes bonbon dessert
+                                                            carrot cake. Cookie dessert tart muffin topping
+                                                            donut icing fruitcake. Sweet roll cotton candy
+                                                            dragée danish Candy canes chocolate bar cookie.
+                                                            Gingerbread apple pie oat cake. Carrot cake
+                                                            fruitcake bear claw. Pastry gummi bears
+                                                            marshmallow jelly-o.
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-primary"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Затвори</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Изтрий</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <td>Неработещ телевизор</td>
+                                        <th>202</th>
+                                        <td>23.01.2021 г.</td>
+                                        <td>Иван Петров</td>
+                                        <td data-toggle="modal" data-target="#border-less"><a href="#">Отвори</a></td>
+
+                                        <div class="modal fade text-left modal-borderless" id="border-less"
+                                            tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Стая 203 - Неработещ
+                                                            телевизор (24.02.2021)</h5>
+                                                        <button type="button" class="close rounded-pill"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Bonbon caramels muffin. Chocolate bar oat cake
+                                                            cookie pastry dragée pastry. Carrot cake
+                                                            chocolate tootsie roll chocolate bar candy canes
+                                                            biscuit.
+                                                            Gummies bonbon apple pie fruitcake icing biscuit
+                                                            apple pie jelly-o sweet roll. Toffee sugar
+                                                            plum sugar plum jelly-o jujubes bonbon dessert
+                                                            carrot cake. Cookie dessert tart muffin topping
+                                                            donut icing fruitcake. Sweet roll cotton candy
+                                                            dragée danish Candy canes chocolate bar cookie.
+                                                            Gingerbread apple pie oat cake. Carrot cake
+                                                            fruitcake bear claw. Pastry gummi bears
+                                                            marshmallow jelly-o.
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-primary"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Затвори</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Изтрий</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <td>Неработещ телевизор</td>
+                                        <th>202</th>
+                                        <td>23.01.2021 г.</td>
+                                        <td>Иван Петров</td>
+                                        <td data-toggle="modal" data-target="#border-less"><a href="#">Отвори</a></td>
+
+                                        <div class="modal fade text-left modal-borderless" id="border-less"
+                                            tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Стая 203 - Неработещ
+                                                            телевизор (24.02.2021)</h5>
+                                                        <button type="button" class="close rounded-pill"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Bonbon caramels muffin. Chocolate bar oat cake
+                                                            cookie pastry dragée pastry. Carrot cake
+                                                            chocolate tootsie roll chocolate bar candy canes
+                                                            biscuit.
+                                                            Gummies bonbon apple pie fruitcake icing biscuit
+                                                            apple pie jelly-o sweet roll. Toffee sugar
+                                                            plum sugar plum jelly-o jujubes bonbon dessert
+                                                            carrot cake. Cookie dessert tart muffin topping
+                                                            donut icing fruitcake. Sweet roll cotton candy
+                                                            dragée danish Candy canes chocolate bar cookie.
+                                                            Gingerbread apple pie oat cake. Carrot cake
+                                                            fruitcake bear claw. Pastry gummi bears
+                                                            marshmallow jelly-o.
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-primary"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Затвори</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Изтрий</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <td>Неработещ телевизор</td>
+                                        <th>202</th>
+                                        <td>23.01.2021 г.</td>
+                                        <td>Иван Петров</td>
+                                        <td data-toggle="modal" data-target="#border-less"><a href="#">Отвори</a></td>
+
+                                        <div class="modal fade text-left modal-borderless" id="border-less"
+                                            tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Стая 203 - Неработещ
+                                                            телевизор (24.02.2021)</h5>
+                                                        <button type="button" class="close rounded-pill"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Bonbon caramels muffin. Chocolate bar oat cake
+                                                            cookie pastry dragée pastry. Carrot cake
+                                                            chocolate tootsie roll chocolate bar candy canes
+                                                            biscuit.
+                                                            Gummies bonbon apple pie fruitcake icing biscuit
+                                                            apple pie jelly-o sweet roll. Toffee sugar
+                                                            plum sugar plum jelly-o jujubes bonbon dessert
+                                                            carrot cake. Cookie dessert tart muffin topping
+                                                            donut icing fruitcake. Sweet roll cotton candy
+                                                            dragée danish Candy canes chocolate bar cookie.
+                                                            Gingerbread apple pie oat cake. Carrot cake
+                                                            fruitcake bear claw. Pastry gummi bears
+                                                            marshmallow jelly-o.
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-primary"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Затвори</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Изтрий</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <script src="../assets/js/feather-icons/feather.min.js"></script>
+            <script src="../assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+            <script src="../assets/js/app.js"></script>
+
+            <script src="../assets/vendors/chartjs/Chart.min.js"></script>
+            <script src="../assets/vendors/apexcharts/apexcharts.min.js"></script>
+            <script src="../assets/js/pages/dashboard.js"></script>
+
+            <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
