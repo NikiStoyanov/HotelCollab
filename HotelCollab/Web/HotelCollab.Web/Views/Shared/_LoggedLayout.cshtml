@@ -16,13 +16,14 @@
     <link rel="stylesheet" href="~/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="~/css/app.css">
     <link rel="shortcut icon" href="~/images/logos/hotel_manager3_3.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 </head>
 <body>
         <div id="app">
             <div id="sidebar" class='active'>
                 <div class="sidebar-wrapper active">
                     <div class="sidebar-header">
-                        <img src="~/images/logo.svg" alt="" srcset="">
+                        <img src="~/images/hotel_manager3_4.png" alt="" srcset="">
                     </div>
                     <div class="sidebar-menu">
                         <ul class="menu">
@@ -85,6 +86,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav d-flex align-items-center navbar-light ml-auto">
+                        @if (this.User.IsInRole("Manager"))
+                        {
+                            <li class="dropdown nav-icon mr-3">
+
+                                <a asp-controller="Hotel" asp-action="Register">
+                                    <div class="d-lg-inline-block">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </a>
+
+                            </li>
+                        }
                         <li class="dropdown nav-icon mr-3">
                             <a href="#" data-toggle="modal" data-target="#border-less">
                                 <div class="d-lg-inline-block">
@@ -140,27 +153,18 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown nav-icon mr-3">
-
-                            <a href="hotel-registration.html">
-                                <div class="d-lg-inline-block">
-                                    <i class="fas fa-plus"></i>
-                                </div>
-                            </a>
-
-                        </li>
                         <li class="dropdown">
                             <a href="#" data-toggle="dropdown"
                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="avatar mr-1">
-                                    <img src="assets/images/avatar/avatar-s-1.png" alt="" srcset="">
+                                    <img src="~/images/avatar/avatar-s-1.png" alt="" srcset="">
                                 </div>
                                 <div class="d-none d-md-block d-lg-inline-block">Здравей, Иван!</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Профил</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Изход</a>
+                                <a class="dropdown-item" asp-area="Identity" asp-controller="Account" asp-action="Logout"><i data-feather="log-out"></i> Изход</a>
                             </div>
                         </li>
                     </ul>
