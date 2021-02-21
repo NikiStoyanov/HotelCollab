@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Хотел Мениджър</title>
+
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <link href="~/css/bootstrap.css" rel="stylesheet">
+    <link href="~/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/vendors/chartjs/Chart.min.css">
+    <link rel="stylesheet" href="~/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="~/css/app.css">
+    <link rel="shortcut icon" href="~/images/logos/hotel_manager3_3.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+</head>
+<body>
+        <div id="app">
+            <div id="sidebar" class='active'>
+                <div class="sidebar-wrapper active">
+                    <div class="sidebar-header">
+                        <img src="~/images/hotel_manager3_4.png" alt="" srcset="">
+                    </div>
+                    <div class="sidebar-menu">
+                        <ul class="menu">
+
+                            <li class='sidebar-title'>Хотели</li>
+
+                            <li class="sidebar-item active ">
+                                <a href="index.html" class='sidebar-link'>
+                                    <i data-feather="home" width="20"></i>
+                                    <span>Плаза, Бургас</span>
+                                </a>
+
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a href="index.html" class='sidebar-link'>
+                                    <i data-feather="home" width="20"></i>
+                                    <span>Плаза, Бургас</span>
+                                </a>
+
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a href="index.html" class='sidebar-link'>
+                                    <i data-feather="home" width="20"></i>
+                                    <span>Плаза, Бургас</span>
+                                </a>
+
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a href="index.html" class='sidebar-link'>
+                                    <i data-feather="home" width="20"></i>
+                                    <span>Плаза, Бургас</span>
+                                </a>
+
+                            </li>
+
+                            <li class='sidebar-title'>Моят профил</li>
+
+                            <li class="sidebar-item">
+                                <a href="#" class='sidebar-link'>
+                                    <i data-feather="settings" width="20"></i>
+                                    <span>Настройки</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+                </div>
+            </div>
+
+            <div id="main">
+            <nav class="navbar navbar-header navbar-expand navbar-light">
+                <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
+                <button class="btn navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex align-items-center navbar-light ml-auto">
+                        @if (this.User.IsInRole("Manager"))
+                        {
+                            <li class="dropdown nav-icon mr-3">
+
+                                <a asp-controller="Hotel" asp-action="Register">
+                                    <div class="d-lg-inline-block">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </a>
+
+                            </li>
+                        }
+                        <li class="dropdown nav-icon mr-3">
+                            <a href="#" data-toggle="modal" data-target="#border-less">
+                                <div class="d-lg-inline-block">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </div>
+                            </a>
+                            <div class="modal fade text-left modal-borderless" id="border-less" tabindex="-1"
+                                 role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Присъедини се към хотел</h5>
+                                            <button type="button" class="close rounded-pill" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                <i data-feather="x"></i>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="col-md-12 mb-6">
+                                                <h6>Изберете хотел</h6>
+                                                <div class="form-group">
+                                                    <select class="choices form-select">
+                                                        <option value="plaza">Хотел Плаза Бургас</option>
+                                                        <option value="plaza">Хотел Плаза Бургас</option>
+                                                        <option value="plaza">Хотел Плаза Бургас</option>
+                                                        <option value="plaza">Хотел Плаза Бургас</option>
+                                                        <option value="plaza">Хотел Плаза Бургас</option>
+                                                        <option value="plaza">Хотел Плаза Бургас</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mb-6">
+                                                <h6>Изберете роля</h6>
+                                                <div class="form-group">
+                                                    <select class="choices form-select">
+                                                        <option value="receptionist">Рецепционист</option>
+                                                        <option value="cleaner">Камериер</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light-primary" data-dismiss="modal">
+                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Затвори</span>
+                                            </button>
+                                            <button type="button" class="btn btn-primary ml-1" data-dismiss="modal">
+                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Подтвърди</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown"
+                               class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="avatar mr-1">
+                                    <img src="~/images/avatar/avatar-s-1.png" alt="" srcset="">
+                                </div>
+                                <div class="d-none d-md-block d-lg-inline-block">Здравей, Иван!</div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Профил</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-area="Identity" asp-controller="Account" asp-action="Logout"><i data-feather="log-out"></i> Изход</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+                            @this.RenderBody()
+
+                                        </div>
+        </div>
+    <script src="~/js/feather-icons/feather.min.js"></script>
+    <script src="~/js/app.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="~/vendors/chartjs/Chart.min.js"></script>
+    <script src="~/vendors/apexcharts/apexcharts.min.js"></script>
+    <script src="~/js/pages/dashboard.js"></script>
+    @await this.RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
