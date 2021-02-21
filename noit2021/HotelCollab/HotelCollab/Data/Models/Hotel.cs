@@ -8,7 +8,7 @@
     {
         public Hotel()
         {
-            this.HotelId = Guid.NewGuid().ToString();
+            this.Id = Guid.NewGuid().ToString();
 
             this.Rooms = new HashSet<Room>();
             this.Reservations = new HashSet<Reservation>();
@@ -21,7 +21,7 @@
             this.ImageUrl = imageUrl;
         }
 
-        public string HotelId { get; private set; }
+        public string Id { get; private set; }
 
         [Required]
         [MinLength(10)]
