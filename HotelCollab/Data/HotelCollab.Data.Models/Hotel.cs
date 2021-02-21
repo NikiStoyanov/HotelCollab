@@ -46,6 +46,12 @@
         public string Address { get; set; }
 
         [Required]
+        public int Adults { get; set; }
+
+        [Required]
+        public int Children { get; set; }
+
+        [Required]
         public int CleaningPeriod { get; set; }
 
         public virtual ICollection<Room> Rooms { get; set; }

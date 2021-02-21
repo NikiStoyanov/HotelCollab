@@ -23,12 +23,6 @@
         public DateTime EndDate { get; set; }
 
         [Required]
-        public int Adults { get; set; }
-
-        [Required]
-        public int Children { get; set; }
-
-        [Required]
         public string RoomId { get; set; }
 
         public Room Room { get; set; }
