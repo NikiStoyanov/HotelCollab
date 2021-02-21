@@ -3,7 +3,7 @@
 
     using Microsoft.AspNetCore.Identity;
 
-    public class ApplicationUserRole : IdentityUserRole<string>
+    public class ApplicationUserRole 
     {
         public string HotelId { get; set; }
 

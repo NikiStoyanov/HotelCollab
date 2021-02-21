@@ -31,11 +31,10 @@ namespace HotelCollab
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddSingleton<IRepository<Hotel>, Repository<Hotel>>();
-            services.AddSingleton<IRepository<Hotel>, Repository<Hotel>>();
+            services.AddTransient<IRepository<Hotel>, Repository<Hotel>>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

@@ -36,6 +36,8 @@
 
         public DbSet<Event> Events { get; set; }
 
+        public DbSet<ApplicationUser> Users { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -52,7 +54,11 @@
         {
             return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
-
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (optionsBuilder.IsConfigured == false)
+                optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=HotelCollab;Trusted_Connection=True;MultipleActiveResultSets=true");
+        }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             // Needed for Identity models configuration
@@ -64,70 +70,83 @@
             builder.Entity<Request>()
                 .HasOne(r => r.User)
                 .WithMany(u => u.Requests)
-                .HasForeignKey(r => r.UserId);
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Hotel>()
                 .HasOne(h => h.Town)
                 .WithMany(t => t.Hotels)
-                .HasForeignKey(h => h.TownId);
+                .HasForeignKey(h => h.TownId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Room>()
                 .HasOne(r => r.Hotel)
                 .WithMany(h => h.Rooms)
-                .HasForeignKey(r => r.HotelId);
+                .HasForeignKey(r => r.HotelId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Reservation>()
                 .HasOne(r => r.Hotel)
                 .WithMany(h => h.Reservations)
-                .HasForeignKey(r => r.HotelId);
+                .HasForeignKey(r => r.HotelId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Reservation>()
                 .HasOne(res => res.Room)
                 .WithMany(rm => rm.Reservations)
-                .HasForeignKey(res => res.RoomId);
+                .HasForeignKey(res => res.RoomId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Reservation>()
                 .HasOne(r => r.Receptionist)
                 .WithMany(r => r.Reservations)
-                .HasForeignKey(r => r.ReceptionistId);
+                .HasForeignKey(r => r.ReceptionistId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Event>()
                 .HasOne(e => e.Hotel)
                 .WithMany(h => h.Events)
-                .HasForeignKey(e => e.HotelId);
+                .HasForeignKey(e => e.HotelId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Feedback>()
                 .HasOne(f => f.Guest)
                 .WithMany(u => u.Feedbacks)
-                .HasForeignKey(f => f.GuestId);
+                .HasForeignKey(f => f.GuestId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Feedback>()
                 .HasOne(f => f.ProcessedByEmployee)
                 .WithMany(u => u.ProcessedFeedbacks)
-                .HasForeignKey(f => f.ProcessedByEmployeeId);
+                .HasForeignKey(f => f.ProcessedByEmployeeId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Feedback>()
                 .HasOne(f => f.Reservation)
                 .WithMany(r => r.Feedbacks)
-                .HasForeignKey(f => f.ReservationId);
+                .HasForeignKey(f => f.ReservationId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Cleaning>()
                 .HasOne(c => c.Cleaner)
                 .WithMany(c => c.Cleanings)
-                .HasForeignKey(c => c.CleanerId);
+                .HasForeignKey(c => c.CleanerId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Cleaning>()
                 .HasOne(c => c.Room)
                 .WithMany(r => r.Cleanings)
-                .HasForeignKey(c => c.RoomId);
+                .HasForeignKey(c => c.RoomId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Damage>()
                 .HasOne(d => d.Cleaning)
                 .WithMany(c => c.Damages)
-                .HasForeignKey(d => d.CleaningId);
+                .HasForeignKey(d => d.CleaningId)
+                .OnDelete(DeleteBehavior.NoAction);
 
-            builder.Entity<ApplicationUserRole>()
-                .ToTable("AspNetUserRoles");
+           //builder.Entity<ApplicationUserRole>()
+           //    .ToTable("AspNetUserRoles");
         }
     }
 }
