@@ -1,29 +1,30 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
 <!DOCTYPE html>
 <html lang="bg">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моите хотели</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Хотел Мениджър</title>
 
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-    <link rel="stylesheet" href="assets/vendors/chartjs/Chart.min.css">
-
-    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-        crossorigin="anonymous" />
+    <link href="~/css/bootstrap.css" rel="stylesheet">
+    <link href="~/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/vendors/chartjs/Chart.min.css">
+    <link rel="stylesheet" href="~/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="~/css/app.css">
+    <link rel="shortcut icon" href="~/images/logos/hotel_manager3_3.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 </head>
-
 <body>
     <div id="app">
         <div id="sidebar" class='active'>
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header">
-                    <img src="assets/images/logo.svg" alt="" srcset="">
+                    <img src="~/images/hotel_manager3_4.png" alt="" srcset="">
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
@@ -62,7 +63,6 @@
 
                         </li>
 
-
                         <li class='sidebar-title'>Моят профил</li>
 
                         <li class="sidebar-item">
@@ -71,20 +71,33 @@
                                 <span>Настройки</span>
                             </a>
                         </li>
+                    </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
         </div>
+
         <div id="main">
             <nav class="navbar navbar-header navbar-expand navbar-light">
                 <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
                 <button class="btn navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav d-flex align-items-center navbar-light ml-auto">
+                        @if (this.User.IsInRole("Manager"))
+                        {
+            <li class="dropdown nav-icon mr-3">
+
+                <a asp-controller="Hotel" asp-action="Register">
+                    <div class="d-lg-inline-block">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </a>
+
+            </li>}
                         <li class="dropdown nav-icon mr-3">
                             <a href="#" data-toggle="modal" data-target="#border-less">
                                 <div class="d-lg-inline-block">
@@ -92,13 +105,13 @@
                                 </div>
                             </a>
                             <div class="modal fade text-left modal-borderless" id="border-less" tabindex="-1"
-                                role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                 role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title">Присъедини се към хотел</h5>
                                             <button type="button" class="close rounded-pill" data-dismiss="modal"
-                                                aria-label="Close">
+                                                    aria-label="Close">
                                                 <i data-feather="x"></i>
                                             </button>
                                         </div>
@@ -140,133 +153,35 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown nav-icon mr-3">
-
-                            <a href="hotel-registration.html">
-                                <div class="d-lg-inline-block">
-                                    <i class="fas fa-plus"></i>
-                                </div>
-                            </a>
-
-                        </li>
                         <li class="dropdown">
                             <a href="#" data-toggle="dropdown"
-                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                               class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="avatar mr-1">
-                                    <img src="assets/images/avatar/avatar-s-1.png" alt="" srcset="">
+                                    <img src="~/images/avatar/avatar-s-1.png" alt="" srcset="">
                                 </div>
                                 <div class="d-none d-md-block d-lg-inline-block">Здравей, Иван!</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Профил</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Изход</a>
+                                <a class="dropdown-item" asp-area="Identity" asp-controller="Account" asp-action="Logout"><i data-feather="log-out"></i> Изход</a>
                             </div>
                         </li>
                     </ul>
                 </div>
             </nav>
 
-            <div class="main-content container-fluid">
-                <div class="page-title">
-                    <h3>Моите хотели</h3>
-                    <p class="text-subtitle text-muted">Това са всички хотели, към които сте свързнаи</p>
-                </div>
-                <section class="section">
-                    <div class="row mb-2">
-                        <div class="col-12 col-md-3">
-                            <div class="card">
-                                <div class="card-content">
-                                    <img class="card-img img-fluid" src="assets/images/dashboard/hotel-card.jpg"
-                                        alt="Card image">
-                                    <div
-                                        class="card-img-overlay overlay-dark d-flex justify-content-between flex-column">
-                                        <div class="overlay-content">
-                                            <p class="card-text text-ellipsis">
-                                                Плаза, Бургас
-                                            </p>
+            @this.RenderBody()
 
-                                        </div>
-                                        <div class="overlay-status">
-                                            <a href="#" class="btn btn-outline-white btn-sm">Влез</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-3">
-                            <div class="card">
-                                <div class="card-content">
-                                    <img class="card-img img-fluid" src="assets/images/dashboard/hotel-card.jpg"
-                                        alt="Card image">
-                                    <div
-                                        class="card-img-overlay overlay-dark d-flex justify-content-between flex-column">
-                                        <div class="overlay-content">
-                                            <p class="card-text text-ellipsis">
-                                                Плаза, Бургас
-                                            </p>
-                                        </div>
-                                        <div class="overlay-status">
-                                            <a href="#" class="btn btn-outline-white btn-sm">Влез</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-3">
-                            <div class="card">
-                                <div class="card-content">
-                                    <img class="card-img img-fluid" src="assets/images/dashboard/hotel-card.jpg"
-                                        alt="Card image">
-                                    <div
-                                        class="card-img-overlay overlay-dark d-flex justify-content-between flex-column">
-                                        <div class="overlay-content">
-                                            <p class="card-text text-ellipsis">
-                                                Плаза, Бургас
-                                            </p>
-                                        </div>
-                                        <div class="overlay-status">
-                                            <a href="#" class="btn btn-outline-white btn-sm">Влез</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-3">
-                            <div class="card">
-                                <div class="card-content">
-                                    <img class="card-img img-fluid" src="assets/images/dashboard/hotel-card.jpg"
-                                        alt="Card image">
-                                    <div
-                                        class="card-img-overlay overlay-dark d-flex justify-content-between flex-column">
-                                        <div class="overlay-content">
-                                            <p class="card-text text-ellipsis">
-                                                Плаза, Бургас
-                                            </p>
-                                        </div>
-                                        <div class="overlay-status">
-                                            <a href="#" class="btn btn-outline-white btn-sm">Влез</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </section>
-            </div>
         </div>
     </div>
-    <script src="assets/js/feather-icons/feather.min.js"></script>
-    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/app.js"></script>
-
-    <script src="assets/vendors/chartjs/Chart.min.js"></script>
-    <script src="assets/vendors/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
-
-    <script src="assets/js/main.js"></script>
+    <script src="~/js/feather-icons/feather.min.js"></script>
+    <script src="~/js/app.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="~/vendors/chartjs/Chart.min.js"></script>
+    <script src="~/vendors/apexcharts/apexcharts.min.js"></script>
+    <script src="~/js/pages/dashboard.js"></script>
+    @await this.RenderSectionAsync("Scripts", required: false)
 </body>
-
 </html>

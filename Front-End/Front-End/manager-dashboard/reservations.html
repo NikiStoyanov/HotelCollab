@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Служители</title>
+    <title>Резервации</title>
 
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
 
@@ -41,14 +41,14 @@
                             </a>
                         </li>
 
-                        <li class="sidebar-item">
+                        <li class="sidebar-item active">
                             <a href="reservations.html" class='sidebar-link'>
                                 <i class="far fa-address-book" width="20"></i>
                                 <span>Резервации</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item active">
+                        <li class="sidebar-item">
                             <a href="employees.html" class='sidebar-link'>
                                 <i class="fas fa-user-tie" width="20"></i>
                                 <span>Служители</span>
@@ -163,69 +163,80 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-12">
-                            <h3>Служители</h3>
-                            <p class="text-subtitle">Тук може да следите прогреса на вашите служители и да управлявате
-                                профилите им.</p>
+                            <h3>Резервации</h3>
+                            <p class="text-subtitle">Тук може да следите резервацииите в хотела.</p>
                         </div>
                     </div>
                 </div>
                 <section class="section">
                     <div class="card">
                         <div class="card-header">
-                            Служители
+                            Резервации
                         </div>
                         <div class="card-body">
                             <div class="col-md-12">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link active" id="passed-tab" data-toggle="tab" href="#passed"
+                                            role="tab" aria-controls="passed" aria-selected="true">Минали</a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="active-tab" data-toggle="tab" href="#active"
+                                            role="tab" aria-controls="active" aria-selected="false">Активни</a>
+                                    </li>
+                                    
+                                </ul>
+                                <div class="tab-pane fade show active" id="passed" role="tabpanel"
+                                            aria-labelledby="passed-tab">
 
-                                <table class='table table-striped' id="table1">
-                                    <thead>
-                                        <tr>
-                                            <th>Профил</th>
-                                            <th>Име</th>
-                                            <th>Служител</th>
-                                            <th>Детайли</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="avatar bg-warning ">
-                                                    <img src="assets/images/avatar/avatar-s-4.png" alt="" srcset="">
-                                                </div>
-                                            </td>
-                                            <td>Иван Петров</td>
-                                            <td>Рецепционист</td>
-                                            <td><a href="initial-employee.html">Отвори</a></td>
+                                            <table class='table table-striped' id="table1">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Стая</th>
+                                                        <th>Тип</th>
+                                                        <th>Период</th>
+                                                        <th>Детайли</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>201</td>
+                                                        <td>Двойна</td>
+                                                        <td>12.01 - 13.01.2021</td>
+            
+                                                        <td><a href="initial-reservation.html">Отвори</a></td>
+            
+                                                    </tr>
+            
+                                                    <tr>
+                                                        <td>201</td>
+                                                        <td>Двойна</td>
+                                                        <td>12.01 - 13.01.2021</td>
+            
+                                                        <td><a href="initial-reservation.html">Отвори</a></td>
+            
+                                                    </tr>
+            
+                                                    <tr>
+                                                        <td>201</td>
+                                                        <td>Двойна</td>
+                                                        <td>12.01 - 13.01.2021</td>
+            
+                                                        <td><a href="initial-reservation.html">Отвори</a></td>
+            
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            
+                                </div>
 
-                                        </tr>
+                                <div class="tab-pane fade" id="active" role="tabpanel"
+                                            aria-labelledby="active-tab">
+                                            
+                                </div>
 
-                                        <tr>
-                                            <td>
-                                                <div class="avatar bg-warning ">
-                                                    <img src="assets/images/avatar/avatar-s-4.png" alt="" srcset="">
-                                                </div>
-                                            </td>
-                                            <td>Иван Петров</td>
-                                            <td>Рецепционист</td>
-                                            <td><a href="initial-employee.html">Отвори</a></td>
-
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div class="avatar bg-warning ">
-                                                    <img src="assets/images/avatar/avatar-s-4.png" alt="" srcset="">
-                                                </div>
-                                            </td>
-                                            <td>Иван Петров</td>
-                                            <td>Рецепционист</td>
-                                            <td><a href="initial-employee.html">Отвори</a></td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-
+                               
+                                
                             </div>
                         </div>
                     </div>
