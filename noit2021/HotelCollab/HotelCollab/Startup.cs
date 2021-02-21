@@ -28,11 +28,7 @@ namespace HotelCollab
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-<<<<<<< HEAD
-            //services.AddSingleton<IRepository<Hotel>, Repository<Hotel>>();
-=======
             services.AddSingleton<IRepository<Hotel>, Repository<Hotel>>();
->>>>>>> 9e2012f123d4a7d35a818c75969b7ed12c1af2b6
 
             services.AddControllersWithViews();
             services.AddRazorPages();
