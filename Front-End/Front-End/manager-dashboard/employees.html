@@ -27,7 +27,7 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
-                        <li class="sidebar-item active">
+                        <li class="sidebar-item">
                             <a href="dashboard.html" class='sidebar-link'>
                                 <i class="fas fa-chart-line" width="20"></i>
                                 <span>Табло</span>
@@ -42,9 +42,16 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="reservation.html" class='sidebar-link'>
+                            <a href="reservations.html" class='sidebar-link'>
                                 <i class="far fa-address-book" width="20"></i>
                                 <span>Резервации</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item active">
+                            <a href="employees.html" class='sidebar-link'>
+                                <i class="fas fa-user-tie" width="20"></i>
+                                <span>Служители</span>
                             </a>
                         </li>
 
@@ -67,6 +74,13 @@
                                 <i class="far fa-calendar" width="20"></i>
                                 <span>Добави събитие</span>
                             </a>    
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="cleaning.html" class='sidebar-link'>
+                                <i class="far fa-calendar-plus" width="20"></i>
+                                <span>Почиствания</span>
+                            </a>
                         </li>
 
 
@@ -150,7 +164,8 @@
                     <div class="row">
                         <div class="col-12 col-md-12">
                             <h3>Служители</h3>
-                            <p class="text-subtitle">Тук може да следите прогреса на вашите служители и да управлявате профилите им.</p>
+                            <p class="text-subtitle">Тук може да следите прогреса на вашите служители и да управлявате
+                                профилите им.</p>
                         </div>
                     </div>
                 </div>
@@ -161,71 +176,56 @@
                         </div>
                         <div class="card-body">
                             <div class="col-md-12">
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" id="reseptionist-tab" data-toggle="tab" href="#reseptionist"
-                                            role="tab" aria-controls="reseptionist" aria-selected="true">Рецепционисти</a>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="cleaner-tab" data-toggle="tab" href="#cleaner"
-                                            role="tab" aria-controls="cleaner" aria-selected="false">Почистващ персонал</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-pane fade show active" id="reseptionist" role="tabpanel"
-                                            aria-labelledby="reseptionist-tab">
 
-                                            <table class='table table-striped' id="table1">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Стая</th>
-                                                        <th>Тип</th>
-                                                        <th>Период</th>
-                                                        <th>Детайли</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>201</td>
-                                                        <td>Двойна</td>
-                                                        <td>12.01 - 13.01.2021</td>
-            
-                                                        <td><a href="initial-reservation.html">Отвори</a></td>
-            
-                                                    </tr>
-            
-                                                    <tr>
-                                                        <td>201</td>
-                                                        <td>Двойна</td>
-                                                        <td>12.01 - 13.01.2021</td>
-            
-                                                        <td><a href="initial-reservation.html">Отвори</a></td>
-            
-                                                    </tr>
-            
-                                                    <tr>
-                                                        <td>201</td>
-                                                        <td>Двойна</td>
-                                                        <td>12.01 - 13.01.2021</td>
-            
-                                                        <td><a href="initial-reservation.html">Отвори</a></td>
-            
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            
-                                </div>
+                                <table class='table table-striped' id="table1">
+                                    <thead>
+                                        <tr>
+                                            <th>Профил</th>
+                                            <th>Име</th>
+                                            <th>Служител</th>
+                                            <th>Детайли</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="avatar bg-warning ">
+                                                    <img src="assets/images/avatar/avatar-s-4.png" alt="" srcset="">
+                                                </div>
+                                            </td>
+                                            <td>Иван Петров</td>
+                                            <td>Рецепционист</td>
+                                            <td><a href="initial-employee.html">Отвори</a></td>
 
-                                <div class="tab-pane fade" id="cleaner" role="tabpanel"
-                                            aria-labelledby="cleaner-tab">
+                                        </tr>
 
-                                            
-                                </div>
+                                        <tr>
+                                            <td>
+                                                <div class="avatar bg-warning ">
+                                                    <img src="assets/images/avatar/avatar-s-4.png" alt="" srcset="">
+                                                </div>
+                                            </td>
+                                            <td>Иван Петров</td>
+                                            <td>Рецепционист</td>
+                                            <td><a href="initial-employee.html">Отвори</a></td>
 
-                                <div class="tab-pane fade" id="future" role="tabpanel"
-                                        aria-labelledby="future-tab">
-                                        
-                                </div>
-                                
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div class="avatar bg-warning ">
+                                                    <img src="assets/images/avatar/avatar-s-4.png" alt="" srcset="">
+                                                </div>
+                                            </td>
+                                            <td>Иван Петров</td>
+                                            <td>Рецепционист</td>
+                                            <td><a href="initial-employee.html">Отвори</a></td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                             </div>
                         </div>
                     </div>

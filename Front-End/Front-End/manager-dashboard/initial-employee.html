@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Резервация - стая 201 </title>
+    <title>Иван Петров </title>
 
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
 
@@ -28,7 +28,7 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
-                        <li class="sidebar-item active">
+                        <li class="sidebar-item">
                             <a href="dashboard.html" class='sidebar-link'>
                                 <i class="fas fa-chart-line" width="20"></i>
                                 <span>Табло</span>
@@ -43,9 +43,16 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="reservation.html" class='sidebar-link'>
+                            <a href="reservations.html" class='sidebar-link'>
                                 <i class="far fa-address-book" width="20"></i>
                                 <span>Резервации</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item active">
+                            <a href="employees.html" class='sidebar-link'>
+                                <i class="fas fa-user-tie" width="20"></i>
+                                <span>Служители</span>
                             </a>
                         </li>
 
@@ -68,6 +75,13 @@
                                 <i class="far fa-calendar" width="20"></i>
                                 <span>Добави събитие</span>
                             </a>    
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="cleaning.html" class='sidebar-link'>
+                                <i class="far fa-calendar-plus" width="20"></i>
+                                <span>Почиствания</span>
+                            </a>
                         </li>
 
 
@@ -148,16 +162,13 @@
 
             <div class="main-content container-fluid">
                 <div class="page-title">
-                    <h3>Резервация - стая 201 </h3>
-                    <p class="text-subtitle text-muted">Тук можете да редактирате или изтриете резервация.</p>
+                    <h3>Иван Петров - рецепционист </h3>
+                    <p class="text-subtitle text-muted">Тук можете да следите и управлявате профила на конкретния служител.</p>
                 </div>
                 <section id="multiple-column-form">
                     <div class="row match-height">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Стая 201</h4>
-                                </div>
                                 <div class="card-content">
                                     <div class="card-body">
                                         <form class="form">
@@ -165,55 +176,56 @@
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label for="disabledInput">Име</label>
-                                                        <input type="text" class="form-control" id="disabledInput" placeholder="Иван Петров"
+                                                        <input type="text" class="form-control" id="disabledInput" placeholder="Иван"
                                                             disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
-                                                        <label for="disabledInput">Период</label>
-                                                        <input type="text" class="form-control" id="disabledInput" placeholder="12.01 - 14.01.2021"
+                                                        <label for="disabledInput">Фамилия</label>
+                                                        <input type="text" class="form-control" id="disabledInput" placeholder="Петров"
                                                             disabled>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="disabledInput">Възрастни</label>
-                                                        <input type="text" class="form-control" id="disabledInput" placeholder="2"
-                                                            disabled>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="disabledInput">Деца</label>
-                                                        <input type="text" class="form-control" id="disabledInput" placeholder="1"
-                                                            disabled>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-12">
-                                                    <fieldset class="form-group">
-                                                        <label for="disabledInput">Тип стая</label>
-                                                        <select class="form-select" disabled="disabled" id="disabledSelect">
-                                                            <option>Двойна</option>
-                                                            <option>Тройна</option>
-                                                            <option>Апартамент</option>
-                                                        </select>
-                                                    </fieldset>
-                                                </div>
-
-                                                <div class="col-md-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="disabledInput">Почиствания</label>
-                                                        <input type="text" class="form-control" id="disabledInput" placeholder="6"
-                                                            disabled>
-                                                    </div>
-                                                </div>
+                                                
 
                                                 <div class="col-12 d-flex justify-content-end">
                                                     <button type="submit"
                                                         class="btn btn-primary mr-1 mb-1">Редактирай</button>
                                                     <button type="reset"
-                                                        class="btn btn-light-secondary mr-1 mb-1">Изтрий</button>
+                                                        class="btn btn-light-secondary mr-1 mb-1" data-toggle="modal"
+                                                        data-target="#border-less">Изтрий</button>
+
+                                                        <div class="modal fade text-left modal-borderless" id="border-less" tabindex="-1"
+                                                        role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title">Изтрий профил</h5>
+                                                                    <button type="button" class="close rounded-pill"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>
+                                                                        Сигурни ли сте, че искате да изтриете профила на този служител? Това е необратим процес.
+                                                                    </p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-primary"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Затвори</span>
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-primary ml-1"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Изтрий</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </form>
@@ -224,61 +236,20 @@
                     </div>
                 </section>
 
-                <div class="row" id="table-hover-row">
-                    <div class="col-12">
-                      <div class="card">
-                        <div class="card-header">
-                          <h4 class="card-title">Почиствания</h4>
+                <section class="section">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Регистрирани гости</h4>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="bar"></canvas>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-content">
-                          <div class="card-body">
-                            <p>
-                                Минали почиствания за съответната резервация.
-                            </p>
-                          </div>
-                          <!-- table hover -->
-                          <div class="table-responsive">
-                            <table class="table table-hover mb-0">
-                              <thead>
-                                <tr>
-                                  <th>ДАТА</th>
-                                  <th>ПОЧИСТИЛ</th>
-                                  <th>ЩЕТИ</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>23.02.2021 г.</td>
-                                  <td>Иван Петров</td>
-                                  <td>Да</td>
-                                </tr>
-                                <tr>
-                                    <td>23.02.2021 г.</td>
-                                    <td>Иван Петров</td>
-                                    <td>Да</td>
-                                </tr>
-                                <tr>
-                                    <td>23.02.2021 г.</td>
-                                    <td>Иван Петров</td>
-                                    <td>Да</td>
-                                </tr>
-                                <tr>
-                                    <td>23.02.2021 г.</td>
-                                    <td>Иван Петров</td>
-                                    <td>Да</td>
-                                </tr>
-                                <tr>
-                                    <td>23.02.2021 г.</td>
-                                    <td>Иван Петров</td>
-                                    <td>Да</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
                     </div>
-                  </div>
+                </section>
 
             </div>
 
@@ -291,6 +262,7 @@
             <script src="../assets/js/pages/dashboard.js"></script>
             <script src="../assets/vendors/dayjs/dayjs.min.js"></script>
             <script src="../assets/js/pages/ui-apexchart.js"></script>
+            <script src="../assets/js/pages/ui-chartjs.js"></script>
 
             <script src="../assets/js/main.js"></script>
 </body>
