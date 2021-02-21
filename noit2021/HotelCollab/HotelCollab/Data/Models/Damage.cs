@@ -7,10 +7,10 @@
     {
         public Damage()
         {
-            this.Id = Guid.NewGuid().ToString();
+            this.DamageId = Guid.NewGuid().ToString();
         }
 
-        public string Id { get; private set; }
+        public string DamageId { get; private set; }
 
         [Required]
         public string CleaningId { get; set; }

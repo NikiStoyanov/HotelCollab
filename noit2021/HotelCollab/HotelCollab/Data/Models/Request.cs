@@ -7,10 +7,10 @@
     {
         public Request()
         {
-            this.Id = Guid.NewGuid().ToString();
+            this.RequestId = Guid.NewGuid().ToString();
         }
 
-        public string Id { get; private set; }
+        public string RequestId { get; private set; }
 
         public DateTime CreatedOn { get; set; }
 

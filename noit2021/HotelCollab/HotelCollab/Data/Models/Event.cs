@@ -9,10 +9,10 @@
     {
         public Event()
         {
-            this.Id = Guid.NewGuid().ToString();
+            this.EventId = Guid.NewGuid().ToString();
         }
 
-        public string Id { get; private set; }
+        public string EventId { get; private set; }
 
         [Required]
         [MinLength(20)]

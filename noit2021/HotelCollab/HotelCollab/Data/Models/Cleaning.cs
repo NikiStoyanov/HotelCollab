@@ -8,10 +8,10 @@
     {
         public Cleaning()
         {
-            this.Id = Guid.NewGuid().ToString();
+            this.CleaningId = Guid.NewGuid().ToString();
         }
 
-        public string Id { get; set; }
+        public string CleaningId { get; set; }
 
         public string RoomId { get; set; }
 

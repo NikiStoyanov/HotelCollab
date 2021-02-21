@@ -8,12 +8,12 @@
     {
         public Town()
         {
-            this.Id = Guid.NewGuid().ToString();
+            this.TownId = Guid.NewGuid().ToString();
 
             this.Hotels = new HashSet<Hotel>();
         }
 
-        public string Id { get; private set; }
+        public string TownId { get; private set; }
 
         [Required]
         [MinLength(2)]

@@ -8,11 +8,6 @@ namespace HotelCollab.Data
         private readonly ApplicationDbContext AppDbContext;
         private readonly DbSet<T> dbSet;
 
-        public Repository()
-        {
-                
-        }
-
         public Repository(ApplicationDbContext appDbContext)
         {
             this.AppDbContext = appDbContext;

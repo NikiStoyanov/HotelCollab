@@ -8,12 +8,12 @@
     {
         public Reservation()
         {
-            this.Id = Guid.NewGuid().ToString();
+            this.ReservationId = Guid.NewGuid().ToString();
 
             this.Feedbacks = new HashSet<Feedback>();
         }
 
-        public string Id { get; private set; }
+        public string ReservationId { get; private set; }
 
         [Required]
         public DateTime StartDate { get; set; }
