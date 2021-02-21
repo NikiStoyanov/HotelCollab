@@ -1,4 +1,7 @@
-﻿<section id="hero" class="d-flex align-items-center">
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+<section id="hero" class="d-flex align-items-center">
 
     <div class="container">
         <div class="row">
@@ -17,67 +20,66 @@
     </div>
 
 </section><!-- End Hero -->
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
 
-    <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>За нас</h2>
+        </div>
 
-            <div class="section-title">
-                <h2>За нас</h2>
+        <div class="row content">
+            <div>
+                <p>
+                    Нашата цел е да подобрим комуникацията между персонала във вашия хотел, а това изцяло рефлектира върху по-високата оценка от страна на гостите. Приложението обхваща цялата организацията след настаняването, а вие получавате пълен достъп над управлението директно през мобилния ви телефон. Време е заедно да трансформираме вашия хотел в такъв от бъдещето!
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End About Us Section -->
+<!-- ======= Services Section ======= -->
+<section id="services" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Услуги</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div class="icon"><i class='bx bx-sort-up'></i></div>
+                    <h4><a>Прогрес</a></h4>
+                    <p>Получавате статистика за всеки един служител</p>
+                </div>
             </div>
 
-            <div class="row content">
-                <div>
-                    <p>
-                        Нашата цел е да подобрим комуникацията между персонала във вашия хотел, а това изцяло рефлектира върху по-високата оценка от страна на гостите. Приложението обхваща цялата организацията след настаняването, а вие получавате пълен достъп над управлението директно през мобилния ви телефон. Време е заедно да трансформираме вашия хотел в такъв от бъдещето!
-                    </p>
+            <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="bx bx-file"></i></div>
+                    <h4><a>Сигнали</a></h4>
+                    <p>Получавате сигнали за възникнали неизправности</p>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div class="icon"><i class='bx bx-calendar-event'></i></div>
+                    <h4><a>Събития</a></h4>
+                    <p>Популяризирате събитията във вашия хотел</p>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+                <div class="icon-box">
+                    <div class="icon"><i class='bx bxs-group'></i></div>
+                    <h4><a>И последно...</a></h4>
+                    <p>Създаден от гости за гости!</p>
                 </div>
             </div>
 
         </div>
-    </section><!-- End About Us Section -->
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
-        <div class="container" data-aos="fade-up">
 
-            <div class="section-title">
-                <h2>Услуги</h2>
-            </div>
-
-            <div class="row">
-                <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="icon-box">
-                        <div class="icon"><i class='bx bx-sort-up'></i></div>
-                        <h4><a>Прогрес</a></h4>
-                        <p>Получавате статистика за всеки един служител</p>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bx-file"></i></div>
-                        <h4><a>Сигнали</a></h4>
-                        <p>Получавате сигнали за възникнали неизправности</p>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="icon-box">
-                        <div class="icon"><i class='bx bx-calendar-event'></i></div>
-                        <h4><a>Събития</a></h4>
-                        <p>Популяризирате събитията във вашия хотел</p>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="icon-box">
-                        <div class="icon"><i class='bx bxs-group'></i></div>
-                        <h4><a>И последно...</a></h4>
-                        <p>Създаден от гости за гости!</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section><!-- End Services Section -->
+    </div>
+</section><!-- End Services Section -->

@@ -34,8 +34,7 @@ namespace HotelCollab
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddSingleton<IRepository<Hotel>, Repository<Hotel>>();
-            services.AddSingleton<IRepository<Hotel>, Repository<Hotel>>();
+            //services.AddSingleton<IRepository<Hotel>, Repository<Hotel>>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -63,13 +62,13 @@ namespace HotelCollab
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
-            });
+            app.UseEndpoints(
+                endpoints =>
+                {
+                    endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                    endpoints.MapRazorPages();
+                });
         }
     }
 }

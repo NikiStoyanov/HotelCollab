@@ -1,4 +1,4 @@
-﻿namespace HotelCollab.Web.Areas.Identity.Pages.Account
+﻿namespace HotelCollab.Areas.Identity.Pages.Account
 {
     using System;
     using System.Collections.Generic;

@@ -5,8 +5,8 @@ namespace HotelCollab.Data
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        ApplicationDbContext AppDbContext;
-        DbSet<T> dbSet;
+        private readonly ApplicationDbContext AppDbContext;
+        private readonly DbSet<T> dbSet;
 
         public Repository(ApplicationDbContext appDbContext)
         {

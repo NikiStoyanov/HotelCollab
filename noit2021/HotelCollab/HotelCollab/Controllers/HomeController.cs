@@ -1,4 +1,4 @@
-﻿namespace HotelCollab.Web.Controllers
+﻿namespace HotelCollab.Controllers
 {
     using System.Diagnostics;
     using HotelCollab.Models;

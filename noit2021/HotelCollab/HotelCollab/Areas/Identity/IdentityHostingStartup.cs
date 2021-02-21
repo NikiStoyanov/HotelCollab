@@ -10,9 +10,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: HostingStartup(typeof(HotelCollab.Web.Areas.Identity.IdentityHostingStartup))]
+[assembly: HostingStartup(typeof(HotelCollab.Areas.Identity.IdentityHostingStartup))]
 
-namespace HotelCollab.Web.Areas.Identity
+namespace HotelCollab.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {
