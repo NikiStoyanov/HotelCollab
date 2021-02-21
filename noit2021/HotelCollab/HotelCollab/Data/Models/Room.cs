@@ -9,11 +9,11 @@
     {
         public Room()
         {
-            this.RoomId = Guid.NewGuid().ToString();
+            this.Id = Guid.NewGuid().ToString();
             this.Reservations = new HashSet<Reservation>();
         }
 
-        public string RoomId { get; private set; }
+        public string Id { get; private set; }
 
         [Required]
         public string RoomNumber { get; set; }

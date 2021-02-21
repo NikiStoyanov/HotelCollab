@@ -9,10 +9,10 @@
     {
         public Feedback()
         {
-            this.FeedbackId = Guid.NewGuid().ToString();
+            this.Id = Guid.NewGuid().ToString();
         }
 
-        public string FeedbackId { get; private set; }
+        public string Id { get; private set; }
 
         [Required]
         public string GuestId { get; set; }
