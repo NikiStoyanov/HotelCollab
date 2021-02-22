@@ -38,11 +38,12 @@ namespace HotelCollab
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddTransient<IRepository<Hotel>, Repository<Hotel>>();
+            services.AddTransient<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
 
-
-            //services.AddSingleton<IUserService, UserService>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddControllersWithViews();
+
             services.AddRazorPages();
         }
 
