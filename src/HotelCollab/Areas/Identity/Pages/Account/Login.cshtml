@@ -1,0 +1,69 @@
+﻿@page
+@model LoginModel
+
+@{
+    this.Layout = "_LogOutLayout";
+}
+
+<div id="auth">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-12 mx-auto">
+                <div class="card pt-4">
+                    <div class="card-body">
+                        <div class="text-center mb-5">
+                            <img src="~/images/logos/hotel_manager3_3.png" height="96" class='mb-4'>
+                            <h3>Вход</h3>
+                            <p>Моля попълнете тази форма, за да влезете.</p>
+                        </div>
+                        <form method="post">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group position-relative has-icon-left">
+                                <label asp-for="Input.Email" for="email">Email</label>
+                                <div class="position-relative">
+                                    <input asp-for="Input.Email" class="form-control" id="username">
+                                    <div class="form-control-icon">
+                                        <i data-feather="user"></i>
+                                    </div>
+                                </div>
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group position-relative has-icon-left">
+                                <div class="clearfix">
+                                    <label asp-for="Input.Password" for="password">Парола</label>
+                                    <a asp-controller="Account" asp-action="ForgotPassword" class='float-right'>
+                                        <small>Забравена парола?</small>
+                                    </a>
+                                </div>
+                                <div class="position-relative">
+                                    <input asp-for="Input.Password" class="form-control" id="password">
+                                    <div class="form-control-icon">
+                                        <i data-feather="lock"></i>
+                                    </div>
+                                </div>
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+
+                            <div class='form-check clearfix my-4'>
+                                <div class="checkbox float-left">
+                                    <input asp-for="Input.RememberMe" type="checkbox" id="checkbox1" class='form-check-input'>
+                                    <label asp-for="Input.RememberMe" for="checkbox1">Запомни ме</label>
+                                </div>
+                                <div class="float-right">
+                                    <a asp-controller="Account" asp-action="Register">Нямате акаунт?</a>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <button type="submit" class="btn btn-primary float-right">Влез</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

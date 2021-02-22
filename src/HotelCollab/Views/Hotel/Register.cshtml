@@ -1,0 +1,70 @@
+﻿@{
+    this.Layout = "_LogOutLayout";
+}
+<div id="auth">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-sm-12 mx-auto">
+                <div class="card pt-4">
+                    <div class="card-body">
+                        <div class="text-center mb-5">
+                            <img src="~/images/logos/hotel_manager3_3.png" height="96" class='mb-4'>
+                            <h3>Регистрирай хотел</h3>
+                            <p>Моля попълнете тази форма, за да регистрирате хотел.</p>
+                        </div>
+                        <form action="index.html">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="first-name-column">Име на хотела</label>
+                                        <input type="text" id="hotel-name" class="form-control" name="hotel-name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="hotel-phone-number">Тел. номер</label>
+                                        <input type="tel" id="hotel-phone-number" class="form-control" name="hotel-phone-number" pattern="[0-9]{3} [0-9]{3} [0-9]{4}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="hotel-town">Град</label>
+                                        <select name="hotel-town" id="hotel-town" class="form-control">
+                                            <option value="" selected disabled hidden>-- Избери град --</option>
+                                            <option value="">София</option>
+                                            <option value="">Пловдив</option>
+                                            <option value="">Пазарджик</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label for="hotel-adress">Адрес</label>
+                                        <input type="text" id="hotel-adress" class="form-control" name="hotel-adress">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label>Изображение</label>
+                                        <div class="form-file">
+                                            <input type="file" class="form-file-input" id="hotel-registration-image">
+                                            <label class="form-file-label" for="hotel-registration-image">
+                                                <span class="form-file-text" id="hotel-registration-image">Изберете файл...</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <button class="btn btn-primary float-right">Регистрирай</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
