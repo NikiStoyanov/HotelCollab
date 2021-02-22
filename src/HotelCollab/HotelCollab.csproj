@@ -27,7 +27,6 @@
     <Folder Include="Areas\Guest\Data\" />
     <Folder Include="Areas\Guest\Models\" />
     <Folder Include="Data\Migrations\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>

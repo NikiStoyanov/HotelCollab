@@ -41,6 +41,7 @@ namespace HotelCollab
             services.AddTransient<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IHotelService, HotelService>();
 
             services.AddControllersWithViews();
 

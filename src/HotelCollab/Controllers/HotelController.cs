@@ -2,8 +2,11 @@
 {
     using HotelCollab.Data;
     using HotelCollab.Data.Models;
+    using HotelCollab.Services;
     using HotelCollab.Services.Interfaces;
+    using HotelCollab.ViewModels.Hotel;
     using Microsoft.AspNetCore.Mvc;
+    using System.Diagnostics;
     using System.Threading.Tasks;
 
     public class HotelController : Controller
@@ -21,10 +24,10 @@
         }
 
         [HttpPost]
-        public IActionResult RegisterHotel(Hotel hotel)
+        public IActionResult RegisterHotel(HotelRegisterViewModel model)
         {
-            hotelService.AddHotel();
-            
+            hotelService.AddHotel(model);
+
             return this.Redirect("/Home/Index");
         }
     }
