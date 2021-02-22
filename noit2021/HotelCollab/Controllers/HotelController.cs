@@ -1,7 +1,17 @@
 ﻿namespace HotelCollab.Controllers
 {
+<<<<<<< HEAD
     using HotelCollab.Data.Models;
     using Microsoft.AspNetCore.Mvc;
+=======
+    using CloudinaryDotNet;
+    using CloudinaryDotNet.Actions;
+    using HotelCollab.Data;
+    using HotelCollab.Data.Models;
+    using HotelCollab.Presentation;
+    using Microsoft.AspNetCore.Mvc;
+    using System.Linq;
+>>>>>>> 714d2209b2a9a86575bccfda9556e66651079782
     using System.Threading.Tasks;
 
     public class HotelController : Controller
