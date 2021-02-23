@@ -24,7 +24,7 @@ namespace HotelCollab.Data
             this.AppDbContext.Remove<T>(model);
         }
 
-        public T Get(Guid id)
+        public T Get(string id)
         {
             return dbSet.Find(id);
         }

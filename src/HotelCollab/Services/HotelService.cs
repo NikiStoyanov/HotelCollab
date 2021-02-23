@@ -14,34 +14,38 @@
     public class HotelService : IHotelService
     {
         private readonly IRepository<Hotel> hotelRepo;
+        private readonly IRepository<Town> townRepo;
 
-        public HotelService(IRepository<Hotel> hotelRepo)
+        public HotelService(IRepository<Hotel> hotelRepo, IRepository<Town> townRepo)
         {
             this.hotelRepo = hotelRepo;
+            this.townRepo = townRepo;
         }
 
         public void AddHotel(HotelRegisterViewModel model)
         {
-            var account = new Account { ApiKey = "597981955165718", ApiSecret = "YrIRgn7E7ffUnN1kXSJhyGQJS54", Cloud = "hotelcollab" };
+            //var account = new Account { ApiKey = "597981955165718", ApiSecret = "YrIRgn7E7ffUnN1kXSJhyGQJS54", Cloud = "hotelcollab" };
 
-            var cloudinary = new Cloudinary(account);
+            //var cloudinary = new Cloudinary(account);
 
-            var uploadParams = new ImageUploadParams()
-            {
-                File = new FileDescription(@$"{model.Name.ToLower()}.jpg"),
-            };
+            //var uploadParams = new ImageUploadParams()
+            //{
+            //    File = new FileDescription(@$"{model.Name.ToLower()}.jpg"),
+            //};
 
-            var result = cloudinary.Upload(uploadParams);
+            //var result = cloudinary.Upload(uploadParams);
 
-            var hotel = new Hotel(result.Url.ToString())
+            var hotel = new Hotel(string.Empty)
             {
                 Name = model.Name,
                 PhoneNumber = model.PhoneNumber,
                 Address = model.Address,
                 CleaningPeriod = model.CleaningPeriod,
+                Town = new Town()
+                {
+                    Name = model.TownName,
+                },
             };
-
-            hotel.Town.Name = model.TownName;
 
             hotelRepo.Add(hotel);
         }

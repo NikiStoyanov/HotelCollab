@@ -18,21 +18,21 @@
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label asp-for="Name">Име на хотела</label>
+                                        <label>Име на хотела</label>
                                         <input type="text" asp-for="Name" class="form-control">
                                         <span asp-validation-for="Name" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label asp-for="PhoneNumber">Тел. номер</label>
+                                        <label>Тел. номер</label>
                                         <input type="tel" asp-for="PhoneNumber" class="form-control" pattern="[0-9]{3} [0-9]{3} [0-9]{4}">
                                         <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label asp-for="TownName">Град</label>
+                                        <label>Град</label>
                                         <input type="text" asp-for="TownName" class="form-control">
                                         <span asp-validation-for="TownName" class="text-danger"></span>
 
@@ -40,24 +40,24 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label asp-for="Address">Адрес</label>
+                                        <label>Адрес</label>
                                         <input type="text" asp-for="Address" class="form-control">
                                         <span asp-validation-for="Address" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label asp-for="CleaningPeriod">Период на почистване на стаите</label>
+                                        <label>Период на почистване на стаите</label>
                                         <input type="text" asp-for="CleaningPeriod" class="form-control">
                                         <span asp-validation-for="CleaningPeriod" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label asp-for="Image">Изображение</label>
+                                        <label>Изображение</label>
                                         <div class="form-file">
-                                            <input type="file" class="form-file-input" asp-for="Image">
-                                            <label class="form-file-label" asp-for="Image">
+                                            <input asp-for="Image" type="file" class="form-file-input">
+                                            <label class="form-file-label">
                                                 <span class="form-file-text" id="hotel-registration-image">Изберете файл...</span>
                                             </label>
                                         </div>

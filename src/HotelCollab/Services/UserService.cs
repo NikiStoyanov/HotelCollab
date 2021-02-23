@@ -1,6 +1,7 @@
 ﻿using HotelCollab.Data;
 using HotelCollab.Data.Models;
 using HotelCollab.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,11 @@ namespace HotelCollab.Services
             this.userRepo = userRepo;
         }
 
-        public void ChangeUserName(string name)
+        [HttpGet]
+        public string GetUserFirstName(string id)
         {
-            throw new NotImplementedException();
+            var firstName = userRepo.Get(id).FirstName;
+            return firstName;
         }
     }
 }

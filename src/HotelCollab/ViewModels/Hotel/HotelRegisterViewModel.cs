@@ -25,6 +25,7 @@
         [MaxLength(100)]
         public string Address { get; set; }
 
+        [Required]
         public byte[] Image { get; set; }
 
         [Required]

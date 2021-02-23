@@ -1,14 +1,36 @@
 ﻿namespace HotelCollab.Controllers
 {
+    using HotelCollab.ViewModels.User;
+    using HotelCollab.Services;
     using Microsoft.AspNetCore.Mvc;
     using System.Diagnostics;
+    using HotelCollab.Services.Interfaces;
+    using Microsoft.AspNetCore.Identity;
+    using HotelCollab.Data.Models;
+    using System.Threading.Tasks;
 
-    public class HomeController :  Controller
+    public class HomeController : Controller
     {
+        private readonly IUserService userService;
+        private readonly UserManager<ApplicationUser> userManager;
+
+        public HomeController(IUserService userService, UserManager<ApplicationUser> userManager)
+        {
+            this.userService = userService;
+            this.userManager = userManager;
+        }
+
         public IActionResult Index()
         {
             if (this.User.Identity.IsAuthenticated)
             {
+                var id = this.userManager.GetUserId(this.User);
+
+                var UserViewModel = new UserDashboardViewModel()
+                {
+                    Name = userService.GetUserFirstName(id),
+                };
+
                 return this.View("Dashboard");
             }
             else
@@ -26,7 +48,7 @@
         public IActionResult Error()
         {
             return this.View();
-                //new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
+            //new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
     }
 }

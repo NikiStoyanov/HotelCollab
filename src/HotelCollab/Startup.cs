@@ -39,6 +39,7 @@ namespace HotelCollab
 
             services.AddTransient<IRepository<Hotel>, Repository<Hotel>>();
             services.AddTransient<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
+            services.AddTransient<IRepository<Town>, Repository<Town>>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHotelService, HotelService>();

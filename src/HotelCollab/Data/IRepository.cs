@@ -13,7 +13,7 @@ namespace HotelCollab.Data
 
         public void Delete(T model);
 
-        public T Get(Guid id);
+        public T Get(string id);
 
     }
 }
