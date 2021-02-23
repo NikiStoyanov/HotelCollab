@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Shared\_UsersLayout.cshtml" />
+    <Content Remove="Views\Shared\_UserLayout.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Guest\Controllers\" />
     <Folder Include="Areas\Guest\Data\" />
     <Folder Include="Areas\Guest\Models\" />
     <Folder Include="Data\Migrations\" />
@@ -48,7 +47,7 @@
     <None Include="Views\Hotel\Register.cshtml" />
     <None Include="Views\Shared\_CookieConsentPartial.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
-    <None Include="Views\Shared\_UsersLayout.cshtml" />
+    <None Include="Views\Shared\_UserLayout.cshtml" />
     <None Include="Views\Shared\_LoggedLayout.cshtml" />
     <None Include="Views\Shared\_LoginPartial.cshtml" />
     <None Include="Views\Shared\_LogOutLayout.cshtml" />
