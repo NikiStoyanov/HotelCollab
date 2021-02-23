@@ -47,7 +47,7 @@
                 },
             };
 
-            hotelRepo.Add(hotel);
+            hotelRepo.AddAsync(hotel);
         }
     }
 }

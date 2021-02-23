@@ -7,7 +7,7 @@ namespace HotelCollab.Data
 {
     public interface IRepository<T> where T : class
     {
-        public void Add(T model);
+        public Task AddAsync(T model);
 
         public void Update(T model);
 

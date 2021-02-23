@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Threading.Tasks;
 
 namespace HotelCollab.Data
 {
@@ -14,9 +15,11 @@ namespace HotelCollab.Data
             this.dbSet = appDbContext.Set<T>();
         }
 
-        public void Add(T model)
+        public async Task AddAsync(T model)
         {
             this.AppDbContext.Add<T>(model);
+
+            await AppDbContext.SaveChangesAsync();
         }
 
         public void Delete(T model)
