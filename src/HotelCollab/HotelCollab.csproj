@@ -33,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Guest\Views\_ViewImports.cshtml" />
     <None Include="Areas\Identity\Pages\Account\ForgotPassword.cshtml" />
     <None Include="Areas\Identity\Pages\Account\Login.cshtml" />
     <None Include="Areas\Identity\Pages\Account\Logout.cshtml" />
@@ -46,8 +47,8 @@
     <None Include="Views\Home\Privacy.cshtml" />
     <None Include="Views\Hotel\Register.cshtml" />
     <None Include="Views\Shared\_CookieConsentPartial.cshtml" />
-    <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Shared\_UserLayout.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Shared\_LoggedLayout.cshtml" />
     <None Include="Views\Shared\_LoginPartial.cshtml" />
     <None Include="Views\Shared\_LogOutLayout.cshtml" />

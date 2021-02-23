@@ -73,16 +73,15 @@
                     <ul class="navbar-nav d-flex align-items-center navbar-light ml-auto">
                         @if (this.User.IsInRole("Manager"))
                         {
-                            <li class="dropdown nav-icon mr-3">
+            <li class="dropdown nav-icon mr-3">
 
-                                <a asp-controller="Hotel" asp-action="Register">
-                                    <div class="d-lg-inline-block">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                </a>
+                <a asp-controller="Hotel" asp-action="Register">
+                    <div class="d-lg-inline-block">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </a>
 
-                            </li>
-                        }
+            </li>}
                         <li class="dropdown nav-icon mr-3">
                             <a href="#" data-toggle="modal" data-target="#border-less">
                                 <div class="d-lg-inline-block">
