@@ -104,8 +104,8 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="col-md-12 mb-6">
-                                                <h6>Изберете хотел</h6>
-                                                <div class="form-group">
+                                                <form action="/" method="post">
+                                                    <label>Изберете хотел</label>
                                                     <select class="choices form-select">
                                                         <option value="plaza">Хотел Плаза Бургас</option>
                                                         <option value="plaza">Хотел Плаза Бургас</option>
@@ -114,28 +114,30 @@
                                                         <option value="plaza">Хотел Плаза Бургас</option>
                                                         <option value="plaza">Хотел Плаза Бургас</option>
                                                     </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 mb-6">
-                                                <h6>Изберете роля</h6>
-                                                <div class="form-group">
+
+                                                    <label>Изберете роля</label>
                                                     <select class="choices form-select">
                                                         <option value="receptionist">Рецепционист</option>
                                                         <option value="cleaner">Камериер</option>
                                                     </select>
-                                                </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-light-primary"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Затвори</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Подтвърди</span>
+                                                        </button>
+                                                    </div>
+
+                                                </form>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-primary" data-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Затвори</span>
-                                            </button>
-                                            <button type="button" class="btn btn-primary ml-1" data-dismiss="modal">
-                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Подтвърди</span>
-                                            </button>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
