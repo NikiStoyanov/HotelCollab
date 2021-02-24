@@ -4,6 +4,7 @@ using HotelCollab.Services;
 using HotelCollab.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -49,7 +50,7 @@ namespace HotelCollab
             services.AddTransient<IRepository<Reservation>, Repository<Reservation>>();
             services.AddTransient<IRepository<Room>, Repository<Room>>();
             services.AddTransient<IRepository<Town>, Repository<Town>>();
-
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHotelService, HotelService>();
 
@@ -84,6 +85,7 @@ namespace HotelCollab
                 endpoints =>
                 {
                     endpoints.MapControllerRoute("Guest", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                    endpoints.MapControllerRoute("Cleaner", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                     endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                     endpoints.MapRazorPages();
                 });

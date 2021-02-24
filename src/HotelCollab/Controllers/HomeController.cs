@@ -24,6 +24,8 @@
         {
             if (this.User.Identity.IsAuthenticated)
             {
+                //var user = this.User.Identity.Name.;
+
                 var id = this.userManager.GetUserId(this.User);
 
                 var UserViewModel = new UserDashboardViewModel()

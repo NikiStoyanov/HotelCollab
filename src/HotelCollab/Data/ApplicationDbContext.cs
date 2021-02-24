@@ -14,10 +14,6 @@
         {
         }
 
-        public ApplicationDbContext()
-        {
-        }
-
         public DbSet<Request> Requests { get; set; }
 
         public DbSet<Damage> Damages { get; set; }
@@ -38,27 +34,12 @@
 
         public DbSet<ApplicationUser> Users { get; set; }
 
-        public override int SaveChanges() => this.SaveChanges(true);
-
-        public override int SaveChanges(bool acceptAllChangesOnSuccess)
-        {
-            return base.SaveChanges(acceptAllChangesOnSuccess);
-        }
-
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default) =>
-            this.SaveChangesAsync(true, cancellationToken);
-
-        public override Task<int> SaveChangesAsync(
-            bool acceptAllChangesOnSuccess,
-            CancellationToken cancellationToken = default)
-        {
-            return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured == false)
                 optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=HotelCollab;Trusted_Connection=True;MultipleActiveResultSets=true");
         }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             // Needed for Identity models configuration
@@ -150,8 +131,8 @@
                 .WithMany(h => h.UserRoles)
                 .HasForeignKey(ur => ur.HotelId);
 
-           //builder.Entity<ApplicationUserRole>()
-           //    .ToTable("AspNetUserRoles");
+            //builder.Entity<ApplicationUserRole>()
+            //    .ToTable("AspNetUserRoles");
         }
     }
 }

@@ -26,6 +26,8 @@
         [HttpPost]
         public IActionResult RegisterHotel(HotelRegisterViewModel model)
         {
+            model.Image = Request.Form.Files["image"];
+
             hotelService.AddHotel(model);
 
             return this.Redirect("/Home/Index");

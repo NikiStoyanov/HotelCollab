@@ -15,11 +15,9 @@ namespace HotelCollab.Data
             this.dbSet = appDbContext.Set<T>();
         }
 
-        public async Task AddAsync(T model)
+        public void Add(T model)
         {
             this.AppDbContext.Add<T>(model);
-
-            await AppDbContext.SaveChangesAsync();
         }
 
         public void Delete(T model)
@@ -35,6 +33,11 @@ namespace HotelCollab.Data
         public void Update(T model)
         {
             this.AppDbContext.Update<T>(model);
+        }
+
+        public void SaveChanges()
+        {
+            AppDbContext.SaveChanges();
         }
     }
 }
