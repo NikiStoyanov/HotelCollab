@@ -1,11 +1,15 @@
 ﻿namespace HotelCollab.Services
 {
+    using CloudinaryDotNet;
+    using CloudinaryDotNet.Actions;
     using HotelCollab.Data;
     using HotelCollab.Data.Models;
     using HotelCollab.Services.Interfaces;
     using HotelCollab.ViewModels.Hotel;
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
+    using System.IO;
     using System.Threading.Tasks;
 
     public class HotelService : IHotelService
@@ -15,40 +19,40 @@
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IRepository<ApplicationUser> repository;
         private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly IWebHostEnvironment webHostEnvironment;
 
-        public HotelService(IRepository<Hotel> hotelRepo, IRepository<Town> townRepo, UserManager<ApplicationUser> userManager, IRepository<ApplicationUser> repository,IHttpContextAccessor httpContextAccessor)
+        public HotelService(IRepository<Hotel> hotelRepo, IRepository<Town> townRepo, UserManager<ApplicationUser> userManager, IRepository<ApplicationUser> repository,IHttpContextAccessor httpContextAccessor, IWebHostEnvironment webHostEnvironment)
         {
             this.hotelRepo = hotelRepo;
             this.townRepo = townRepo;
             this.userManager = userManager;
             this.repository = repository;
             this.httpContextAccessor = httpContextAccessor;
-
-
+            this.webHostEnvironment = webHostEnvironment;
         }
 
-        public void AddHotel(HotelRegisterViewModel model)
+        public async Task AddHotelAsync(HotelRegisterViewModel model)
         {
-            //var account = new Account { ApiKey = "597981955165718", ApiSecret = "YrIRgn7E7ffUnN1kXSJhyGQJS54", Cloud = "hotelcollab" };
+            var account = new Account { ApiKey = "597981955165718", ApiSecret = "YrIRgn7E7ffUnN1kXSJhyGQJS54", Cloud = "hotelcollab" };
 
-            //var cloudinary = new Cloudinary(account);
+            var cloudinary = new Cloudinary(account);
 
-            //var uploadParams = new ImageUploadParams()
-            //{
-            //    File = new FileDescription(@$"{model.Name.ToLower()}.jpg"),
-            //};
+            var uploadParams = new ImageUploadParams()
+            {
+                File = new FileDescription(Path.Combine(Path.GetFullPath(model.Image.Name))),
+            };
 
-            //var result = cloudinary.Upload(uploadParams);
+            var result = cloudinary.Upload(uploadParams);
 
             var currentUser = httpContextAccessor.HttpContext.User;
             var id =  userManager.GetUserId(currentUser);
-            var user = repository.Get(id);
-            Task.Run(()=>
-            {
-            });
+            var user = await repository.GetAsync(id);
 
-            
-            var hotel = new Hotel(string.Empty)
+            //Task.Run(()=>
+            //{
+            //});
+
+            var hotel = new Hotel(result.Url.ToString())
             {
                 Name = model.Name,
                 PhoneNumber = model.PhoneNumber,
@@ -61,8 +65,8 @@
                // UserRoles = new ApplicationUserRole { }
             };
 
-            hotelRepo.Add(hotel);
-            hotelRepo.SaveChanges();
+            await hotelRepo.AddAsync(hotel);
+            await hotelRepo.SaveChangesAsync();
         }
     }
 }

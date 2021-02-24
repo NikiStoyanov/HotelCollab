@@ -28,7 +28,7 @@
         {
             model.Image = Request.Form.Files["image"];
 
-            hotelService.AddHotel(model);
+            hotelService.AddHotelAsync(model);
 
             return this.Redirect("/Home/Index");
         }
