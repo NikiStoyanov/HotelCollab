@@ -26,8 +26,9 @@
                 </div>
                 <div class="sidebar-menu">
                     @*@if (this.User.IsInRole("Guest"))
-                        {*@
+        {*@
                     <ul class="menu">
+                        @*guest*@
                         <li class="sidebar-item">
                             <a asp-controller="Home" asp-action="Reservation" class='sidebar-link'>
                                 <i class="fas fa-suitcase" width="20"></i>
@@ -48,16 +49,80 @@
                                 <span>Събития</span>
                             </a>
                         </li>
+                        @*cleaner*@
+                        <li class="sidebar-item">
+                            <a asp-area="Cleaner" asp-controller="Home" asp-action="Dashboard" class='sidebar-link'>
+                                <i class="fas fa-chart-line"></i>
+                                <span>Табло</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a asp-area="Cleaner" asp-controller="Cleanings" asp-action="Upcoming" class='sidebar-link'>
+                                <i class="far fa-calendar-plus"></i>
+                                <span>Почиствания</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a asp-area="Cleaner" asp-controller="Cleanings" asp-action="Old" class='sidebar-link'>
+                                <i class="far fa-address-book"></i>
+                                <span>Минали почиствания</span>
+                            </a>
+                        </li>
+                        @*receptionist*@
+                        <li class="sidebar-item">
+                            <a asp-area="Receptionist" asp-controller="Home" asp-action="Dashboard" class='sidebar-link'>
+                                <i class="fas fa-chart-line" width="20"></i>
+                                <span>Табло</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a asp-area="Receptionist" asp-controller="Home" asp-action="Cleanings" class='sidebar-link'>
+                                <i class="far fa-calendar-plus" width="20"></i>
+                                <span>Почиствания</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a asp-area="Receptionist" asp-controller="Home" asp-action="Reservations" class='sidebar-link'>
+                                <i class="far fa-address-book" width="20"></i>
+                                <span>Резервации</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a asp-area="Receptionist" asp-controller="Home" asp-action="Signals" class='sidebar-link'>
+                                <i class="far fa-comment-alt" width="20"></i>
+                                <span>Сигнали</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a asp-area="Receptionist" asp-controller="Add" asp-action="Guest" class='sidebar-link'>
+                                <i class="fas fa-user-plus" width="20"></i>
+                                <span>Регистрирай гост</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a asp-area="Receptionist" asp-controller="Add" asp-action="Event" class='sidebar-link'>
+                                <i class="far fa-calendar" width="20"></i>
+                                <span>Добави събитие</span>
+                            </a>
+                        </li>
                     </ul>
+
                     @*}
-                        @if (this.User.IsInRole("Cleaner"))
-                        {
+        @if (this.User.IsInRole("Cleaner"))
+        {
 
-                        }
-                        @if (this.User.IsInRole("Cleaner"))
-                        {
+        }
+        @if (this.User.IsInRole("Cleaner"))
+        {
 
-                        }*@
+        }*@
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>

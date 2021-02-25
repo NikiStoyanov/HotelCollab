@@ -27,6 +27,8 @@
     <Folder Include="Areas\Cleaner\Models\" />
     <Folder Include="Areas\Guest\Data\" />
     <Folder Include="Areas\Guest\Models\" />
+    <Folder Include="Areas\Receptionist\Data\" />
+    <Folder Include="Areas\Receptionist\Models\" />
     <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
