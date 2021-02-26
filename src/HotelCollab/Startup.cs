@@ -42,7 +42,6 @@ namespace HotelCollab
 
             services.AddTransient<IRepository<ApplicationRole>, Repository<ApplicationRole>>();
             services.AddTransient<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
-            services.AddTransient<IRepository<ApplicationUserRole>, Repository<ApplicationUserRole>>();
             services.AddTransient<IRepository<Cleaning>, Repository<Cleaning>>();
             services.AddTransient<IRepository<Damage>, Repository<Damage>>();
             services.AddTransient<IRepository<Event>, Repository<Event>>();
@@ -52,6 +51,7 @@ namespace HotelCollab
             services.AddTransient<IRepository<Reservation>, Repository<Reservation>>();
             services.AddTransient<IRepository<Room>, Repository<Room>>();
             services.AddTransient<IRepository<Town>, Repository<Town>>();
+            services.AddTransient<IRepository<UserHotels>, Repository<UserHotels>>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHotelService, HotelService>();

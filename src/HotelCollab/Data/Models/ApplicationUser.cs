@@ -21,6 +21,7 @@ namespace HotelCollab.Data.Models
             this.Cleanings = new HashSet<Cleaning>();
             this.Reservations = new HashSet<Reservation>();
             this.ProcessedFeedbacks = new HashSet<Feedback>();
+            this.UserHotels = new HashSet<UserHotels>();
         }
 
         public string FirstName { get; set; }
@@ -54,5 +55,7 @@ namespace HotelCollab.Data.Models
         public virtual ICollection<Reservation> Reservations { get; set; }
 
         public virtual ICollection<Feedback> ProcessedFeedbacks { get; set; }
+
+        public virtual ICollection<UserHotels> UserHotels { get; set; }
     }
 }

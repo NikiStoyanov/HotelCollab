@@ -126,10 +126,26 @@
                 .HasForeignKey(d => d.CleaningId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            builder.Entity<ApplicationUserRole>()
-                .HasOne(ur => ur.Hotel)
-                .WithMany(h => h.UserRoles)
-                .HasForeignKey(ur => ur.HotelId);
+            builder.Entity<UserHotels>()
+                .HasKey(uh => new { uh.UserId, uh.HotelId });
+
+            builder.Entity<UserHotels>()
+                .HasOne(uh => uh.User)
+                .WithMany(u => u.UserHotels)
+                .HasForeignKey(uh => uh.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<UserHotels>()
+                .HasOne(uh => uh.Hotel)
+                .WithMany(h => h.UserHotels)
+                .HasForeignKey(uh => uh.HotelId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<UserHotels>()
+                .HasOne(uh => uh.Role)
+                .WithMany(r => r.UserHotels)
+                .HasForeignKey(uh => uh.RoleId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             //builder.Entity<ApplicationUserRole>()
             //    .ToTable("AspNetUserRoles");

@@ -58,12 +58,10 @@
                 PhoneNumber = model.PhoneNumber,
                 Address = model.Address,
                 CleaningPeriod = model.CleaningPeriod,
-                Town = new Town()
-                {
-                    Name = model.TownName,
-                },
                // UserRoles = new ApplicationUserRole { }
             };
+
+            hotel.Town.Name = model.TownName;
 
             await hotelRepo.AddAsync(hotel);
             await hotelRepo.SaveChangesAsync();
