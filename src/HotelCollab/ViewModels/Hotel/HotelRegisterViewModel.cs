@@ -1,13 +1,10 @@
 ﻿namespace HotelCollab.ViewModels.Hotel
 {
-    using Microsoft.AspNetCore.Http;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-    using static System.Net.Mime.MediaTypeNames;
 
     public class HotelRegisterViewModel
     {
@@ -29,7 +26,7 @@
         public string Address { get; set; }
 
         [Required]
-        public IFormFile Image { get; set; }
+        public byte[] Image { get; set; }
 
         [Required]
         public int CleaningPeriod { get; set; }

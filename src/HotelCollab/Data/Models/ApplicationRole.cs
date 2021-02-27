@@ -3,7 +3,6 @@ namespace HotelCollab.Data.Models
 {
     using Microsoft.AspNetCore.Identity;
     using System;
-    using System.Collections.Generic;
 
     public class ApplicationRole : IdentityRole
     {
@@ -16,8 +15,6 @@ namespace HotelCollab.Data.Models
             : base(name)
         {
             this.Id = Guid.NewGuid().ToString();
-
-            this.UserHotels = new HashSet<UserHotels>();
         }
 
         public DateTime CreatedOn { get; set; }
@@ -27,7 +24,5 @@ namespace HotelCollab.Data.Models
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
-
-        public virtual ICollection<UserHotels> UserHotels { get; set; }
     }
 }

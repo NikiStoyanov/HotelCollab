@@ -14,7 +14,7 @@
                             <h3>Регистрирай хотел</h3>
                             <p>Моля попълнете тази форма, за да регистрирате хотел.</p>
                         </div>
-                        <form method="post" asp-controller="Hotel" asp-action="RegisterHotel" enctype="multipart/form-data">
+                        <form method="post" asp-controller="Hotel" asp-action="RegisterHotel">
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
@@ -56,7 +56,7 @@
                                     <div class="form-group">
                                         <label>Изображение</label>
                                         <div class="form-file">
-                                            <input name="image" asp-for="Image" type="file" class="form-file-input">
+                                            <input asp-for="Image" type="file" class="form-file-input">
                                             <label class="form-file-label">
                                                 <span class="form-file-text" id="hotel-registration-image">Изберете файл...</span>
                                             </label>

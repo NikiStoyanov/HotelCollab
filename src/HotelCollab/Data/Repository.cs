@@ -17,7 +17,9 @@ namespace HotelCollab.Data
 
         public async Task AddAsync(T model)
         {
-            await this.AppDbContext.AddAsync<T>(model);
+            this.AppDbContext.Add<T>(model);
+
+            await AppDbContext.SaveChangesAsync();
         }
 
         public void Delete(T model)
@@ -25,19 +27,14 @@ namespace HotelCollab.Data
             this.AppDbContext.Remove<T>(model);
         }
 
-        public async Task<T> GetAsync(string id)
+        public T Get(string id)
         {
-            return await dbSet.FindAsync(id);
+            return dbSet.Find(id);
         }
 
         public void Update(T model)
         {
             this.AppDbContext.Update<T>(model);
-        }
-
-        public async Task SaveChangesAsync()
-        {
-            await AppDbContext.SaveChangesAsync();
         }
     }
 }

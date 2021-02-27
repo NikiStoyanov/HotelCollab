@@ -12,7 +12,7 @@ namespace HotelCollab.Data.Models
             this.Id = Guid.NewGuid().ToString();
             this.EmailConfirmed = true;
 
-            this.Roles = new HashSet<ApplicationUserRole>();
+            this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
 
@@ -21,7 +21,6 @@ namespace HotelCollab.Data.Models
             this.Cleanings = new HashSet<Cleaning>();
             this.Reservations = new HashSet<Reservation>();
             this.ProcessedFeedbacks = new HashSet<Feedback>();
-            this.UserHotels = new HashSet<UserHotels>();
         }
 
         public string FirstName { get; set; }
@@ -40,7 +39,7 @@ namespace HotelCollab.Data.Models
 
         public DateTime? DeletedOn { get; set; }
 
-        public virtual ICollection<ApplicationUserRole> Roles { get; set; }
+        public virtual ICollection<IdentityUserRole<string>> Roles { get; set; }
 
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
@@ -55,7 +54,5 @@ namespace HotelCollab.Data.Models
         public virtual ICollection<Reservation> Reservations { get; set; }
 
         public virtual ICollection<Feedback> ProcessedFeedbacks { get; set; }
-
-        public virtual ICollection<UserHotels> UserHotels { get; set; }
     }
 }

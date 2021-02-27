@@ -4,7 +4,6 @@ using HotelCollab.Services;
 using HotelCollab.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -34,26 +33,14 @@ namespace HotelCollab
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services
-                .AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<ApplicationRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddClaimsPrincipalFactory<MyUserClaimsPrincipalFactory>();
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddTransient<IRepository<ApplicationRole>, Repository<ApplicationRole>>();
-            services.AddTransient<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
-            services.AddTransient<IRepository<ApplicationUserRole>, Repository<ApplicationUserRole>>();
-            services.AddTransient<IRepository<Cleaning>, Repository<Cleaning>>();
-            services.AddTransient<IRepository<Damage>, Repository<Damage>>();
-            services.AddTransient<IRepository<Event>, Repository<Event>>();
-            services.AddTransient<IRepository<Feedback>, Repository<Feedback>>();
             services.AddTransient<IRepository<Hotel>, Repository<Hotel>>();
-            services.AddTransient<IRepository<Request>, Repository<Request>>();
-            services.AddTransient<IRepository<Reservation>, Repository<Reservation>>();
-            services.AddTransient<IRepository<Room>, Repository<Room>>();
+            services.AddTransient<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
             services.AddTransient<IRepository<Town>, Repository<Town>>();
-            services.AddTransient<IRepository<UserHotels>, Repository<UserHotels>>();
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHotelService, HotelService>();
 
@@ -62,7 +49,6 @@ namespace HotelCollab
             services.AddRazorPages();
         }
 
-         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -88,10 +74,7 @@ namespace HotelCollab
             app.UseEndpoints(
                 endpoints =>
                 {
-                    endpoints.MapControllerRoute("Guest", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-                    endpoints.MapControllerRoute("Receptionist", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-                    endpoints.MapControllerRoute("Cleaner", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-                    endpoints.MapControllerRoute("Manager", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                    endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                     endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                     endpoints.MapRazorPages();
                 });

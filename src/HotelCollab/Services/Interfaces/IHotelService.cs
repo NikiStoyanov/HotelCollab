@@ -8,6 +8,6 @@ namespace HotelCollab.Services.Interfaces
 {
     public interface IHotelService
     {
-        public Task AddHotelAsync(HotelRegisterViewModel model);
+        public void AddHotel(HotelRegisterViewModel model);
     }
 }

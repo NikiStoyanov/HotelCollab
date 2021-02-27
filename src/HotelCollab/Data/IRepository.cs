@@ -13,8 +13,7 @@ namespace HotelCollab.Data
 
         public void Delete(T model);
 
-        public Task<T> GetAsync(string id);
+        public T Get(string id);
 
-        public Task SaveChangesAsync();
     }
 }

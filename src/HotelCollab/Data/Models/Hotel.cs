@@ -13,7 +13,6 @@
             this.Rooms = new HashSet<Room>();
             this.Reservations = new HashSet<Reservation>();
             this.Events = new HashSet<Event>();
-            this.UserHotels = new HashSet<UserHotels>();
             this.UserRoles = new HashSet<ApplicationUserRole>();
         }
 
@@ -52,8 +51,6 @@
         public virtual ICollection<Reservation> Reservations { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
-
-        public virtual ICollection<UserHotels> UserHotels { get; set; }
 
         public virtual ICollection<ApplicationUserRole> UserRoles { get; set; }
     }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HotelCollab.Migrations
 {
-    public partial class initialDatabase : Migration
+    public partial class Add : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -211,23 +211,23 @@ namespace HotelCollab.Migrations
                 {
                     UserId = table.Column<string>(nullable: false),
                     RoleId = table.Column<string>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true),
                     Discriminator = table.Column<string>(nullable: false),
-                    HotelId = table.Column<string>(nullable: true),
-                    ApplicationUserId = table.Column<string>(nullable: true)
+                    HotelId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
                     table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetUsers_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_AspNetUserRoles_Hotels_HotelId",
                         column: x => x.HotelId,
                         principalTable: "Hotels",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -283,34 +283,6 @@ namespace HotelCollab.Migrations
                         name: "FK_Rooms_Hotels_HotelId",
                         column: x => x.HotelId,
                         principalTable: "Hotels",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserHotels",
-                columns: table => new
-                {
-                    UserId = table.Column<string>(nullable: false),
-                    HotelId = table.Column<string>(nullable: false),
-                    RoleId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserHotels", x => new { x.UserId, x.HotelId });
-                    table.ForeignKey(
-                        name: "FK_UserHotels_Hotels_HotelId",
-                        column: x => x.HotelId,
-                        principalTable: "Hotels",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_UserHotels_AspNetRoles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_UserHotels_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
                         principalColumn: "Id");
                 });
 
@@ -453,14 +425,14 @@ namespace HotelCollab.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserRoles_ApplicationUserId",
-                table: "AspNetUserRoles",
-                column: "ApplicationUserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserRoles_HotelId",
                 table: "AspNetUserRoles",
                 column: "HotelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserRoles_ApplicationUserId",
+                table: "AspNetUserRoles",
+                column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserRoles_RoleId",
@@ -543,16 +515,6 @@ namespace HotelCollab.Migrations
                 name: "IX_Rooms_HotelId",
                 table: "Rooms",
                 column: "HotelId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserHotels_HotelId",
-                table: "UserHotels",
-                column: "HotelId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserHotels_RoleId",
-                table: "UserHotels",
-                column: "RoleId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -585,16 +547,13 @@ namespace HotelCollab.Migrations
                 name: "Requests");
 
             migrationBuilder.DropTable(
-                name: "UserHotels");
+                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "Cleanings");
 
             migrationBuilder.DropTable(
                 name: "Reservations");
-
-            migrationBuilder.DropTable(
-                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

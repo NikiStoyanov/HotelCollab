@@ -19,15 +19,9 @@ namespace HotelCollab.Services
         }
 
         [HttpGet]
-        public async Task<string> GetUserFirstNameAsync(string id)
+        public string GetUserFirstName(string id)
         {
-            var firstName = string.Empty;
-
-            await Task.Run(() =>
-            {
-                firstName = userRepo.GetAsync(id).Result.FirstName;
-            });
-            
+            var firstName = userRepo.Get(id).FirstName;
             return firstName;
         }
     }

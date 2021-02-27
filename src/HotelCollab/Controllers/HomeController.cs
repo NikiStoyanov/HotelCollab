@@ -20,17 +20,15 @@
             this.userManager = userManager;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             if (this.User.Identity.IsAuthenticated)
             {
-                //var user = this.User.Identity.Name.;
-
                 var id = this.userManager.GetUserId(this.User);
 
                 var UserViewModel = new UserDashboardViewModel()
                 {
-                    Name = await userService.GetUserFirstNameAsync(id),
+                    Name = userService.GetUserFirstName(id),
                 };
 
                 return this.View("Dashboard");
