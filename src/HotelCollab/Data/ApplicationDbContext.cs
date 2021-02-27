@@ -34,12 +34,6 @@
 
         public DbSet<ApplicationUser> Users { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (optionsBuilder.IsConfigured == false)
-                optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=HotelCollab;Trusted_Connection=True;MultipleActiveResultSets=true");
-        }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             // Needed for Identity models configuration
@@ -146,6 +140,11 @@
                 .WithMany(r => r.UserHotels)
                 .HasForeignKey(uh => uh.RoleId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<ApplicationUserRole>()
+                .HasOne(ur => ur.Hotel)
+                .WithMany(h => h.UserRoles)
+                .HasForeignKey(ur => ur.HotelId);
 
             //builder.Entity<ApplicationUserRole>()
             //    .ToTable("AspNetUserRoles");

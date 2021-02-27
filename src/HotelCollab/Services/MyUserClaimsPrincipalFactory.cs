@@ -23,9 +23,12 @@ namespace HotelCollab.Services
 
         protected override async Task<ClaimsIdentity> GenerateClaimsAsync(ApplicationUser user)
         {
+            var isInRole = await this.UserManager.IsInRoleAsync(user, "Manager");
+
             var identity = await base.GenerateClaimsAsync(user);
             identity.AddClaim(new Claim("FirstName", user.FirstName));
             identity.AddClaim(new Claim("LastName", user.LastName));
+            identity.AddClaim(new Claim("Role", isInRole.ToString()));
             return identity;
         }
     }

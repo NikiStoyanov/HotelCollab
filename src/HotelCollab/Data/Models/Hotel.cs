@@ -14,6 +14,7 @@
             this.Reservations = new HashSet<Reservation>();
             this.Events = new HashSet<Event>();
             this.UserHotels = new HashSet<UserHotels>();
+            this.UserRoles = new HashSet<ApplicationUserRole>();
         }
 
         public Hotel(string imageUrl)
@@ -53,5 +54,7 @@
         public virtual ICollection<Event> Events { get; set; }
 
         public virtual ICollection<UserHotels> UserHotels { get; set; }
+
+        public virtual ICollection<ApplicationUserRole> UserRoles { get; set; }
     }
 }

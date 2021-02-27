@@ -28,40 +28,42 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
+                        @if (this.User.IsInRole("Manager"))
+                        {
+                            <li class='sidebar-title'>Хотели</li>
 
-                        <li class='sidebar-title'>Хотели</li>
+                            <li class="sidebar-item active ">
+                                <a href="index.html" class='sidebar-link'>
+                                    <i data-feather="home" width="20"></i>
+                                    <span>Плаза, Бургас</span>
+                                </a>
 
-                        <li class="sidebar-item active ">
-                            <a href="index.html" class='sidebar-link'>
-                                <i data-feather="home" width="20"></i>
-                                <span>Плаза, Бургас</span>
-                            </a>
+                            </li>
 
-                        </li>
+                            <li class="sidebar-item">
+                                <a href="index.html" class='sidebar-link'>
+                                    <i data-feather="home" width="20"></i>
+                                    <span>Плаза, Бургас</span>
+                                </a>
 
-                        <li class="sidebar-item">
-                            <a href="index.html" class='sidebar-link'>
-                                <i data-feather="home" width="20"></i>
-                                <span>Плаза, Бургас</span>
-                            </a>
+                            </li>
 
-                        </li>
+                            <li class="sidebar-item">
+                                <a href="index.html" class='sidebar-link'>
+                                    <i data-feather="home" width="20"></i>
+                                    <span>Плаза, Бургас</span>
+                                </a>
 
-                        <li class="sidebar-item">
-                            <a href="index.html" class='sidebar-link'>
-                                <i data-feather="home" width="20"></i>
-                                <span>Плаза, Бургас</span>
-                            </a>
+                            </li>
 
-                        </li>
+                            <li class="sidebar-item">
+                                <a href="index.html" class='sidebar-link'>
+                                    <i data-feather="home" width="20"></i>
+                                    <span>Плаза, Бургас</span>
+                                </a>
 
-                        <li class="sidebar-item">
-                            <a href="index.html" class='sidebar-link'>
-                                <i data-feather="home" width="20"></i>
-                                <span>Плаза, Бургас</span>
-                            </a>
-
-                        </li>
+                            </li>
+                        }
 
                         <li class='sidebar-title'>Моят профил</li>
 

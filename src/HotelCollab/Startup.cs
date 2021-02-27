@@ -42,6 +42,7 @@ namespace HotelCollab
 
             services.AddTransient<IRepository<ApplicationRole>, Repository<ApplicationRole>>();
             services.AddTransient<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
+            services.AddTransient<IRepository<ApplicationUserRole>, Repository<ApplicationUserRole>>();
             services.AddTransient<IRepository<Cleaning>, Repository<Cleaning>>();
             services.AddTransient<IRepository<Damage>, Repository<Damage>>();
             services.AddTransient<IRepository<Event>, Repository<Event>>();

@@ -58,7 +58,6 @@
                 PhoneNumber = model.PhoneNumber,
                 Address = model.Address,
                 CleaningPeriod = model.CleaningPeriod,
-               // UserRoles = new ApplicationUserRole { }
             };
 
             hotel.Town.Name = model.TownName;
