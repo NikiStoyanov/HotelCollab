@@ -29,6 +29,7 @@ namespace HotelCollab.Services
             identity.AddClaim(new Claim("FirstName", user.FirstName));
             identity.AddClaim(new Claim("LastName", user.LastName));
             identity.AddClaim(new Claim("Role", isInRole.ToString()));
+
             return identity;
         }
     }

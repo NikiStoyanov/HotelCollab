@@ -8,14 +8,14 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <link href="~/css/bootstrap.css" rel="stylesheet">
-    <link href="~/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/bootstrap.css">
     <link rel="stylesheet" href="~/vendors/chartjs/Chart.min.css">
-
     <link rel="stylesheet" href="~/vendors/perfect-scrollbar/perfect-scrollbar.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="~/css/app.css">
     <link rel="shortcut icon" href="~/images/logos/hotel_manager3_3.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+
 </head>
 <body>
     <div id="app">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="sidebar-menu">
                     @*@if (this.User.IsInRole("Guest"))
-        {*@
+                        {*@
                     <ul class="menu">
                         @*guest*@
                         <li class="sidebar-item">
@@ -112,17 +112,73 @@
                                 <span>Добави събитие</span>
                             </a>
                         </li>
+                        @*manager*@
+                        <li class="sidebar-item">
+                            <a asp-area="Manager" asp-controller="Add" asp-action="Event" class='sidebar-link'>
+                                <i class="fas fa-chart-line" width="20"></i>
+                                <span>Табло</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="requests.html" class='sidebar-link'>
+                                <i class="fas fa-user-check" width="20"></i>
+                                <span>Заявки</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="reservations.html" class='sidebar-link'>
+                                <i class="far fa-address-book" width="20"></i>
+                                <span>Резервации</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="employees.html" class='sidebar-link'>
+                                <i class="fas fa-user-tie" width="20"></i>
+                                <span>Служители</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="signals.html" class='sidebar-link'>
+                                <i class="far fa-comment-alt" width="20"></i>
+                                <span>Сигнали</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="register.html" class='sidebar-link'>
+                                <i class="fas fa-user-plus" width="20"></i>
+                                <span>Регистрирай гост</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="events.html" class='sidebar-link'>
+                                <i class="far fa-calendar" width="20"></i>
+                                <span>Добави събитие</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="cleaning.html" class='sidebar-link'>
+                                <i class="far fa-calendar-plus" width="20"></i>
+                                <span>Почиствания</span>
+                            </a>
+                        </li>
                     </ul>
 
                     @*}
-        @if (this.User.IsInRole("Cleaner"))
-        {
+                        @if (this.User.IsInRole("Cleaner"))
+                        {
 
-        }
-        @if (this.User.IsInRole("Cleaner"))
-        {
+                        }
+                        @if (this.User.IsInRole("Cleaner"))
+                        {
 
-        }*@
+                        }*@
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
@@ -160,15 +216,16 @@
 
         </div>
     </div>
+    <script src="~/vendors/dayjs/dayjs.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="~/js/feather-icons/feather.min.js"></script>
-    <script src="~/js/app.js"></script>
-    <script src="~/js/main.js"></script>
     <script src="~/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="~/js/app.js"></script>
     <script src="~/vendors/chartjs/Chart.min.js"></script>
     <script src="~/vendors/apexcharts/apexcharts.min.js"></script>
     <script src="~/js/pages/dashboard.js"></script>
     <script src="~/js/pages/ui-apexchart.js"></script>
-    <script src="~/vendors/dayjs/dayjs.min.js"></script>
+    <script src="~/js/main.js"></script>
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
