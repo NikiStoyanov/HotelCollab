@@ -4,6 +4,7 @@ using HotelCollab.Services;
 using HotelCollab.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -37,10 +38,19 @@ namespace HotelCollab
                 .AddRoles<ApplicationRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddTransient<IRepository<Hotel>, Repository<Hotel>>();
+            services.AddTransient<IRepository<ApplicationRole>, Repository<ApplicationRole>>();
             services.AddTransient<IRepository<ApplicationUser>, Repository<ApplicationUser>>();
+            services.AddTransient<IRepository<ApplicationUserRole>, Repository<ApplicationUserRole>>();
+            services.AddTransient<IRepository<Cleaning>, Repository<Cleaning>>();
+            services.AddTransient<IRepository<Damage>, Repository<Damage>>();
+            services.AddTransient<IRepository<Event>, Repository<Event>>();
+            services.AddTransient<IRepository<Feedback>, Repository<Feedback>>();
+            services.AddTransient<IRepository<Hotel>, Repository<Hotel>>();
+            services.AddTransient<IRepository<Request>, Repository<Request>>();
+            services.AddTransient<IRepository<Reservation>, Repository<Reservation>>();
+            services.AddTransient<IRepository<Room>, Repository<Room>>();
             services.AddTransient<IRepository<Town>, Repository<Town>>();
-
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHotelService, HotelService>();
 
