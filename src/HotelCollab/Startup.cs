@@ -53,7 +53,9 @@ namespace HotelCollab
             services.AddTransient<IRepository<Room>, Repository<Room>>();
             services.AddTransient<IRepository<Town>, Repository<Town>>();
             services.AddTransient<IRepository<UserHotels>, Repository<UserHotels>>();
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHotelService, HotelService>();
 
