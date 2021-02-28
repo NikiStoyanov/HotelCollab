@@ -24,9 +24,9 @@
         }
 
         [HttpPost]
-        public IActionResult RegisterHotel(HotelRegisterViewModel model)
+        public async Task<IActionResult> RegisterHotel(HotelRegisterViewModel model)
         {
-            hotelService.AddHotel(model);
+            await hotelService.AddHotelAsync(model);
 
             return this.Redirect("/Home/Index");
         }

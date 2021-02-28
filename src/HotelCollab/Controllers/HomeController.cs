@@ -20,7 +20,7 @@
             this.userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             if (this.User.Identity.IsAuthenticated)
             {
@@ -28,7 +28,7 @@
 
                 var UserViewModel = new UserDashboardViewModel()
                 {
-                    Name = userService.GetUserFirstName(id),
+                    Name = await userService.GetUserFirstNameAsync(id),
                 };
 
                 return this.View("Dashboard");

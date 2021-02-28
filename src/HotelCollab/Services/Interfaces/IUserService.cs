@@ -8,6 +8,6 @@ namespace HotelCollab.Services.Interfaces
 {
     public interface IUserService
     {
-        public string GetUserFirstName(string id);
+        public Task<string> GetUserFirstNameAsync(string id);
     }
 }

@@ -22,7 +22,7 @@
             this.townRepo = townRepo;
         }
 
-        public void AddHotel(HotelRegisterViewModel model)
+        public async Task AddHotelAsync(HotelRegisterViewModel model)
         {
             //var account = new Account { ApiKey = "597981955165718", ApiSecret = "YrIRgn7E7ffUnN1kXSJhyGQJS54", Cloud = "hotelcollab" };
 
@@ -47,7 +47,7 @@
                 },
             };
 
-            hotelRepo.AddAsync(hotel);
+            await hotelRepo.AddAsync(hotel);
         }
     }
 }
