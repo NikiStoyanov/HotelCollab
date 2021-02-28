@@ -36,7 +36,8 @@ namespace HotelCollab
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<ApplicationRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddClaimsPrincipalFactory<MyUserClaimsPrincipalFactory>();
 
             services.AddTransient<IRepository<ApplicationRole>, Repository<ApplicationRole>>();
             services.AddTransient<IRepository<ApplicationUser>, Repository<ApplicationUser>>();

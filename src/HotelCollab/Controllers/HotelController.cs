@@ -21,7 +21,7 @@
         public IActionResult Register()
         {
             return this.View();
-        }
+        } 
 
         [HttpPost]
         public async Task<IActionResult> RegisterHotel(HotelRegisterViewModel model)
