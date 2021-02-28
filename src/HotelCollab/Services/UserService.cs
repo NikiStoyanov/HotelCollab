@@ -27,7 +27,7 @@ namespace HotelCollab.Services
             {
                 firstName = userRepo.GetAsync(id).Result.FirstName;
             });
-
+            
             return firstName;
         }
     }

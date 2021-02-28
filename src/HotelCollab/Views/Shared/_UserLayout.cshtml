@@ -1,7 +1,4 @@
-﻿@model HotelCollab.ViewModels.User.UserDashboardViewModel
-@using System.Web
-@{ var userName = User.Identity.Name; }
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bg">
 <head>
     <meta charset="utf-8">
@@ -27,53 +24,38 @@
                     <img src="~/images/hotel_manager3_4.png" alt="" srcset="">
                 </div>
                 <div class="sidebar-menu">
-                    <ul class="menu">
-                        @if (this.User.IsInRole("Manager"))
-                        {
-                            <li class='sidebar-title'>Хотели</li>
+                    @if (this.User.IsInRole("Guest"))
+                    {
+        <ul class="menu">
+            <li class="sidebar-item active ">
+                <a href="dashboard.html" class='sidebar-link'>
+                    <i class="fas fa-suitcase" width="20"></i>
+                    <span>Моят престой</span>
+                </a>
+            </li>
 
-                            <li class="sidebar-item active ">
-                                <a href="index.html" class='sidebar-link'>
-                                    <i data-feather="home" width="20"></i>
-                                    <span>Плаза, Бургас</span>
-                                </a>
+            <li class="sidebar-item">
+                <a href="signal.html" class='sidebar-link'>
+                    <i class="far fa-comment-alt" width="20"></i>
+                    <span>Подай сигнал</span>
+                </a>
+            </li>
 
-                            </li>
+            <li class="sidebar-item">
+                <a href="events.html" class='sidebar-link'>
+                    <i class="far fa-calendar-alt" width="20"></i>
+                    <span>Събития</span>
+                </a>
+            </li>
+        </ul>}
+                    @if (this.User.IsInRole("Cleaner"))
+                    {
 
-                            <li class="sidebar-item">
-                                <a href="index.html" class='sidebar-link'>
-                                    <i data-feather="home" width="20"></i>
-                                    <span>Плаза, Бургас</span>
-                                </a>
+                    }
+                    @if (this.User.IsInRole("Cleaner"))
+                    {
 
-                            </li>
-
-                            <li class="sidebar-item">
-                                <a href="index.html" class='sidebar-link'>
-                                    <i data-feather="home" width="20"></i>
-                                    <span>Плаза, Бургас</span>
-                                </a>
-
-                            </li>
-
-                            <li class="sidebar-item">
-                                <a href="index.html" class='sidebar-link'>
-                                    <i data-feather="home" width="20"></i>
-                                    <span>Плаза, Бургас</span>
-                                </a>
-
-                            </li>
-                        }
-
-                        <li class='sidebar-title'>Моят профил</li>
-
-                        <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
-                                <i data-feather="settings" width="20"></i>
-                                <span>Настройки</span>
-                            </a>
-                        </li>
-                    </ul>
+                    }
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
@@ -89,7 +71,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav d-flex align-items-center navbar-light ml-auto">
-                        @if (bool.Parse(this.User.FindFirst("IsManager").Value))
+                        @if (this.User.IsInRole("Manager"))
                         {
                             <li class="dropdown nav-icon mr-3">
 
@@ -120,8 +102,8 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="col-md-12 mb-6">
-                                                <h6>Изберете хотел</h6>
-                                                <div class="form-group">
+                                                <form action="/" method="post">
+                                                    <label>Изберете хотел</label>
                                                     <select class="choices form-select">
                                                         <option value="plaza">Хотел Плаза Бургас</option>
                                                         <option value="plaza">Хотел Плаза Бургас</option>
@@ -130,16 +112,13 @@
                                                         <option value="plaza">Хотел Плаза Бургас</option>
                                                         <option value="plaza">Хотел Плаза Бургас</option>
                                                     </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 mb-6">
-                                                <h6>Изберете роля</h6>
-                                                <div class="form-group">
+
+                                                    <label>Изберете роля</label>
                                                     <select class="choices form-select">
                                                         <option value="receptionist">Рецепционист</option>
                                                         <option value="cleaner">Камериер</option>
                                                     </select>
-                                                </div>
+                                                </form>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -162,7 +141,7 @@
                                 <div class="avatar mr-1">
                                     <img src="~/images/avatar/avatar-s-1.png" alt="" srcset="">
                                 </div>
-                                <div class="d-none d-md-block d-lg-inline-block">Здравей, @(User.FindFirst("FirstName").Value) !</div>
+                                <div class="d-none d-md-block d-lg-inline-block">Здравей, !</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Профил</a>

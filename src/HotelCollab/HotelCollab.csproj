@@ -23,10 +23,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Cleaner\Data\" />
+    <Folder Include="Areas\Cleaner\Models\" />
+    <Folder Include="Areas\Guest\Data\" />
+    <Folder Include="Areas\Guest\Models\" />
+    <Folder Include="Areas\Manager\Controllers\" />
+    <Folder Include="Areas\Manager\Data\" />
+    <Folder Include="Areas\Manager\Models\" />
+    <Folder Include="Areas\Manager\Views\" />
+    <Folder Include="Areas\Receptionist\Data\" />
+    <Folder Include="Areas\Receptionist\Models\" />
     <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Guest\Views\_ViewImports.cshtml" />
     <None Include="Areas\Identity\Pages\Account\ForgotPassword.cshtml" />
     <None Include="Areas\Identity\Pages\Account\Login.cshtml" />
     <None Include="Areas\Identity\Pages\Account\Logout.cshtml" />

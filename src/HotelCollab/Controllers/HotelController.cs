@@ -21,12 +21,14 @@
         public IActionResult Register()
         {
             return this.View();
-        } 
+        }
 
         [HttpPost]
-        public async Task<IActionResult> RegisterHotel(HotelRegisterViewModel model)
+        public IActionResult RegisterHotel(HotelRegisterViewModel model)
         {
-            await hotelService.AddHotelAsync(model);
+            model.Image = Request.Form.Files["image"];
+
+            hotelService.AddHotelAsync(model);
 
             return this.Redirect("/Home/Index");
         }

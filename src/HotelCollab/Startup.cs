@@ -34,7 +34,8 @@ namespace HotelCollab
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services
+                .AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<ApplicationRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddClaimsPrincipalFactory<MyUserClaimsPrincipalFactory>();
@@ -51,6 +52,7 @@ namespace HotelCollab
             services.AddTransient<IRepository<Reservation>, Repository<Reservation>>();
             services.AddTransient<IRepository<Room>, Repository<Room>>();
             services.AddTransient<IRepository<Town>, Repository<Town>>();
+            services.AddTransient<IRepository<UserHotels>, Repository<UserHotels>>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHotelService, HotelService>();
@@ -60,6 +62,7 @@ namespace HotelCollab
             services.AddRazorPages();
         }
 
+         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -85,7 +88,10 @@ namespace HotelCollab
             app.UseEndpoints(
                 endpoints =>
                 {
-                    endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                    endpoints.MapControllerRoute("Guest", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                    endpoints.MapControllerRoute("Receptionist", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                    endpoints.MapControllerRoute("Cleaner", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                    endpoints.MapControllerRoute("Manager", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                     endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                     endpoints.MapRazorPages();
                 });

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelCollab.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210221214238_SomeChanges")]
-    partial class SomeChanges
+    [Migration("20210227092528_initialDatabase")]
+    partial class initialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -397,6 +397,26 @@ namespace HotelCollab.Migrations
                     b.ToTable("Towns");
                 });
 
+            modelBuilder.Entity("HotelCollab.Data.Models.UserHotels", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("HotelId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "HotelId");
+
+                    b.HasIndex("HotelId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserHotels");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -487,16 +507,11 @@ namespace HotelCollab.Migrations
                     b.Property<string>("RoleId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Discriminator")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("RoleId");
 
@@ -530,8 +545,13 @@ namespace HotelCollab.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUserRole<string>");
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("HotelId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("HotelId");
 
@@ -637,6 +657,26 @@ namespace HotelCollab.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("HotelCollab.Data.Models.UserHotels", b =>
+                {
+                    b.HasOne("HotelCollab.Data.Models.Hotel", "Hotel")
+                        .WithMany("UserHotels")
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("HotelCollab.Data.Models.ApplicationRole", "Role")
+                        .WithMany("UserHotels")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("HotelCollab.Data.Models.ApplicationUser", "User")
+                        .WithMany("UserHotels")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("HotelCollab.Data.Models.ApplicationRole", null)
@@ -674,10 +714,6 @@ namespace HotelCollab.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("HotelCollab.Data.Models.ApplicationUser", null)
-                        .WithMany("Roles")
-                        .HasForeignKey("ApplicationUserId");
-
                     b.HasOne("HotelCollab.Data.Models.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
@@ -702,6 +738,10 @@ namespace HotelCollab.Migrations
 
             modelBuilder.Entity("HotelCollab.Data.Models.ApplicationUserRole", b =>
                 {
+                    b.HasOne("HotelCollab.Data.Models.ApplicationUser", null)
+                        .WithMany("Roles")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("HotelCollab.Data.Models.Hotel", "Hotel")
                         .WithMany("UserRoles")
                         .HasForeignKey("HotelId");
