@@ -22,12 +22,15 @@
 
         public async Task<IActionResult> Index()
         {
+
+            var result=this.User.FindFirst("rrole");
+
             if (this.User.Identity.IsAuthenticated)
             {
                 //var user = this.User.Identity.Name.;
-
+                
                 var id = this.userManager.GetUserId(this.User);
-
+               
                 var UserViewModel = new UserDashboardViewModel()
                 {
                     Name = await userService.GetUserFirstNameAsync(id),

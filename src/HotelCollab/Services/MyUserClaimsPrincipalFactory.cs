@@ -28,7 +28,7 @@ namespace HotelCollab.Services
             var identity = await base.GenerateClaimsAsync(user);
             identity.AddClaim(new Claim("FirstName", user.FirstName));
             identity.AddClaim(new Claim("LastName", user.LastName));
-            identity.AddClaim(new Claim("Role", isInRole.ToString()));
+            identity.AddClaim(new Claim("IsManager", isInRole.ToString()));
             return identity;
         }
     }

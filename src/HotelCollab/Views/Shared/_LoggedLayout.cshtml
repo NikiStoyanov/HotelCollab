@@ -89,7 +89,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav d-flex align-items-center navbar-light ml-auto">
-                        @if (this.User.IsInRole("Manager"))
+                        @if (bool.Parse(this.User.FindFirst("IsManager").Value))
                         {
                             <li class="dropdown nav-icon mr-3">
 

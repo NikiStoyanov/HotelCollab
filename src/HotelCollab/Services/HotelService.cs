@@ -42,17 +42,15 @@
                 File = new FileDescription(Path.Combine(Path.GetFullPath(model.Image.Name))),
             };
 
-            var result = cloudinary.Upload(uploadParams);
+            //var result = cloudinary.Upload(uploadParams);
 
-            var currentUser = httpContextAccessor.HttpContext.User;
-            var id =  userManager.GetUserId(currentUser);
-            var user = await repository.GetAsync(id);
+            //var currentUser = httpContextAccessor.HttpContext.User;
 
             //Task.Run(()=>
             //{
             //});
 
-            var hotel = new Hotel(result.Url.ToString())
+            var hotel = new Hotel(string.Empty)
             {
                 Name = model.Name,
                 PhoneNumber = model.PhoneNumber,

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HotelCollab.Data.Models
 {
-    public class ApplicationUserRole: IdentityUserRole<string>
+    public class ApplicationUserRole : IdentityUserRole<string>
     {
         public string HotelId { get; set; }
 
