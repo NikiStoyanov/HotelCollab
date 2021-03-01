@@ -9,8 +9,10 @@
 
     public class UserDashboardViewModel
     {
-        public string Name { get; set; }
+        public string FirstName { get; set; }
 
-        public ICollection<Hotel> Hotels { get; set; }
+        public string LastName { get; set; }
+
+        public string Email { get; set; }
     }
 }

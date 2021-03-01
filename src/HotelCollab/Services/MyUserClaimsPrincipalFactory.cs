@@ -23,12 +23,22 @@ namespace HotelCollab.Services
 
         protected override async Task<ClaimsIdentity> GenerateClaimsAsync(ApplicationUser user)
         {
-            var isInRole = await this.UserManager.IsInRoleAsync(user, "Manager");
+            var isManager = await this.UserManager.IsInRoleAsync(user, "Manager");
+            var isGuest = await this.UserManager.IsInRoleAsync(user, "Guest");
+            var isReceptionist = await this.UserManager.IsInRoleAsync(user, "Receptionist");
+            var isCleaner = await this.UserManager.IsInRoleAsync(user, "Cleaner");
+            var isAdmin = await this.UserManager.IsInRoleAsync(user, "Admin");
 
             var identity = await base.GenerateClaimsAsync(user);
+
             identity.AddClaim(new Claim("FirstName", user.FirstName));
             identity.AddClaim(new Claim("LastName", user.LastName));
-            identity.AddClaim(new Claim("IsManager", isInRole.ToString()));
+            identity.AddClaim(new Claim("IsManager", isManager.ToString()));
+            identity.AddClaim(new Claim("IsGuest", isGuest.ToString()));
+            identity.AddClaim(new Claim("IsReceptionist", isReceptionist.ToString()));
+            identity.AddClaim(new Claim("IsCleaner", isCleaner.ToString()));
+            identity.AddClaim(new Claim("IsAdmin", isAdmin.ToString()));
+
             return identity;
         }
     }

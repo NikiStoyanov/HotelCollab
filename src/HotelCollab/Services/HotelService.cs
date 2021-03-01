@@ -5,10 +5,11 @@
     using HotelCollab.Data;
     using HotelCollab.Data.Models;
     using HotelCollab.Services.Interfaces;
-    using HotelCollab.ViewModels.Hotel;
+    using HotelCollab.ViewModels.Hotels;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
+    using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
 
@@ -63,5 +64,7 @@
             await hotelRepo.AddAsync(hotel);
             await hotelRepo.SaveChangesAsync();
         }
+
+        public async Task<List<Hotel>> GetAllHotelsAsync() => await hotelRepo.GetAllAsync();
     }
 }

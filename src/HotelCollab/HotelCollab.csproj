@@ -28,7 +28,6 @@
     <Folder Include="Areas\Guest\Data\" />
     <Folder Include="Areas\Guest\Models\" />
     <Folder Include="Areas\Manager\Data\" />
-    <Folder Include="Areas\Manager\Models\" />
     <Folder Include="Areas\Receptionist\Data\" />
     <Folder Include="Areas\Receptionist\Models\" />
     <Folder Include="Data\Migrations\" />

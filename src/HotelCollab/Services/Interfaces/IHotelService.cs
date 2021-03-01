@@ -1,4 +1,5 @@
-﻿using HotelCollab.ViewModels.Hotel;
+﻿using HotelCollab.Data.Models;
+using HotelCollab.ViewModels.Hotels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,7 @@ namespace HotelCollab.Services.Interfaces
     public interface IHotelService
     {
         public Task AddHotelAsync(HotelRegisterViewModel model);
+
+        public Task<List<Hotel>> GetAllHotelsAsync();
     }
 }

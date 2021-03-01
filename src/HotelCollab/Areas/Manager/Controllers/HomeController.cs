@@ -9,28 +9,28 @@ namespace HotelCollab.Areas.Manager.Controllers
 {
     public class HomeController : Controller
     {
-        [Authorize(Roles = "Manager")]
+        [Authorize]
         [Area("Manager")]
         public IActionResult Dashboard()
         {
             return View();
         }
 
-        [Authorize(Roles = "Manager")]
+        [Authorize]
         [Area("Manager")]
         public IActionResult CLeanings()
         {
             return View();
         }
 
-        [Authorize(Roles = "Manager")]
+        [Authorize]
         [Area("Manager")]
         public IActionResult Events()
         {
             return View();
         }
 
-        [Authorize(Roles = "Manager")]
+        [Authorize]
         [Area("Manager")]
         public IActionResult Signals()
         {

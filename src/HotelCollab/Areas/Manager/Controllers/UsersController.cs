@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using HotelCollab.Areas.Manager.ViewModels;
+using HotelCollab.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,18 +11,30 @@ namespace HotelCollab.Areas.Manager.Controllers
 {
     public class UsersController : Controller
     {
-        [Authorize(Roles = "Manager")]
+        private readonly IRequestService requestService;
+
+        public UsersController(IRequestService requestService)
+        {
+            this.requestService = requestService;
+        }
+
+        [Authorize]
         [Area("Manager")]
         public IActionResult Employees()
         {
             return View();
         }
 
-        [Authorize(Roles = "Manager")]
+        [Authorize]
         [Area("Manager")]
-        public IActionResult Requests()
+        public async Task<IActionResult> Requests()
         {
-            return View();
+            var result = new RequestsViewModel()
+            {
+                Requests = await requestService.GetAllRequestsAsync(),
+            };
+
+            return this.View(result);
         }
     }
 }

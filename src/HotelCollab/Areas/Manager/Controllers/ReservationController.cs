@@ -9,14 +9,14 @@ namespace HotelCollab.Areas.Manager.Controllers
 {
     public class ReservationController : Controller
     {
-        [Authorize(Roles = "Manager")]
+        [Authorize]
         [Area("Manager")]
         public IActionResult All()
         {
             return View();
         }
 
-        [Authorize(Roles = "Manager")]
+        [Authorize]
         [Area("Manager")]
         public IActionResult Add()
         {

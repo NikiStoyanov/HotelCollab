@@ -9,7 +9,7 @@ namespace HotelCollab.Areas.Manager.Controllers
 {
     public class EmployeeController : Controller
     {
-        [Authorize(Roles = "Manager")]
+        [Authorize]
         [Area("Manager")]
         public IActionResult Overview()
         {

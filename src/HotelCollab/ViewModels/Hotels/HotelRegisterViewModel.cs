@@ -1,4 +1,4 @@
-﻿namespace HotelCollab.ViewModels.Hotel
+﻿namespace HotelCollab.ViewModels.Hotels
 {
     using Microsoft.AspNetCore.Http;
     using System;

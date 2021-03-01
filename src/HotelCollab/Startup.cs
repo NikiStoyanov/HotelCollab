@@ -58,6 +58,7 @@ namespace HotelCollab
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHotelService, HotelService>();
+            services.AddScoped<IRequestService, RequestService>();
 
             services.AddControllersWithViews();
 
