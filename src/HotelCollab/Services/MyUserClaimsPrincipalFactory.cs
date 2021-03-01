@@ -1,8 +1,6 @@
 ﻿using HotelCollab.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -33,6 +31,8 @@ namespace HotelCollab.Services
 
             identity.AddClaim(new Claim("FirstName", user.FirstName));
             identity.AddClaim(new Claim("LastName", user.LastName));
+            identity.AddClaim(new Claim("Id", user.Id));
+            //identity.AddClaim(new Claim("Role", user.Roles.First().RoleId));
             identity.AddClaim(new Claim("IsManager", isManager.ToString()));
             identity.AddClaim(new Claim("IsGuest", isGuest.ToString()));
             identity.AddClaim(new Claim("IsReceptionist", isReceptionist.ToString()));

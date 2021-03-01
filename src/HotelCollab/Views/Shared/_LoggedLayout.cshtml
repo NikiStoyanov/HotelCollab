@@ -1,6 +1,4 @@
-﻿@model HotelCollab.ViewModels.User.UserDashboardViewModel
-@using System.Web
-@{ var userName = User.Identity.Name; }
+﻿@model HotelCollab.ViewModels.Hotels.GetHotelsViewModel
 <!DOCTYPE html>
 <html lang="bg">
 <head>
@@ -28,40 +26,6 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
-                            <li class='sidebar-title'>Хотели</li>
-
-                            <li class="sidebar-item active ">
-                                <a href="index.html" class='sidebar-link'>
-                                    <i data-feather="home" width="20"></i>
-                                    <span>@Model.FirstName Плаза, Бургас</span>
-                                </a>
-
-                            </li>
-
-                            <li class="sidebar-item">
-                                <a href="index.html" class='sidebar-link'>
-                                    <i data-feather="home" width="20"></i>
-                                    <span>Плаза, Бургас</span>
-                                </a>
-
-                            </li>
-
-                            <li class="sidebar-item">
-                                <a href="index.html" class='sidebar-link'>
-                                    <i data-feather="home" width="20"></i>
-                                    <span>Плаза, Бургас</span>
-                                </a>
-
-                            </li>
-
-                            <li class="sidebar-item">
-                                <a href="index.html" class='sidebar-link'>
-                                    <i data-feather="home" width="20"></i>
-                                    <span>Плаза, Бургас</span>
-                                </a>
-
-                            </li>
-
                         <li class='sidebar-title'>Моят профил</li>
 
                         <li class="sidebar-item">
@@ -120,12 +84,10 @@
                                                 <h6>Изберете хотел</h6>
                                                 <div class="form-group">
                                                     <select class="choices form-select">
-                                                        <option value="plaza">Хотел Плаза Бургас</option>
-                                                        <option value="plaza">Хотел Плаза Бургас</option>
-                                                        <option value="plaza">Хотел Плаза Бургас</option>
-                                                        <option value="plaza">Хотел Плаза Бургас</option>
-                                                        <option value="plaza">Хотел Плаза Бургас</option>
-                                                        <option value="plaza">Хотел Плаза Бургас</option>
+                                                        @foreach (var hotel in Model.Hotels)
+                                                        {
+                                                            <option value="plaza">@hotel.Name, @hotel.Town.Name</option>
+                                                        }
                                                     </select>
                                                 </div>
                                             </div>
@@ -159,7 +121,7 @@
                                 <div class="avatar mr-1">
                                     <img src="~/images/avatar/avatar-s-1.png" alt="" srcset="">
                                 </div>
-                                <div class="d-none d-md-block d-lg-inline-block">Здравей, @(User.FindFirst("FirstName").Value) !</div>
+                                <div class="d-none d-md-block d-lg-inline-block">Здравей, @(this.User.FindFirst("FirstName").Value) !</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Профил</a>
