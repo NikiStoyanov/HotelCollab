@@ -54,6 +54,11 @@
                 .HasForeignKey(h => h.TownId)
                 .OnDelete(DeleteBehavior.NoAction);
 
+            builder.Entity<Town>()
+                .HasMany(x => x.Hotels)
+                .WithOne(x => x.Town);
+                
+
             builder.Entity<Room>()
                 .HasOne(r => r.Hotel)
                 .WithMany(h => h.Rooms)
@@ -140,6 +145,14 @@
                 .WithMany(r => r.UserHotels)
                 .HasForeignKey(uh => uh.RoleId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<ApplicationUser>()
+                .HasMany(x => x.UserHotels)
+                .WithOne(x => x.User);
+
+            builder.Entity<Hotel>()
+               .HasMany(x => x.UserHotels)
+               .WithOne(x => x.Hotel);
 
             builder.Entity<ApplicationUserRole>()
                 .HasOne(ur => ur.Hotel)

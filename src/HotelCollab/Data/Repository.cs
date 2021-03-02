@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace HotelCollab.Data
@@ -38,6 +39,13 @@ namespace HotelCollab.Data
         public async Task SaveChangesAsync()
         {
             await AppDbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<T>> GetAllAsync()
+        {
+            var requests = await dbSet.ToListAsync();
+
+            return requests;
         }
     }
 }

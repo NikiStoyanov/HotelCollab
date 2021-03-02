@@ -5,10 +5,11 @@
     using HotelCollab.Data;
     using HotelCollab.Data.Models;
     using HotelCollab.Services.Interfaces;
-    using HotelCollab.ViewModels.Hotel;
+    using HotelCollab.ViewModels.Hotels;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
+    using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
 
@@ -33,14 +34,14 @@
 
         public async Task AddHotelAsync(HotelRegisterViewModel model)
         {
-            var account = new Account { ApiKey = "597981955165718", ApiSecret = "YrIRgn7E7ffUnN1kXSJhyGQJS54", Cloud = "hotelcollab" };
+            //var account = new Account { ApiKey = "597981955165718", ApiSecret = "YrIRgn7E7ffUnN1kXSJhyGQJS54", Cloud = "hotelcollab" };
 
-            var cloudinary = new Cloudinary(account);
+            //var cloudinary = new Cloudinary(account);
 
-            var uploadParams = new ImageUploadParams()
-            {
-                File = new FileDescription(Path.Combine(Path.GetFullPath(model.Image.Name))),
-            };
+            //var uploadParams = new ImageUploadParams()
+            //{
+            //    File = new FileDescription(Path.Combine(Path.GetFullPath(model.Image.Name))),
+            //};
 
             //var result = cloudinary.Upload(uploadParams);
 
@@ -50,18 +51,28 @@
             //{
             //});
 
+            var town = new Town
+            {
+                Name=model.TownName
+            };
+
+           await townRepo.AddAsync(town);
+
             var hotel = new Hotel(string.Empty)
             {
                 Name = model.Name,
                 PhoneNumber = model.PhoneNumber,
                 Address = model.Address,
                 CleaningPeriod = model.CleaningPeriod,
+                TownId = town.Id,
             };
 
-            hotel.Town.Name = model.TownName;
+            town.Hotels.Add(hotel);
 
-            await hotelRepo.AddAsync(hotel);
+            await townRepo.SaveChangesAsync();
             await hotelRepo.SaveChangesAsync();
         }
+
+        public async Task<List<Hotel>> GetAllHotelsAsync() => await hotelRepo.GetAllAsync();
     }
 }

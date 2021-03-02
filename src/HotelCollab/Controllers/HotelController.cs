@@ -4,7 +4,7 @@
     using HotelCollab.Data.Models;
     using HotelCollab.Services;
     using HotelCollab.Services.Interfaces;
-    using HotelCollab.ViewModels.Hotel;
+    using HotelCollab.ViewModels.Hotels;
     using Microsoft.AspNetCore.Mvc;
     using System.Diagnostics;
     using System.Threading.Tasks;
@@ -24,11 +24,11 @@
         }
 
         [HttpPost]
-        public IActionResult RegisterHotel(HotelRegisterViewModel model)
+        public async Task<IActionResult> RegisterHotel(HotelRegisterViewModel model)
         {
             model.Image = Request.Form.Files["image"];
 
-            hotelService.AddHotelAsync(model);
+            await hotelService.AddHotelAsync(model);
 
             return this.Redirect("/Home/Index");
         }

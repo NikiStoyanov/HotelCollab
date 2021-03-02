@@ -8,11 +8,16 @@
         public Request()
         {
             this.Id = Guid.NewGuid().ToString();
+
+            this.CreatedOn = DateTime.UtcNow;
         }
 
         public string Id { get; private set; }
 
-        public DateTime CreatedOn { get; set; }
+        public DateTime CreatedOn { get; private set; }
+
+        [Required]
+        public string Role { get; set; }
 
         [Required]
         public string UserId { get; set; }

@@ -15,6 +15,8 @@ namespace HotelCollab.Data
 
         public Task<T> GetAsync(string id);
 
+        public Task<List<T>> GetAllAsync();
+
         public Task SaveChangesAsync();
     }
 }
