@@ -34,6 +34,11 @@
 
         public DbSet<ApplicationUser> Users { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             // Needed for Identity models configuration
@@ -46,6 +51,12 @@
                 .HasOne(r => r.User)
                 .WithMany(u => u.Requests)
                 .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<ApplicationUser>()
+                .HasMany(u => u.Requests)
+                .WithOne(r => r.User)
+                .HasForeignKey(u => u.UserId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<Hotel>()
@@ -158,6 +169,12 @@
                 .HasOne(ur => ur.Hotel)
                 .WithMany(h => h.UserRoles)
                 .HasForeignKey(ur => ur.HotelId);
+
+            builder.Entity<Request>()
+                .HasOne(r => r.Hotel)
+                .WithMany(h => h.Requests)
+                .HasForeignKey(r => r.HotelId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             //builder.Entity<ApplicationUserRole>()
             //    .ToTable("AspNetUserRoles");

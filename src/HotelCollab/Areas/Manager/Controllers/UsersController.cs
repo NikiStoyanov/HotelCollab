@@ -31,7 +31,7 @@ namespace HotelCollab.Areas.Manager.Controllers
         {
             var result = new RequestsViewModel()
             {
-                Requests = await requestService.GetAllRequestsAsync(),
+                Requests =( await requestService.GetAllRequestsAsync()),
             };
 
             return this.View(result);

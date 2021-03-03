@@ -15,7 +15,7 @@ namespace HotelCollab.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.11")
+                .HasAnnotation("ProductVersion", "3.1.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -297,6 +297,10 @@ namespace HotelCollab.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("HotelId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -306,6 +310,8 @@ namespace HotelCollab.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("HotelId");
 
                     b.HasIndex("UserId");
 
@@ -622,6 +628,12 @@ namespace HotelCollab.Migrations
 
             modelBuilder.Entity("HotelCollab.Data.Models.Request", b =>
                 {
+                    b.HasOne("HotelCollab.Data.Models.Hotel", "Hotel")
+                        .WithMany("Requests")
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.HasOne("HotelCollab.Data.Models.ApplicationUser", "User")
                         .WithMany("Requests")
                         .HasForeignKey("UserId")

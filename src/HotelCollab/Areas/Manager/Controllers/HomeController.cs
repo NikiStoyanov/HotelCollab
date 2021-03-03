@@ -1,12 +1,22 @@
-﻿using HotelCollab.Attributes;
+﻿using HotelCollab.Areas.Manager.ViewModels;
+using HotelCollab.Attributes;
+using HotelCollab.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace HotelCollab.Areas.Manager.Controllers
 {
     public class HomeController : Controller
     {
-        [Authorize(Roles = "Manager")]
+        private readonly IEventService eventService;
+
+        public HomeController(IEventService eventService)
+        {
+            this.eventService = eventService;
+        }
+
+        [Authorize]
         [Area("Manager")]
         public IActionResult Dashboard()
         {
@@ -15,6 +25,7 @@ namespace HotelCollab.Areas.Manager.Controllers
 
         [Authorize]
         [Area("Manager")]
+        [HttpGet]
         public IActionResult Cleanings()
         {
             return View();
@@ -25,6 +36,16 @@ namespace HotelCollab.Areas.Manager.Controllers
         public IActionResult Events()
         {
             return View();
+        }
+
+        [Authorize]
+        [Area("Manager")]
+        [HttpPost]
+        public async Task<IActionResult> CreateEvent(CreateEventViewModel model)
+        {
+            await eventService.AddEventAsync(model);
+
+            return Redirect("/Manager/Home/Events");
         }
 
         [Authorize]
