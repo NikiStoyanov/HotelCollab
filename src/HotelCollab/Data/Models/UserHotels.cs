@@ -9,14 +9,14 @@ namespace HotelCollab.Data.Models
     {
         public string UserId { get; set; }
 
-        public ApplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
         public string HotelId { get; set; }
 
-        public Hotel Hotel { get; set; }
+        public virtual Hotel Hotel { get; set; }
 
         public string RoleId { get; set; }
 
-        public ApplicationRole Role { get; set; }
+        public virtual ApplicationRole Role { get; set; }
     }
 }

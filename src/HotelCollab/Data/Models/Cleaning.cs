@@ -15,11 +15,11 @@
 
         public string RoomId { get; set; }
 
-        public Room Room { get; set; }
+        public virtual Room Room { get; set; }
 
         public string CleanerId { get; set; }
 
-        public ApplicationUser Cleaner { get; set; }
+        public virtual ApplicationUser Cleaner { get; set; }
 
         public bool IsDamaged { get; set; }
 

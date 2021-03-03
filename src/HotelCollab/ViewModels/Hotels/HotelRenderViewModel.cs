@@ -11,5 +11,9 @@ namespace HotelCollab.ViewModels.Hotels
         public Hotel Hotel { get; set; }
 
         public string Role { get; set; }
+
+        public List<Hotel> Hotels { get; set; }
+
+        public string HotelId { get; set; }
     }
 }

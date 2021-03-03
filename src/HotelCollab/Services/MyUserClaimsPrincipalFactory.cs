@@ -33,6 +33,7 @@ namespace HotelCollab.Services
             identity.AddClaim(new Claim("LastName", user.LastName));
             identity.AddClaim(new Claim("Id", user.Id));
             //identity.AddClaim(new Claim("Role", user.Roles.First().RoleId));
+
             identity.AddClaim(new Claim("IsManager", isManager.ToString()));
             identity.AddClaim(new Claim("IsGuest", isGuest.ToString()));
             identity.AddClaim(new Claim("IsReceptionist", isReceptionist.ToString()));

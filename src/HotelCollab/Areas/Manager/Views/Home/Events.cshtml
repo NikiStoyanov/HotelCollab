@@ -1,4 +1,5 @@
-﻿<div class="main-content container-fluid">
+﻿@model HotelCollab.Areas.Manager.ViewModels.CreateEventViewModel 
+<div class="main-content container-fluid">
     <div class="page-title">
         <h3>Събития</h3>
         <p class="text-subtitle text-muted">Тук може да добавяте събития.</p>
@@ -11,34 +12,36 @@
                     Създай събитие
                 </div>
                 <div class="card-body">
-                    <div class="form-group mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Заглавие</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"
-                                  placeholder="Кратко заглавие..." maxlength="30"
-                                  style="resize: none;"></textarea>
-                    </div>
+                    <form asp-controller="Home" asp-action="CreateEvent" id="event-form">
+                        <div class="form-group mb-3">
+                            <label class="form-label">Заглавие</label>
+                            <textarea asp-for="Title" class="form-control" form="event-form" rows="1"
+                                      placeholder="Кратко заглавие..." maxlength="30"
+                                      style="resize: none;"></textarea>
+                        </div>
 
-                    <div class="form-group mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Дата</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"
-                                  placeholder="24.01 - 25.01.2021" maxlength="30"
-                                  style="resize: none;"></textarea>
-                    </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Дата</label>
+                            <textarea asp-for="Date" class="form-control" form="event-form" rows="1"
+                                      placeholder="25.01.2021" maxlength="30"
+                                      style="resize: none;"></textarea>
+                        </div>
 
-                    <div class="form-group mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Час</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"
-                                  placeholder="20:00" maxlength="30" style="resize: none;"></textarea>
-                    </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Час</label>
+                            <textarea asp-for="Time" class="form-control" form="event-form" rows="1"
+                                      placeholder="20:00" maxlength="30" style="resize: none;"></textarea>
+                        </div>
 
-                    <div class="form-group mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Описание</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                  placeholder="Опишете събитието..."></textarea>
-                    </div>
-                    <div class="clearfix">
-                        <button class="btn btn-primary float-right">Създай</button>
-                    </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Описание</label>
+                            <textarea asp-for="Description" class="form-control" form="event-form" rows="3"
+                                      placeholder="Опишете събитието..."></textarea>
+                        </div>
+                        <div class="clearfix">
+                            <button class="btn btn-primary float-right" type="submit">Създай</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

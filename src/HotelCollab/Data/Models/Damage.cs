@@ -15,7 +15,7 @@
         [Required]
         public string CleaningId { get; set; }
 
-        public Cleaning Cleaning { get; set; }
+        public virtual Cleaning Cleaning { get; set; }
 
         [Required]
         [MinLength(20)]

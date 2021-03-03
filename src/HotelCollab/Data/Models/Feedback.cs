@@ -17,7 +17,7 @@
         [Required]
         public string GuestId { get; set; }
 
-        public ApplicationUser Guest { get; set; }
+        public virtual ApplicationUser Guest { get; set; }
 
         [Required]
         [MinLength(20)]
@@ -31,10 +31,10 @@
         [Required]
         public string ReservationId { get; set; }
 
-        public Reservation Reservation { get; set; }
+        public virtual Reservation Reservation { get; set; }
 
         public string ProcessedByEmployeeId { get; set; }
 
-        public ApplicationUser ProcessedByEmployee { get; set; }
+        public virtual ApplicationUser ProcessedByEmployee { get; set; }
     }
 }

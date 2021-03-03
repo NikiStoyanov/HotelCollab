@@ -38,7 +38,7 @@
         [Required]
         public string TownId { get; set; }
 
-        public Town Town { get; set; }
+        public virtual Town Town { get; set; }
 
         [Required]
         [MaxLength(100)]
@@ -52,6 +52,8 @@
         public virtual ICollection<Reservation> Reservations { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
+
+        public virtual ICollection<Request> Requests { get; set; }
 
         public virtual ICollection<UserHotels> UserHotels { get; set; }
 

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HotelCollab.Services.Interfaces;
+using HotelCollab.ViewModels.Hotels;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,19 @@ namespace HotelCollab.Controllers
 {
     public class UserController : Controller
     {
-        public IActionResult Index()
+        private readonly IRequestService requestService;
+
+        public UserController(IRequestService requestService)
         {
-            return View();
+            this.requestService = requestService;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateRequest(GetHotelsViewModel model)
+        {
+            await requestService.CreateRequestAsync(model);
+
+            return this.Redirect("/Home/Index");
         }
     }
 }

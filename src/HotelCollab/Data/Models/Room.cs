@@ -21,7 +21,7 @@
         [Required]
         public string HotelId { get; set; }
 
-        public Hotel Hotel { get; set; }
+        public virtual Hotel Hotel { get; set; }
 
         [Required]
         public int Floor { get; set; }

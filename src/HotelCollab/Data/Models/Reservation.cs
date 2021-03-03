@@ -30,17 +30,17 @@
         [Required]
         public string RoomId { get; set; }
 
-        public Room Room { get; set; }
+        public virtual Room Room { get; set; }
 
         [Required]
         public string HotelId { get; set; }
 
-        public Hotel Hotel { get; set; }
+        public virtual Hotel Hotel { get; set; }
 
         [Required]
         public string ReceptionistId { get; set; }
 
-        public ApplicationUser Receptionist { get; set; }
+        public virtual ApplicationUser Receptionist { get; set; }
 
         public virtual ICollection<Feedback> Feedbacks { get; set; }
     }
