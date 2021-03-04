@@ -8,6 +8,6 @@ namespace HotelCollab.Services.Interfaces
 {
     public interface IEventService
     {
-        public Task AddEventAsync(CreateEventViewModel model);
+        public Task AddEventAsync(CreateEventViewModel model, string hotelId);
     }
 }

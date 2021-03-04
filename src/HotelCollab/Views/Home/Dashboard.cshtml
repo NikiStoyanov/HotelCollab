@@ -1,4 +1,5 @@
-﻿@model HotelCollab.ViewModels.Hotels.GetHotelsViewModel
+﻿@using HotelCollab.ViewModels.Hotels
+@model GetHotelsViewModel
 @{
     this.Layout = "_LoggedLayout";
 }
@@ -10,7 +11,7 @@
     </div>
     <section class="section">
         <div class="row mb-2">
-            @foreach (var hotel in Model.Hotels)
+            @foreach (var item in Model.RenderedHotels)
             {
                 <div class="col-12 col-md-3">
                     <div class="card">
@@ -20,11 +21,11 @@
                             <div class="card-img-overlay overlay-dark d-flex justify-content-between flex-column">
                                 <div class="overlay-content">
                                     <p class="card-text text-ellipsis">
-                                        @hotel.Name, @hotel.Town.Name
+                                        @item.Hotel.Name, @item.Hotel.Town.Name
                                     </p>
                                 </div>
                                 <div class="overlay-status">
-                                    <a asp-area="Guest" asp-controller="Home" asp-action="Reservation" class="btn btn-outline-white btn-sm">Влез</a>
+                                    <a asp-area="@item.Role" asp-controller="Home" asp-action="Index" asp-route-id="@item.Hotel.Id" class="btn btn-outline-white btn-sm">Влез</a>
                                 </div>
                             </div>
                         </div>
@@ -32,5 +33,5 @@
                 </div>
             }
         </div>
-        </section>
+    </section>
 </div>

@@ -42,6 +42,11 @@
 
         public virtual ApplicationUser Receptionist { get; set; }
 
+        [Required]
+        public string GuestId { get; set; }
+
+        public virtual ApplicationUser Guest { get; set; }
+
         public virtual ICollection<Feedback> Feedbacks { get; set; }
     }
 }

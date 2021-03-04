@@ -19,7 +19,7 @@ namespace HotelCollab.Services
             this.eventRepo = eventRepo;
         }
 
-        public async Task AddEventAsync(CreateEventViewModel model)
+        public async Task AddEventAsync(CreateEventViewModel model, string hotelId)
         {
             var date = DateTime.ParseExact($"{model.Date}T{model.Time}", "dd.MM.yyyyTHH:mm", CultureInfo.InvariantCulture);
 
@@ -28,7 +28,7 @@ namespace HotelCollab.Services
                 Title = model.Title,
                 Date = date,
                 Description = model.Description,
-                HotelId = "408951a5-3cd5-43fb-a580-c606d7cf7130",
+                HotelId = hotelId,
             };
 
             await eventRepo.AddAsync(@event);

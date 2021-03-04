@@ -26,146 +26,153 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
-                        @*guest*@
-                        <li class="sidebar-item">
-                            <a asp-controller="Home" asp-action="Reservation" class='sidebar-link'>
-                                <i class="fas fa-suitcase" width="20"></i>
-                                <span>Моят престой</span>
-                            </a>
-                        </li>
+                        @if (bool.Parse(this.User.FindFirst("IsGuest").Value))
+                        {
+            <li class="sidebar-item">
+                <a asp-controller="Home" asp-action="Reservation" class='sidebar-link'>
+                    <i class="fas fa-suitcase" width="20"></i>
+                    <span>Моят престой</span>
+                </a>
+            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-controller="Home" asp-action="Signal" class='sidebar-link'>
-                                <i class="far fa-comment-alt" width="20"></i>
-                                <span>Подай сигнал</span>
-                            </a>
-                        </li>
+                            <li class="sidebar-item">
+                                <a asp-controller="Home" asp-action="Signal" class='sidebar-link'>
+                                    <i class="far fa-comment-alt" width="20"></i>
+                                    <span>Подай сигнал</span>
+                                </a>
+                            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-controller="Home" asp-action="Events" class='sidebar-link'>
-                                <i class="far fa-calendar-alt" width="20"></i>
-                                <span>Събития</span>
-                            </a>
-                        </li>
-                        @*cleaner*@
-                        <li class="sidebar-item">
-                            <a asp-area="Cleaner" asp-controller="Home" asp-action="Dashboard" class='sidebar-link'>
-                                <i class="fas fa-chart-line"></i>
-                                <span>Табло</span>
-                            </a>
-                        </li>
+                                            <li class="sidebar-item">
+                                                <a asp-controller="Home" asp-action="Events" class='sidebar-link'>
+                                                    <i class="far fa-calendar-alt" width="20"></i>
+                                                    <span>Събития</span>
+                                                </a>
+                                            </li>
+}
+                        @if (bool.Parse(this.User.FindFirst("IsCleaner").Value))
+                        {
+            <li class="sidebar-item">
+                <a asp-area="Cleaner" asp-controller="Home" asp-action="Index" class='sidebar-link'>
+                    <i class="fas fa-chart-line"></i>
+                    <span>Табло</span>
+                </a>
+            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Cleaner" asp-controller="Cleanings" asp-action="Upcoming" class='sidebar-link'>
-                                <i class="far fa-calendar-plus"></i>
-                                <span>Почиствания</span>
-                            </a>
-                        </li>
+                            <li class="sidebar-item">
+                                <a asp-area="Cleaner" asp-controller="Cleanings" asp-action="Upcoming" class='sidebar-link'>
+                                    <i class="far fa-calendar-plus"></i>
+                                    <span>Почиствания</span>
+                                </a>
+                            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Cleaner" asp-controller="Cleanings" asp-action="Old" class='sidebar-link'>
-                                <i class="far fa-address-book"></i>
-                                <span>Минали почиствания</span>
-                            </a>
-                        </li>
-                        @*receptionist*@
-                        <li class="sidebar-item">
-                            <a asp-area="Receptionist" asp-controller="Home" asp-action="Dashboard" class='sidebar-link'>
-                                <i class="fas fa-chart-line" width="20"></i>
-                                <span>Табло</span>
-                            </a>
-                        </li>
+                                            <li class="sidebar-item">
+                                                <a asp-area="Cleaner" asp-controller="Cleanings" asp-action="Old" class='sidebar-link'>
+                                                    <i class="far fa-address-book"></i>
+                                                    <span>Минали почиствания</span>
+                                                </a>
+                                            </li>}
+                        @if (bool.Parse(this.User.FindFirst("IsReceptionist").Value))
+                        {
+            <li class="sidebar-item">
+                <a asp-area="Receptionist" asp-controller="Home" asp-action="Index" class='sidebar-link'>
+                    <i class="fas fa-chart-line" width="20"></i>
+                    <span>Табло</span>
+                </a>
+            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Receptionist" asp-controller="Home" asp-action="Cleanings" class='sidebar-link'>
-                                <i class="far fa-calendar-plus" width="20"></i>
-                                <span>Почиствания</span>
-                            </a>
-                        </li>
+                            <li class="sidebar-item">
+                                <a asp-area="Receptionist" asp-controller="Home" asp-action="Cleanings" class='sidebar-link'>
+                                    <i class="far fa-calendar-plus" width="20"></i>
+                                    <span>Почиствания</span>
+                                </a>
+                            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Receptionist" asp-controller="Home" asp-action="Reservations" class='sidebar-link'>
-                                <i class="far fa-address-book" width="20"></i>
-                                <span>Резервации</span>
-                            </a>
-                        </li>
+                                            <li class="sidebar-item">
+                                                <a asp-area="Receptionist" asp-controller="Home" asp-action="Reservations" class='sidebar-link'>
+                                                    <i class="far fa-address-book" width="20"></i>
+                                                    <span>Резервации</span>
+                                                </a>
+                                            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Receptionist" asp-controller="Home" asp-action="Signals" class='sidebar-link'>
-                                <i class="far fa-comment-alt" width="20"></i>
-                                <span>Сигнали</span>
-                            </a>
-                        </li>
+                                                            <li class="sidebar-item">
+                                                                <a asp-area="Receptionist" asp-controller="Home" asp-action="Signals" class='sidebar-link'>
+                                                                    <i class="far fa-comment-alt" width="20"></i>
+                                                                    <span>Сигнали</span>
+                                                                </a>
+                                                            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Receptionist" asp-controller="Add" asp-action="Guest" class='sidebar-link'>
-                                <i class="fas fa-user-plus" width="20"></i>
-                                <span>Регистрирай гост</span>
-                            </a>
-                        </li>
+                                                                            <li class="sidebar-item">
+                                                                                <a asp-area="Receptionist" asp-controller="Add" asp-action="Guest" class='sidebar-link'>
+                                                                                    <i class="fas fa-user-plus" width="20"></i>
+                                                                                    <span>Регистрирай гост</span>
+                                                                                </a>
+                                                                            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Receptionist" asp-controller="Add" asp-action="Event" class='sidebar-link'>
-                                <i class="far fa-calendar" width="20"></i>
-                                <span>Добави събитие</span>
-                            </a>
-                        </li>
-                        @*manager*@
-                        <li class="sidebar-item">
-                            <a asp-area="Manager" asp-controller="Home" asp-action="Dashboard" class='sidebar-link'>
-                                <i class="fas fa-chart-line" width="20"></i>
-                                <span>Табло</span>
-                            </a>
-                        </li>
+                                                                                            <li class="sidebar-item">
+                                                                                                <a asp-area="Receptionist" asp-controller="Add" asp-action="Event" class='sidebar-link'>
+                                                                                                    <i class="far fa-calendar" width="20"></i>
+                                                                                                    <span>Добави събитие</span>
+                                                                                                </a>
+                                                                                            </li>
+}
+                        @if (bool.Parse(this.User.FindFirst("IsManager").Value))
+                        {
+            <li class="sidebar-item">
+                <a asp-area="Manager" asp-controller="Home" asp-action="Index" class='sidebar-link'>
+                    <i class="fas fa-chart-line" width="20"></i>
+                    <span>Табло</span>
+                </a>
+            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Manager" asp-controller="Users" asp-action="Requests" class='sidebar-link'>
-                                <i class="fas fa-user-check" width="20"></i>
-                                <span>Заявки</span>
-                            </a>
-                        </li>
+                            <li class="sidebar-item">
+                                <a asp-area="Manager" asp-controller="Users" asp-action="Requests" class='sidebar-link'>
+                                    <i class="fas fa-user-check" width="20"></i>
+                                    <span>Заявки</span>
+                                </a>
+                            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Manager" asp-controller="Reservations" asp-action="All" class='sidebar-link'>
-                                <i class="far fa-address-book" width="20"></i>
-                                <span>Резервации</span>
-                            </a>
-                        </li>
+                                            <li class="sidebar-item">
+                                                <a asp-area="Manager" asp-controller="Reservations" asp-action="All" class='sidebar-link'>
+                                                    <i class="far fa-address-book" width="20"></i>
+                                                    <span>Резервации</span>
+                                                </a>
+                                            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Manager" asp-controller="Users" asp-action="Employees" class='sidebar-link'>
-                                <i class="fas fa-user-tie" width="20"></i>
-                                <span>Служители</span>
-                            </a>
-                        </li>
+                                                            <li class="sidebar-item">
+                                                                <a asp-area="Manager" asp-controller="Users" asp-action="Employees" class='sidebar-link'>
+                                                                    <i class="fas fa-user-tie" width="20"></i>
+                                                                    <span>Служители</span>
+                                                                </a>
+                                                            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Manager" asp-controller="Home" asp-action="Signals" class='sidebar-link'>
-                                <i class="far fa-comment-alt" width="20"></i>
-                                <span>Сигнали</span>
-                            </a>
-                        </li>
+                                                                            <li class="sidebar-item">
+                                                                                <a asp-area="Manager" asp-controller="Home" asp-action="Signals" class='sidebar-link'>
+                                                                                    <i class="far fa-comment-alt" width="20"></i>
+                                                                                    <span>Сигнали</span>
+                                                                                </a>
+                                                                            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Manager" asp-controller="Reservation" asp-action="Add" class='sidebar-link'>
-                                <i class="fas fa-user-plus" width="20"></i>
-                                <span>Регистрирай гост</span>
-                            </a>
-                        </li>
+                                                                                            <li class="sidebar-item">
+                                                                                                <a asp-area="Manager" asp-controller="Reservation" asp-action="Add" class='sidebar-link'>
+                                                                                                    <i class="fas fa-user-plus" width="20"></i>
+                                                                                                    <span>Регистрирай гост</span>
+                                                                                                </a>
+                                                                                            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Manager" asp-controller="Home" asp-action="Events" class='sidebar-link'>
-                                <i class="far fa-calendar" width="20"></i>
-                                <span>Добави събитие</span>
-                            </a>
-                        </li>
+                                                                                                            <li class="sidebar-item">
+                                                                                                                <a asp-area="Manager" asp-controller="Home" asp-action="Events" class='sidebar-link'>
+                                                                                                                    <i class="far fa-calendar" width="20"></i>
+                                                                                                                    <span>Добави събитие</span>
+                                                                                                                </a>
+                                                                                                            </li>
 
-                        <li class="sidebar-item">
-                            <a asp-area="Manager" asp-controller="Home" asp-action="Cleanings" class='sidebar-link'>
-                                <i class="far fa-calendar-plus" width="20"></i>
-                                <span>Почиствания</span>
-                            </a>
-                        </li>
+                                                                                                                            <li class="sidebar-item">
+                                                                                                                                <a asp-area="Manager" asp-controller="Home" asp-action="Cleanings" class='sidebar-link'>
+                                                                                                                                    <i class="far fa-calendar-plus" width="20"></i>
+                                                                                                                                    <span>Почиствания</span>
+                                                                                                                                </a>
+                                                                                                                            </li>}
+
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -188,7 +195,7 @@
                                 <div class="avatar mr-1">
                                     <img src="~/images/avatar/avatar-s-1.png" alt="" srcset="">
                                 </div>
-                                <div class="d-none d-md-block d-lg-inline-block">Здравей, !</div>
+                                <div class="d-none d-md-block d-lg-inline-block">Здравей, @(this.User.FindFirst("FirstName").Value)!</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Профил</a>

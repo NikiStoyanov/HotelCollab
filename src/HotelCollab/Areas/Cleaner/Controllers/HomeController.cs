@@ -11,9 +11,9 @@ namespace HotelCollab.Areas.Cleaner.Controllers
     {
         [Authorize]
         [Area("Cleaner")]
-        public IActionResult Dashboard()
+        public IActionResult Index()
         {
-            return View();
+            return View("Dashboard");
         }
     }
 }

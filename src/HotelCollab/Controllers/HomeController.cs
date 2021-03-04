@@ -13,14 +13,16 @@
     public class HomeController : Controller
     {
         private readonly IHotelService hotelService;
+        private readonly IRepository<Hotel> hotelRepo;
         private readonly IUserService userService;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IRepository<Town> townRepo;
         private readonly IRepository<ApplicationUser> userRepo;
 
-        public HomeController(IHotelService hotelService, IUserService userService, UserManager<ApplicationUser> userManager, IRepository<Town> townRepo, IRepository<ApplicationUser> userRepo)
+        public HomeController(IHotelService hotelService, IRepository<Hotel> hotelRepo, IUserService userService, UserManager<ApplicationUser> userManager, IRepository<Town> townRepo, IRepository<ApplicationUser> userRepo)
         {
             this.hotelService = hotelService;
+            this.hotelRepo = hotelRepo;
             this.userService = userService;
             this.userManager = userManager;
             this.townRepo = townRepo;
@@ -32,28 +34,28 @@
         {
             if (this.User.Identity.IsAuthenticated)
             {
-                //var id = this.userManager.GetUserId(this.User);
-
                 var userId = this.User.FindFirst("Id").Value;
 
+                var currentUser = (await userRepo.GetAllAsync()).FirstOrDefault(x=>x.Id==userId);
 
-                var hotels = await hotelService.GetAllHotelsAsync();
+                var list = new GetHotelsViewModel();
 
-                var model = new GetHotelsViewModel() { Hotels = hotels };
+                list.Hotels = await hotelRepo.GetAllAsync();
 
-                //var hotels2 = new GetHotelsViewModel()
-                //{
-                //    Hotels = await hotelService.GetAllHotelsAsync(),
-                //};
+                foreach (var item in currentUser.UserHotels)
+                {
+                    var action = string.Empty;
 
-                //var users = await userRepo.GetAllAsync();
+                    if (item.Role.Name=="Manager")
+                    {
+                        action = "Dashboard";
+                    }
 
-                //foreach (var item in hotels)
-                //{
-                //    var temp = item.UserHotels.FirstOrDefault(x => x.UserId == userId.Value);
-                //    listOfViews.Add(new HotelRenderViewModel { Hotel=item,Role=item.UserHotels.FirstOrDefault(x=>x.UserId==userId.Value).Role.Name});
-                //}
-                return this.View("Dashboard", model);
+                    list.RenderedHotels.Add(new HotelRenderViewModel { Hotel=item.Hotel,Role=item.Role.Name,Action = action});
+                }
+
+
+                return this.View("Dashboard", list);
             }
             else
             {

@@ -11,9 +11,9 @@ namespace HotelCollab.Areas.Receptionist.Controllers
     {
         [Authorize]
         [Area("Receptionist")]
-        public IActionResult Dashboard()
+        public IActionResult Index()
         {
-            return View();
+            return View("Dashboard");
         }
 
         [Authorize]

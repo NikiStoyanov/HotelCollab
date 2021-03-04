@@ -332,6 +332,10 @@ namespace HotelCollab.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("GuestId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("HotelId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -348,6 +352,8 @@ namespace HotelCollab.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("GuestId");
 
                     b.HasIndex("HotelId");
 
@@ -643,6 +649,12 @@ namespace HotelCollab.Migrations
 
             modelBuilder.Entity("HotelCollab.Data.Models.Reservation", b =>
                 {
+                    b.HasOne("HotelCollab.Data.Models.ApplicationUser", "Guest")
+                        .WithMany()
+                        .HasForeignKey("GuestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("HotelCollab.Data.Models.Hotel", "Hotel")
                         .WithMany("Reservations")
                         .HasForeignKey("HotelId")

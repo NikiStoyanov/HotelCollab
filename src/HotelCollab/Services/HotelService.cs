@@ -12,21 +12,24 @@
     using Microsoft.AspNetCore.Mvc;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
     using System.Threading.Tasks;
 
     public class HotelService : IHotelService
     {
         private readonly IRepository<Hotel> hotelRepo;
         private readonly IRepository<Town> townRepo;
+        private readonly IRepository<ApplicationRole> roleRepo;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IRepository<Request> repository;
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly IWebHostEnvironment webHostEnvironment;
 
-        public HotelService(IRepository<Hotel> hotelRepo, IRepository<Town> townRepo, UserManager<ApplicationUser> userManager, IRepository<Request> repository,IHttpContextAccessor httpContextAccessor, IWebHostEnvironment webHostEnvironment)
+        public HotelService(IRepository<Hotel> hotelRepo, IRepository<Town> townRepo, IRepository<ApplicationRole> roleRepo, UserManager<ApplicationUser> userManager, IRepository<Request> repository,IHttpContextAccessor httpContextAccessor, IWebHostEnvironment webHostEnvironment)
         {
             this.hotelRepo = hotelRepo;
             this.townRepo = townRepo;
+            this.roleRepo = roleRepo;
             this.userManager = userManager;
             this.repository = repository;
             this.httpContextAccessor = httpContextAccessor;
@@ -57,9 +60,8 @@
                 Name=model.TownName
             };
             
-
            await townRepo.AddAsync(town);
-            var allRequests = await repository.GetAllAsync();
+
             var hotel = new Hotel(string.Empty)
             {
                 Name = model.Name,
@@ -67,9 +69,15 @@
                 Address = model.Address,
                 CleaningPeriod = model.CleaningPeriod,
                 TownId = town.Id,
+
             };
             town.Hotels.Add(hotel);
-            hotel.UserHotels.Add(new UserHotels { Hotel=hotel,UserId= httpContextAccessor.HttpContext.User.FindFirst("Id").Value});
+            hotel.UserHotels.Add(new UserHotels
+            {
+                Hotel=hotel,
+                UserId= httpContextAccessor.HttpContext.User.FindFirst("Id").Value,
+                RoleId= (await roleRepo.GetAllAsync()).FirstOrDefault(x=>x.Name=="Manager")?.Id
+            });
 
             await townRepo.SaveChangesAsync();
             await hotelRepo.SaveChangesAsync();

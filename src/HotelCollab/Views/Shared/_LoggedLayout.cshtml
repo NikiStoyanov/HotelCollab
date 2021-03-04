@@ -1,4 +1,5 @@
-﻿@model HotelCollab.ViewModels.Hotels.GetHotelsViewModel
+﻿@using HotelCollab.ViewModels.Hotels
+@model GetHotelsViewModel
 
 <!DOCTYPE html>
 <html lang="bg">
@@ -85,16 +86,16 @@
                                                 <form asp-controller="User" asp-action="CreateRequest" method="post">
                                                     <label>Изберете хотел</label>
                                                     <select asp-for="HotelId" class="choices form-select">
-                                                        @foreach (var hotel in Model.Hotels)
+                                                        @foreach (var item in Model.Hotels)
                                                         {
-                                                            <option value="@hotel.Id">@hotel.Name, @hotel.Town.Name</option>
+                                                            <option value="@item.Id">@item.Name, @item.Town.Name</option>
                                                         }
                                                     </select>
 
                                                     <label>Изберете роля</label>
                                                     <select asp-for="Role" class="choices form-select">
-                                                        <option value="Рецепционист">Рецепционист</option>
-                                                        <option value="Камериер">Камериер</option>
+                                                        <option value="Receptionist">Receptionist</option>
+                                                        <option value="Cleaner">Cleaner</option>
                                                     </select>
 
                                                     <div class="modal-footer">
