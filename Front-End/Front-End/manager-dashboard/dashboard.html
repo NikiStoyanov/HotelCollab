@@ -101,37 +101,69 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav d-flex align-items-center navbar-light ml-auto">
-                        <li class="dropdown nav-icon">
-                            <a href="#" data-toggle="dropdown"
-                                class="nav-link  dropdown-toggle nav-link-lg nav-link-user">
+                        <li class="dropdown nav-icon mr-3">
+                            <a href="#" data-toggle="modal" data-target="#border-less">
                                 <div class="d-lg-inline-block">
-                                    <i data-feather="bell"></i>
+                                    <i class="fas fa-plus"></i>
                                 </div>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-large">
-                                <h6 class='py-2 px-4'>Известия</h6>
-                                <ul class="list-group rounded-none">
-                                    <li class="list-group-item border-0 align-items-start">
-                                        <div class="avatar bg-success mr-3">
-                                            <span class="avatar-content"><i data-feather="shopping-cart"></i></span>
+                            <div class="modal fade text-left modal-borderless" id="border-less" tabindex="-1"
+                                role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Създай стая</h5>
+                                            <button type="button" class="close rounded-pill" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <i data-feather="x"></i>
+                                            </button>
                                         </div>
-                                        <div>
-                                            <h6 class='text-bold'>New Order</h6>
-                                            <p class='text-xs'>
-                                                An order made by Ahmad Saugi for product Samsung Galaxy S69
-                                            </p>
+                                        <div class="modal-body">
+                                            <div class="col-md-12 mb-6">
+                                                <form action="/" method="post" id="create-room-form">
+
+                                                    <label>Номер на стая</label>
+                                                    <input type="num" class="form-control">
+
+                                                    <label>Етаж</label>
+                                                    <select class="choices form-select">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                    </select>
+
+                                                    <label>Изберете тип стая</label>
+                                                    <select class="choices form-select">
+                                                        <option value="sigle">Единична</option>
+                                                        <option value="double">Двойна</option>
+                                                        <option value="triple">Тройна</option>
+                                                    </select>
+
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-light-primary"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Затвори</span>
+                                                        </button>
+                                                        <button type="button" type="submit" class="btn btn-primary ml-1"
+                                                            data-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Създай</span>
+                                                        </button>
+                                                    </div>
+
+                                                </form>
+                                            </div>
                                         </div>
-                                    </li>
-                                </ul>
+
+                                    </div>
+                                </div>
                             </div>
                         </li>
                         <li class="dropdown nav-icon mr-2">
-                            <a href="#" data-toggle="dropdown"
-                                class="nav-link  dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="d-lg-inline-block">
-                                    <i data-feather="mail"></i>
-                                </div>
-                            </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Профил</a>
                                 <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Съобщения</a>
